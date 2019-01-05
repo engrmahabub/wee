@@ -1,4 +1,4 @@
-# Wee programming language
+## Wee Readme
 
 Wee is a new technical computer language.
 
@@ -6,7 +6,7 @@ Copyright (c) January 2019
 
 MIT License: [LICENSE](LICENSE)
 
-## Syntax Doc
+## Wee Syntax
 
 For documentation we use *.md files in folder /syntax
 
@@ -35,10 +35,13 @@ You can learn wee by reading demo source files:
 1. [me.wee](demo/me.wee) - method dispatch demo
 1. [pm.wee](demo/pm.wee) - pattern match/when switch
 
-## Syntax Color
+## Wee Color
 
 For syntax color you can use Notepad++.
-
 Download: [color.xml](syntax/color.xml)
 
-If you wish to contribute join us on [discord](https://discord.gg/sNrcHur)
+## Community
+
+Wee is designed by "Sage Code" community on Discord.
+
+Join us: [discord](https://discord.gg/sNrcHur)
