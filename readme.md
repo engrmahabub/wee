@@ -10,10 +10,10 @@ MIT License: [LICENSE](LICENSE)
 
 For documentation we use *.md files in folder /syntax
 
-1. [Wee Structure](doc/structure.md)
-1. [Syntax Overview](doc/syntax.md)
-1. [Composite Types](doc/composite.md)
-1. [Type Inference](doc/inference.md)
+1. [Wee Structure](syntax/structure.md)
+1. [Syntax Overview](syntax/syntax.md)
+1. [Composite Types](syntax/composite.md)
+1. [Type Inference](syntax/inference.md)
 
 ## Wee Demo
 
