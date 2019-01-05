@@ -44,4 +44,4 @@ Download: [color.xml](syntax/color.xml)
 
 Wee is designed by "Sage Code" community on Discord.
 
-Join us: [discord](https://discord.gg/sNrcHur)
+**Join us:** [discord](https://discord.gg/sNrcHur)

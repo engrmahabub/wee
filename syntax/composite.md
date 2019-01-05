@@ -94,7 +94,7 @@ set  x := 30 ; Code ASCII 0
 set  y := 41 ; Code ASCII A
 
 ;template writing
-put('{0} > {1}' <+ (x,y) ;print "30 > 41")
+put('{0} > {1}' <+ (x,y)) ;print "30 > 41"
   
 ```
 
@@ -341,9 +341,10 @@ set <var_name> := {
 
 **Example:**
 ```
-def Person: {name:S, age:W,  
-       child: {name:S, age:W}
-    };  
+def Person: {
+      name:S, age:W,  
+      child: {name:S, age:W}
+    }  
 
 var r1,r2 : Person
 
@@ -573,9 +574,9 @@ var a : []  ; define empty list
 var b : {}  ; define empty set or map
 var c : ()  ; define empty tuple
     
-put a == []  ; 1 
-put b == {}  ; 1 
-put c == ()  ; 1 
+put(a == [])  ; 1 
+put(b == {})  ; 1 
+put(c == ())  ; 1 
   
 set a := ['A','B','C'] ;Bound to List of A elements
 set b := {'a','b','c'} ;Bound to Set of A elements
@@ -708,4 +709,4 @@ put(foo(1,2,3)); 6
 write
 ```
 
-Read next: [Type Inference](inference.md) 
+**Read next:** [Type Inference](inference.md) 

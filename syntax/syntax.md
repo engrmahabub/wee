@@ -360,12 +360,12 @@ Logical expression must be enclosed in paranthesis () alwais.
 var a:= 10
 
 ; single brach
-is (a == 10) ? 
+is a == 10 ?
    put('yes')
 is.   
 
 ; two branches
-is (a < 5) ?
+is a < 5 ?
   put('yes')
 no
   put('no')
@@ -385,12 +385,12 @@ set a := 10
 
 ; default check 
 check
-  when (a == 10)
-    put 'a is 10'
-  when (a == 20)
-    put 'a is 20'
-  else
-    put 'a is not 10 or 20'
+  when a == 10:
+    put('a is 10')
+  when a == 20:
+    put('a is 20')
+else
+  put('a is not 10 or 20')
 check.
 
 write
@@ -399,23 +399,23 @@ write
 Using "..." (ellipsis) to continue.
 
 ```
-var a = 15
+var a := 15
 
 ; fallthrough using: "..."
 check
-   when (a < 0)
-     put 'a <0' 
+   when a < 0:
+     put('a <0')
      ...
-   when (a > 0)
-     put 'a >0'
+   when a > 0:
+     put('a >0')
      ...
-   when (5 <= a or a <= 10)
-     put 'a >= 5 and a <= 10'
+   when 5 <= a or a <= 10:
+     put('a >= 5 and a <= 10')
      ...
-   when (a > 10)
-     put 'a > 10'
-   else
-     put 'a == 0'
+   when a > 10:
+     put('a > 10')
+else
+  put('a == 0')
 check.   
 ```  
 
@@ -465,7 +465,7 @@ for i :> [n..m] do
   is (a % 2 == 0) ?
     next ;force next iteration
   no  
-    put (a, ' ')
+    put(a, ' ')
   is.
   ;force early exit
   done if (a > 10)
@@ -619,4 +619,4 @@ write
 * Wee is using single dispatch to identify first parameter.
 * Methods must be bublic otherwise can be used only in current module.
 
-Read Next: [Composite Tyepes](composite.md)   
+**Read Next:** [Composite Tyepes](composite.md)   

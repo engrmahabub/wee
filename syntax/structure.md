@@ -5,25 +5,25 @@ All program files have the same extension:  *.wee
 
 ## Directives
 Compiler directive symbol "#" is used to identify file type.
-Wee has 4 kind of program files each with different role: 
+Wee has 3 kind of program files each with different role: 
 
 ```
-#driver  ;contains the main program, 
-#module  ;resolve one aspect of a problem
-#system  ;wee core system library
-#extend  ;wee independent library
+#library ;reusable library
+#module  ;data module/class
+#driver  ;main driving program
 ```
 
 **Notes;**
-* Each Wee program must have one driver file;
-* System library is automatically included in all programs;
-* Extend lirary must be specified for each program.
+* A program must have one single driver file;
+* A program can be created using multiple modules
+* A library can be included in driver or modules programs;
+* A module can be instantiated once or multiple times
 
 ## Declaration
 
 Wee is using 3 kind of declarations:
 
-* def: type/class declarations
+* def: composite type or sub-type
 * var: create/initialize variables
 * con: define/initialize constants
 
@@ -48,7 +48,7 @@ Block of code is ending with same keyword and final dot "."
 * is:    create a decision block
 * when:  start a selection block
 
-## Driver module
+## Driver file
 
 Wee is a free form language. That means indentation of code and spaces are not relevant.
 In Wee method main() is optional. Instead we define a _driver_ file using directive #driver. 
@@ -60,7 +60,9 @@ Rogue statements are executed top down in synchronous mode.
 
 
 ```
-#driver
+;demo program "main"
+
+#driver "main" 
 var i: Z ; declare variable i
 
 ; list all parameters
@@ -74,17 +76,17 @@ is length($params) > 0 ?
       repeat
     is.
   cycle.
+  stop(0) ;end program
 no
-  put('no parameters')
-is.    
+  halt(1) ;error: no parameters
+is.
 
-stop ;end driver
-
+; end main
 ```
 
 **Notes:** 
-* $WEE_PARAMS is a system variable available in #driver program.
-* Parameter _params_ is of type [S] that is a list of strings.
+* $params is a global system variable available in #driver and any #module.
+* Parameter _params_ is of type [S] that is a list are strings.
 * Program _module_, _system_ and _extend_ files do not have _rogue_ statements;
 
 ## External Code
@@ -101,32 +103,39 @@ asm myAsm.*
 use (.*) all public members are used
 use ,x,y,z only x,y,z members are used
 
-**System variables*
-System variables and global variables start with $ symbol. 
+**Environment variables*
+Environment variables are globals anthat start with $ symbol. 
 All system variables are automatic imported from OS environment.
-
-```
-cpp $WEE_HOME/cpp/myLib.*
-```
-
-$WEE_HOME is the path were wee is installed
-$WEE_PRO  is the home path of the wee project
-$WEE_PATH is the path for searching wee library
-$ASM_PATH is path for searching Assambly lirary
-$CPP_PATH is path to search cpp library
   
 ## Global scope
 
+**Import a diverse files**
+
 Wee is using one global scope. All modules are using same global scope.
 Global variables are unique and are visible in all project modules.
+Global variables are lowercase and are predefined in Wee language.
 
-See example: [gv.wee](ex/gv.wee)
+```
+#cpp $wee.cpp.myLib.* ;import cpp library
+#asm $wee.asm.myLib.* ;import asm library
+#wee $wee.lib.myLib.* ;import core library
+#wee $pro.lib.myLib.* ;import project library
+```
+
+Other predefined global variables:
+
+```
+$params ;contains a list of parameters
+$path   ;contains a list of folders 
+```
+
+**See example:** [gv.wee](../demo/gv.wee)
 
 ## Locale scope
 A Wee a function or method can have local declarations. 
 Local variables are private inside local scope.
 
-See example: [lv.wee](ex/lv.wee)
+**See example:** [lv.wee](../demo/lv.wee)
 
 ## Public members
 In Wee all members that start with dot "." are public members.
@@ -137,10 +146,13 @@ A public member from another module can be access using dot notation.
 var .v: N 
 
 ;public function
-.f(x:N) :N => x+1 
+.f(x:N) :N => x+1 f.
 ```
 
 ## Execution
+A #driver is the program main entry point. It is executed only once.
+A #library do not contain executable code and can''t receive parameters
+
 A module is executed when is imported first time using _wee_ statement. 
 To delay execution modules are declaring function and methods.
 Rogue statements can be used for module initialization.
@@ -152,11 +164,13 @@ Usually these mappings are implemented in #system or #extend files.
 **Example:**
 This is myLib.wee file: 
 ```
-#extend
+#library
 
 cpp myLib
 
-fib(n:Z): Z => myLib.fib
+fib(n:Z): Z 
+  => myLib.fib 
+fib.
 ```
 
 This is the driver file.
@@ -169,8 +183,6 @@ wee myLib.*
 put(fib(5))
 
 write
-
-stop; driver
 ```
 
 To understend more abput interacting with other languages check this article abput ABI:
@@ -381,4 +393,4 @@ In Wee there are available following collection types:
 | sqr      | square root
 | fac      | factorial  
 
-Read next: [Syntax Overview](syntax.md)
+**Read next:** [Syntax Overview](syntax.md)

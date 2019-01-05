@@ -98,4 +98,4 @@ put(f(b = 1))   ; a,b are 0
 put(f(c = 1))   ; a,b are 0
 ```
 
-Read next: [Wee Structure](structure.md)
+**Read next:** [Wee Structure](structure.md)
