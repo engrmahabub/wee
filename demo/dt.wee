@@ -44,4 +44,4 @@ put("zero") if (a == zero)
 
 write
 
-stop;
+;end

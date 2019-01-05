@@ -29,4 +29,4 @@ put(fac(3)) ;print result: 6
 
 write
 
-stop;
+;end

@@ -79,4 +79,4 @@ put(s3 & s4); {'b','c'}
 put(s3 - s4); {'a'}
 put(s4 - s3); {'d'}
 
-stop;
+;end

@@ -17,4 +17,4 @@ put(type(m)); will print Z
 
 write
 
-stop;
+;end

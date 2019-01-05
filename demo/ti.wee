@@ -35,4 +35,4 @@ plus.
 
 put(plus(1)) ; will print 2
 
-stop;
+;end

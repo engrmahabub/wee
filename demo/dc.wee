@@ -17,9 +17,9 @@ put(l) ; 0
 write
 
 ; native array are auto initialized
-var  a:[W](10)   ;array of 10 Words
-var  b:[A](10)   ;array of 10 ASCII characters
-var  m:[W](3,3)  ;matrix of 10x10 Words
+var a:[W](10)   ;array of 10 Words
+var b:[A](10)   ;array of 10 ASCII characters
+var m:[W](3,3)  ;matrix of 10x10 Words
 
 put(a) ; [0,0,0,0,0,0,0,0,0,0]
 put(b) ; ['','','','','','','','','','']
@@ -36,4 +36,4 @@ put(a[0])   ; will print 5
 put(m[2,2]) ; will print 1
 put(b[0])   ; will print 's' 
 
-stop;
+;end

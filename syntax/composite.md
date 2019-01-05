@@ -316,6 +316,8 @@ set _, z, y, z, _, _ := t
 
 ```
 
+**Note:** When we unpack a tuple all members of the tuple must be unpack. If the number of variables is less or more then the touple member you will get a compilation error.
+
 ## Static Structure
 
 Is an ordered enumeration of elements. Each element has a name and a type.
@@ -327,7 +329,7 @@ This is the reason Wee is not a curly bracket language. We use the brackets for 
 def <TypeName>: {<element>:<type> [,<element>:<type>]...}
 var <name>:<TypeName>
 
-;using qualifier with attribute
+;using qualifier with attributes
 set <var_name.element> := <value>
 
 ;pair-up literal and values using ":"

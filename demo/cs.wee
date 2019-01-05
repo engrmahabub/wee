@@ -27,7 +27,6 @@ is.
 
 write
 
-
 ;nested decisions
 set a := 5
 
@@ -46,9 +45,9 @@ write
 ;multi-decisions with range
 set a := 10 
 check 
-  when (a in [0..5])
+  when a in [0..5]:
      put('a >= 0 and a <= 5')  
-  when (a in [5.!10]) 
+  when a in [5.!10]: 
      put('a >  5 and a < 10')
   else
      put("a > 10")
@@ -73,4 +72,4 @@ is.
 
 write
 
-stop;
+;end

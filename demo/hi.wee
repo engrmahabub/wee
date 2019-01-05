@@ -12,4 +12,4 @@ read
 
 put ("hello:" + $name)
 write
-stop;
+;end

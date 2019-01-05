@@ -17,4 +17,4 @@ put(fib(10))
   
 write
 
-stop;
+;end
