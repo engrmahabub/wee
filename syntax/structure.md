@@ -63,26 +63,23 @@ Rogue statements are executed top down in synchronous mode.
 #driver
 var i: Z ; declare variable i
 
-; method main (no results)
-main(params:[S]):
-  is length(params) > 0 ?
-    cycle
-      put(params[i])
-      is i==length(params) ?
-        exit
-      no
-        i+=1
-        repeat
-      is.
-    cycle.
-  no
-    put('no parameters')
-  is.    
-main.
+; list all parameters
+is length($params) > 0 ?
+  cycle
+    put($params[i])
+    is i==length($params) ?
+      exit
+    no
+      i+=1
+      repeat
+    is.
+  cycle.
+no
+  put('no parameters')
+is.    
 
-main $WEE_PARAMS ;execute main method
+stop ;end driver
 
-stop; driver
 ```
 
 **Notes:** 
@@ -233,16 +230,16 @@ To understend more abput interacting with other languages check this article abp
 
 ## Bit Operators
 
-We use "." to represent prefix for "bit" operators
+We use "~" to represent prefix for "bit" operators
 
 | symbol  | description
 |---------|-----------------------------------------------------------------------
-|  \.\<   | shift bits to left  
-|  \.\>   | shift bits to right
-|  \.\~   | bitwise not
-|  \.\&   | bitwise and
-|  \.\|   | bitwise or
-|  \.\^   | bitwise xor
+|  \<\<   | shift bits to left  
+|  \>\>   | shift bits to right
+|  \~not  | bitwise not
+|  \~and  | bitwise and
+|  \~or   | bitwise or
+|  \~xor  | bitwise xor
  
 ## Relations
 
@@ -273,34 +270,34 @@ symbol    | meaning
 
 Wee has 24 keywords to create statements.
 
- Keyword  | Purpose
-----------|--------------------------------------------------
- wee      | Import Wee module
- asm      | Import Assembly
- cpp      | Import C or C++ module
- stop     | stop program execution with no message
- halt     | stop program with error message
- def      | Define user data type or type alias using :
- var      | Declare variables using : with type or :=
- set      | Establish or modify value for variables using :=
- out      | Add something to console buffer but no new line 
- get      | Accept input from console and wait for read
- read     | Accept user input from console 
- put      | Put some parameters to console and add new line
- write    | Output expression result to console 
- for      | Start _range iteration_ or _collection iteration_
- do       | Used with iteration _for_
- next     | Continue iteration _for_ from beginning
- done     | Terminate iteration _for_ and continue after for.
- cycle    | Start point for repetitive block
- repeat   | Jump to beginning of _cycle_ block
- exit     | exit inner cycle and continue after cycle.
- if       | Conditional statement execution 
- is       | Start logical decision block
- no       | Second path of conditional block
- check    | Start multiple branch conditional statement
- when     | Start a conditional branch in check statement
- else     | Alternative block for _check_ statement
+| Keyword  | Purpose
+|----------|--------------------------------------------------
+| wee      | Import Wee module
+| asm      | Import Assembly
+| cpp      | Import C or C++ module
+| stop     | stop program execution with no message
+| halt     | stop program with error message
+| def      | Define user data type or type alias using :
+| var      | Declare variables using : with type or :=
+| set      | Establish or modify value for variables using :=
+| out      | Add something to console buffer but no new line 
+| get      | Accept input from console and wait for read
+| read     | Accept user input from console 
+| put      | Put some parameters to console and add new line
+| write    | Output expression result to console 
+| for      | Start _range iteration_ or _collection iteration_
+| do       | Used with iteration _for_
+| next     | Continue iteration _for_ from beginning
+| done     | Terminate iteration _for_ and continue after for.
+| cycle    | Start point for repetitive block
+| repeat   | Jump to beginning of _cycle_ block
+| exit     | exit inner cycle and continue after cycle.
+| if       | Conditional statement execution 
+| is       | Start logical decision block
+| no       | Second path of conditional block
+| check    | Start multiple branch conditional statement
+| when     | Start a conditional branch in check statement
+| else     | Alternative block for _check_ statement
 
 ## Basic types
 
@@ -339,48 +336,49 @@ In Wee there are available following collection types:
 * Stack
  
 ## Builtin functions/methods
-
  
 **Introspection** 
- Function | Purpose
-----------|------------------------------------------ 
- type     | type name
- size     | type size 
- length   | type length 
- capacity | type capacity
- min      | type minim limit
- max      | type maxim limit
+
+| Function | Purpose
+|----------|------------------------------------------ 
+| type     | type name
+| size     | type size 
+| length   | type length 
+| capacity | type capacity
+| min      | type minim limit
+| max      | type maxim limit
  
 **List/strings** 
- Function | Purpose
-----------|------------------------------------------ 
- split    | Split a string into a list
- join     | Join a list into a string 
- find     | Search one sub-string in a string
- replace  | Replace one sub-string in a string
- trim     | Remove blank spaces from string
- right    | Allign string to right by adding spaces
- left     | Allign string to left by adding spaces
- center   | Allign string to center by adding spaces
+
+| Function | Purpose
+|----------|------------------------------------------ 
+| split    | Split a string into a list
+| join     | Join a list into a string 
+| find     | Search one sub-string in a string
+| replace  | Replace one sub-string in a string
+| trim     | Remove blank spaces from string
+| right    | Allign string to right by adding spaces
+| left     | Allign string to left by adding spaces
+| center   | Allign string to center by adding spaces
  
  **Numeric**
  
- Function | Purpose
-----------|------------------------------------------ 
- round    | Convert one real into an integer
- floor    | Convert one real into an integer
- parse    | Convert one string into one number
- random   | Create random numbers
+| Function | Purpose
+|----------|------------------------------------------ 
+| round    | Convert one real into an integer
+| floor    | Convert one real into an integer
+| parse    | Convert one string into one number
+| random   | Create random numbers
  
 **Mathematics**
 
- Function | Purpose
-----------|------------------------------------------ 
- sin      | sinus 
- cos      | cosinus
- tan      | tangetn
- pow      | power
- sqr      | square root
- fac      | factorial  
+| Function | Purpose
+|----------|------------------------------------------ 
+| sin      | sinus 
+| cos      | cosinus
+| tan      | tangetn
+| pow      | power
+| sqr      | square root
+| fac      | factorial  
 
 Read next: [Syntax Overview](syntax.md)
