@@ -1,0 +1,17 @@
+; wee input value demo
+#driver
+var a:N
+put("to stop enter 0")
+write
+
+cycle
+  get ("enter a number", a)
+  read
+  
+  put("you enter: " + a)
+  write   
+  
+  exit if (a == 0)
+cycle.
+
+stop

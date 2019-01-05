@@ -1,0 +1,20 @@
+;------------------------------
+; fibonacci function fib()
+;------------------------------
+#driver
+
+fib(n: N):N 
+  is (n == 1 or n == 0) ? 
+    => 1
+  no
+    => fib(n - 1) + fib(n - 2)
+  is.
+fib.
+
+; use function fib    
+put(fib(5))
+put(fib(10))
+  
+write
+
+stop;

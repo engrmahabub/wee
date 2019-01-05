@@ -1,0 +1,47 @@
+;----------------------------------------
+; defined data types
+;----------------------------------------
+;type: structurated data
+#driver
+
+;this type is public (uses capital D)
+def Data: (key:A, value:N)
+
+;lowercase "data" will be private
+def data: (key:A, value:N)
+
+; new variable using type alias
+var x: Data
+set x:= (
+  key   : 'a', 
+  value : 10
+)
+
+; public enumeration type with public elements
+; elements starting with "." do not need qualifier
+def Number: { 
+   .zero, 
+   .one, 
+   .two, 
+   .three, 
+   .four, 
+   .five, 
+   .six, 
+   .seven, 
+   .eight, 
+   .nine 
+}
+
+{* 
+ Note: first element has assigned a value = 0, 
+ all other elements have previous value + 1 
+*}
+
+; example of use
+var a := 0
+
+put("zero") if (a == zero)
+
+write
+
+stop;

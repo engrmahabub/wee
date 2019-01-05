@@ -1,0 +1,39 @@
+;----------------------------------------
+; native declaration demo
+;----------------------------------------
+#driver
+
+var n: Z   ;Integer on 32 or 64 bit
+var h: S   ;Dynamic string
+var l: L   ;Logical value False = 0
+
+;----------------------------------------
+; printing initial values
+;----------------------------------------
+put(n) ; 0
+put(h) ; ''
+put(l) ; 0 
+
+write
+
+; native array are auto initialized
+var  a:[W](10)   ;array of 10 Words
+var  b:[A](10)   ;array of 10 ASCII characters
+var  m:[W](3,3)  ;matrix of 10x10 Words
+
+put(a) ; [0,0,0,0,0,0,0,0,0,0]
+put(b) ; ['','','','','','','','','','']
+put(m) ; [[0,0,0], [0,0,0], [0,0,0]]
+
+write
+
+set  b[*] := 's' ; scalar assign for all elements
+set  a[*] +=  5  ; scalar modification
+set  m[*] +=  1  ; scalar matrix modification
+
+; use index to find member
+put(a[0])   ; will print 5
+put(m[2,2]) ; will print 1
+put(b[0])   ; will print 's' 
+
+stop;

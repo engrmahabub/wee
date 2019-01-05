@@ -1,0 +1,63 @@
+;----------------------------------------
+; repetitive statement demo
+;----------------------------------------
+#driver
+
+var a:[Z](10) ;array of 10 Words
+var i: Z      ;index variable 
+
+;a cycle can be repetitive
+cycle
+  set a[i] := i
+  
+  is (i == 9) ?
+    exit
+  no   
+    set i+=1
+    repeat  
+  is.
+cycle.
+
+;control variable
+var x:Z = 10 
+
+;cycle shortcut 
+cycle
+  is (x % 2 == 0) ?
+    set x-= 1
+    repeat ;shortcut   
+  is.
+  
+  put(x)
+  is (x < 0) ?
+    exit
+  no
+    set x-= 1
+  is.
+cycle.  
+
+write    
+
+;array traversal demo
+;use range for iteration
+var to :Z
+set to := length(a)
+
+for i :> [0.!to] do
+   put('r[{0}] = {1}' <+ (i, a[i]))
+for.
+   
+write
+
+;array traversal demo
+;use iterable colection
+var i:Z = 0
+
+for r :> a do
+   put('r[{0}] = {1}' <+ (i, a))
+   set i += 1
+for.
+
+write
+
+stop;

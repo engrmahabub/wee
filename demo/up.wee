@@ -1,0 +1,20 @@
+;------------------------------------
+; unpacking demonstration for tuple
+;------------------------------------
+#driver
+
+var n,m :Z
+
+; function with two results
+test(x, y:Z):(Z,Z) => (x+1, y+1)
+
+; use type inference and unpacking
+set n,m := test(1,2)
+
+put(n, m)   ; will print 2, 3
+put(type(n)); will print Z
+put(type(m)); will print Z
+
+write
+
+stop;

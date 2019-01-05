@@ -1,0 +1,29 @@
+;----------------------------------------
+; demonstrate method associated to a type
+;----------------------------------------
+#driver
+
+; enumeration with public members
+def Number: {.zero, .one, .two}
+
+var test :Number
+set test := zero ; instance of Number  
+
+; create a method for type Number
+convert(x:Number):S 
+  => ('zero'| x == zero,
+      'one' | x == one, 
+      'two' | x == two,   
+      'none')
+convert.
+
+; a wrapper method for convert     
+equal(x:Number, s:S): L 
+  => (s == x.convert()) 
+equal.
+    
+; calling test methods 
+put(test.convert()); will print "zero"
+put(test.equal('zero')); will print 1
+  
+stop;

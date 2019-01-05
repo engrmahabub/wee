@@ -1,0 +1,32 @@
+; -----------------------------
+; function declaration demo:
+; we do not use a keyword!
+;------------------------------
+#driver
+
+;simple addition function
+add(a, b:Z):Z 
+  => (a + b) 
+add.
+
+;next is not part of the function
+put(add(1, 2));print 3
+put(add(-10, 10));print 0
+
+write
+
+;factorial function demo
+fac(n:N):N 
+  is (n == 0) ? ;chech n  
+    => 1
+  no
+    => fac(n-1)
+  is.
+fac.
+
+;use factorial function
+put(fac(3)) ;print result: 6
+
+write
+
+stop;
