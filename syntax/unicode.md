@@ -294,28 +294,29 @@ B = [¹⁄₂,¹⁄₄,¹⁄₈,¹⁄₁₆]
 C = {¹⁄₂,¹⁄₄,¹⁄₈,¹⁄₁₆}
 
 Using hooks and extension bar:
-
+```
     ⎡ 1  1  1  1⎤   
 A = ⎢——,——,——,——⎥   
     ⎣ 2  4  8 16⎦   
-
+```
 Function call with formula:
-    
+```    
      ⎛  1+x  ⎞   
 x = √⎜———————⎟   
      ⎝ x²+y³ ⎠   
-
+```
 Power expression:
-
+```
     ⎧  1+x  ⎫²   
 x = ⎨———————⎬   
     ⎩ x²+y³ ⎭    
-
+```
 Large integrale:
+```
     ⌠ⁿ         
 y = ⎮(a+b+x)ₓ  
     ⌡₀          
-
+```
 Large sum:
 
  \
