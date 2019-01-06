@@ -14,6 +14,10 @@ To edit source code containing Unicode literals one must use a specific font and
 **See also:** [wikipedia ucs](https://en.wikipedia.org/wiki/Universal_Coded_Character_Set), 
 [unicode characters](https://en.wikipedia.org/wiki/List_of_Unicode_characters#Character_reference_overview)
 
+**Greek Alphabet**
+
+ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩ
+αβεδζη θικλμνξοπρσςτυφ
 
 ## Implementation
 For now we do not have details of Unicode implementation. 
@@ -50,38 +54,48 @@ Several Greek letters for variable names:
 
 π = 180°
 
+** Imaginary number 
+
+ⅈ = √(-1)
+
 (λ expression)
-
-
-**Trivial fractions**
-% ½ ¼ ¾ ⅛ ⅜ ⅝ ⅞ 
-
-**Composite Fractions**
-
-Fraction sign: ⁄
-
-¹⁄₂ ²⁄₂ ³⁄₂ ⁴⁄₂ ⁵⁄₂ ⁶⁄₂ ⁷⁄₂ ⁸⁄₂ ⁹⁄₂ 
-¹⁄₂ ¹⁄₃ ²⁄₃ ³⁄₃ ⁴⁄₃ ⁵⁄₃ ⁶⁄₃ ⁷⁄₃ ⁸⁄₃ ⁹⁄₃ 
-¹⁄₂ ¹⁄₃ ¹⁄₄ ¹⁄₅ ¹⁄₆ ¹⁄₇ ¹⁄₈ ¹⁄₉
-
-ⁿ⁄₂ 
-
-**Power:**
-X⁻¹·⁵ 
 
 Superscript numbers:
 M⁽⁾ ⁺ ⁻ ⁼ · ⁰ ¹ ² ³ ⁴ ⁵ ⁶ ⁷ ⁸ ⁹ 
 A ⁿ ʰ ˣ ʸ ʰ ʷ ʳ ʴ ˢ ʲ ʺ ʻ ʼ 
 
 Subscript numbers:
-M₍₎ ₋ ₊ ₌ . ‚ ₀ ₁ ₂ ₃ ₄ ₅ ₆ ₇ ₈ ₉ ‹ ›  
-X …
+M . ‚ ₀ ₁ ₂ ₃ ₄ ₅ ₆ ₇ ₈ ₉ 
+X ₋₊₌₍₎‹›
+
+Subscript letters: (b,c,d,y,z missing)
+Xₐ…ₑₕᵢⱼₖₗₘₙₒₚᵣₛₜᵤᵥₓₔ
+
+**Trivial fractions**
+% ½ ¼ ¾ ⅛ ⅜ ⅝ ⅞ 
+
+**Fraction sign**
+
+¹⁄₂ ²⁄₂ ³⁄₂ ⁴⁄₂ ⁵⁄₂ ⁶⁄₂ ⁷⁄₂ ⁸⁄₂ ⁹⁄₂ 
+¹⁄₂ ¹⁄₃ ¹⁄₄ ¹⁄₅ ¹⁄₆ ¹⁄₇ ¹⁄₈ ¹⁄₉ ¹/₁₀
+
+examples: 
+A = (¹⁄₂,¹⁄₄,¹⁄₈)
+B = [¹⁄₂,¹⁄₄,¹⁄₈]
+C = {¹⁄₂,¹⁄₄,¹⁄₈}
+
+**Power:**
+X⁻¹·⁵, X²+6*A
+
+**Restriction
+A variable that is using indice can''t also use power. 
+We must use carror "^" operator. x₁^2 for this case.
 
 Table createion/printing:
 ├ ┤ ┬ ┴ ┼ ═ ║ ╒ ╓ ╔ ╕ ╖ ╗ ╘ ╙ ╚ ╛ ╠ ╬ ╧ 
 
 Chess game:
-♔♕♖♗♘♙♚♛♜♝♞♟   
+♔ ♕ ♖ ♗ ♘ ♙ ♚ ♛ ♜ ♝ ♞ ♟   
 
 Star shapes:
 ✡✢✣✤✥✦✬✭✮✯✱✲✳✴✵✶✷✸✹✺✻✼✽✾✿❀❂❃❄❅❆❇❈❉   
@@ -91,6 +105,10 @@ Star shapes:
 
 ### Bulet Points
 ➀ ➁ ➂ ➃ ➄ ➅ ➆ ➇ ➈ ➉
+
+**Misc.**
+ 
+Δ ▽ Ψ⌁ ϵ ϶ ⍙ ⍫ ◇ ⨯ ∀Ɐ ⎊ ⍜ ⍉ ⌘ ‼ ¿ ǂ ʊ Ұ θ
 
 ## Unicode Operators
 
@@ -117,6 +135,7 @@ Symbol |UNC    | Description
 ≥      |U+2265 | Greater then or equal to
 ∴      |U+2234 | Therefore (→) U+2192
 ∵      |U+2235 | Becouse   (←) U+2190
+∝      |       | Proportion
 
 **Math operators**
 
@@ -146,7 +165,6 @@ Symbol|UNC    | Description
 Symbol | Unicode | Description
 -------|---------|----------------------------------------------------------
 ∅      |U+2205   | Empty set
-∀      |U+2200   | For all in set
 ∃      |U+2203   | There exist one or many
 ∄      |U+2204   | There does not exist any
 ∈      |U+2208   | Element of set
@@ -167,12 +185,13 @@ Symbol | Unicode | Description
 ≼      |U+227C   | Precedes or equal to
 ≽      |U+227D   | Succeeds or equal to
 
-
 ## Other Resources
 
 Brackets ⟨⟩❬❭❰❱❲❳❴❵
 
-Unicode Math Symbols ∑ ∫ π² ∞
+Unicode Math Symbols ∑ ∫ π ∞
+
+-----------------------------------------------------------------
 
 Complete list of math symbols in Unicode 11 grouped by purpose.
 
@@ -183,8 +202,8 @@ superscript
 A ⁰ ¹ ² ³ ⁴ ⁵ ⁶ ⁷ ⁸ ⁹ ⁺ ⁻ ⁼ ⁽ ⁾ ⁿ ⁱ
 
 subscript 
-A ₀ ₁ ₂ ₃ ₄ ₅ ₆ ₇ ₈ ₉ ₊ ₋ ₌ ₍ ₎ ₐ ₑ ₕ ᵢ ⱼ ₖ ₗ ₘ ₙ ₒ ₚ ᵣ ₛ ₜ ᵤ ᵥ ₓ ₔ
-
+A ₀ ₁ ₂ ₃ ₄ ₅ ₆ ₇ ₈ ₉ ₊ ₋ ₌ ₍ ₎ 
+ₐ ₑ ₕ ᵢ ⱼ ₖ ₗ ₘ ₙ ₒ ₚ ᵣ ₛ ₜ ᵤ ᵥ ₓ ₔ
 
 Roots √ ∛ ∜
 
@@ -209,8 +228,9 @@ other operators
 − ∕ ∗ 
 ∘ 2217 Ring Operator
 ∙ 2219 Bulet Operator
-⋅ 
-⋆
+⋅      Middle dot 
+⋆      Star operator
+
 … u-2026 (Alt+0133) Horizontal elipsis
 
 ⇒ ‼ ⁇ «»
@@ -287,17 +307,11 @@ Tacks ⊣ ⊢ ⊥ ⊤
 
 ** Advanced formula.**
 
-Using fraction sign: ⁄
-
-A = (¹⁄₂,¹⁄₄,¹⁄₈,¹⁄₁₆)
-B = [¹⁄₂,¹⁄₄,¹⁄₈,¹⁄₁₆]
-C = {¹⁄₂,¹⁄₄,¹⁄₈,¹⁄₁₆}
-
 Using hooks and extension bar:
 ```
-    ⎡ 1  1  1  1⎤   
-A = ⎢——,——,——,——⎥   
-    ⎣ 2  4  8 16⎦   
+    ⎡1 1 1⎤   
+A = ⎢—,—,—⎥   
+    ⎣2 4 8⎦   
 ```
 Function call with formula:
 ```    
@@ -317,23 +331,53 @@ Large integrale:
 y = ⎮(a+b+x)ₓ  
     ⌡₀          
 ```
-Large sum:
-
- \
-
     ₙ
 y = ∑(x)
     ¹
     ∑(X)
 a = ————
-     n
+     n    
 
-A ⁰ ¹ ² ³ ⁴ ⁵ ⁶ ⁷ ⁸ ⁹ ⁺ ⁻ ⁼ ⁽ ⁾ ⁿ ⁱ
-A ₀ ₁ ₂ ₃ ₄ ₅ ₆ ₇ ₈ ₉ ₊ ₋ ₌ ₍ ₎ ₐ ₑ ₕ ᵢ ⱼ ₖ ₗ ₘ ₙ ₒ ₚ ᵣ ₛ ₜ ᵤ ᵥ ₓ ₔ
+**Matrix*
 
+    ⎡e₁₁,e₂₁⎤   
+A = ⎢e₁₂,e₂₂⎥   
+    ⎣e₁₃,e₂₃⎦   
+
+**Superscript**
+A ⁰ ¹ ² ³ ⁴ ⁵ ⁶ ⁷ ⁸ ⁹ ⁺ ⁻ ⁼ ⁽ ⁾ 
+A ⁿ ⁱ
+
+**Subscript**
+A ₀ ₁ ₂ ₃ ₄ ₅ ₆ ₇ ₈ ₉ ₊ ₋ ₌ ₍ ₎ 
+A ₐ ₑ ₕ ᵢ ⱼ ₖ ₗ ₘ ₙ ₒ ₚ ᵣ ₛ ₜ ᵤ ᵥ ₓ ₔ
+
+**Misc**
+Line, oveline, solidus, (large solidus is missing)
+
+```
+___
+\
+/
+‾‾‾
+```
+Note: We can''t do large sum using DejaVu even though exist in unicode.
+
+Arrows:
+ ⇤ ⇥ ↼ ⇀ 
+
+*Logic*
+∧ ∨ & | ! ∀  
+
+‡ ⍜ ⍛ ⍶ ⍙ ⍚ ¦ Ɐ ♇ ◻ ◯ ◬ ⍭ ⌽ ↹ ↯ ⁉ ⁈ ⁇ ‼ ‡ † ւ ǂ ǁ ǀ ÷ ¿ ⸮ ? ¬ 
+
+ 
 **Missing**
 Some subscript/superscript characters are missing.
 I found this proposal: http://unicode.org/L2/L2011/11208-n4068.pdf
+
+* Imaginary number ⅈ, ⅉ
+* Euler''s number, base of natural log ℯ, ⅇ (Missing)
 
 **Combining symbols**
 xor is not represented correctly
@@ -343,3 +387,7 @@ Combining symbols does not help.
 There was once upon a time a language called APL.
 
 https://en.wikipedia.org/wiki/APL_(programming_language)
+
+**Bit Manipulation**
+
+https://en.wikipedia.org/wiki/Bit_manipulation
