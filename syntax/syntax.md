@@ -104,18 +104,18 @@ Wee has support for numeric constants. These can be used in expressions to repre
 
 ## Variable declarations
 
-Variables are defined using var keyword and ":" symbol.
+Variables are defined using let keyword and ":" symbol.
 One variable can have initial value defined with "=" symbol.
 
 ```
-var <var_name> : <type>
-var <var_name> : <type> = <constant>
+let <var_name> : <type>
+let <var_name> : <type> = <constant>
 ```
 
 Multiple variables can be define in one single line using comma separator:
 ```
-var <var_name>[,<var_name>] ... : <type>
-var <var_name>[,<var_name>] ... : <type> = <constant>
+let <var_name>[,<var_name>] ... : <type>
+let <var_name>[,<var_name>] ... : <type> = <constant>
 ```
 
 ## Constant declaration
@@ -134,8 +134,8 @@ con <constant_name> : <type> = <value>
 We can modify variables using _set_ statement.
 
 ```
-var a:Z = 10 ; declare integer variable 
-var b:Z      ; declare variable b
+let a:Z = 10 ; declare integer variable 
+let b:Z      ; declare variable b
 
 set b := a ; modify b
 put(b)      ; expected 10
@@ -152,10 +152,10 @@ put(b)      ; expected 10
 ; define a constant that can't change it's value
 con pi:R = 3.14
 
-; establis a var region for multiple variables
-var a   : Z ;Integer 
-var x,y : R ;Double
-var q,p : L ;Logic
+; establis a let region for multiple variables
+let a   : Z ;Integer 
+let x,y : R ;Double
+let q,p : L ;Logic
 
 ;using modifier operators
 set a := 10  ; modify value of a
@@ -178,8 +178,8 @@ User can define types using keyword _def_ and operator ":".
 def <type_name> : <type_specification> 
 
 ;using new type
-var <var_name> : <type_name>
-var <var_name>[,<var_name>] ... : <type_name>
+let <var_name> : <type_name>
+let <var_name>[,<var_name>] ... : <type_name>
 ```
 
 ## Type conversion
@@ -195,8 +195,8 @@ Numeric types are automatically converted when this is safe.
 
 **example:**
 ```
-var a:N=0, b:N=20
-var v:R=10.5, x:R=0
+let a:N=0, b:N=20
+let v:R=10.5, x:R=0
 
 ;unsafe conversion
 set a:= v -> N;
@@ -212,8 +212,8 @@ put(b) ; expect 20
 Wee define A = ASCII character as native type.
 
 ```
-var a,b :A ;ASCII character
-var x,y :B ;Binary number 
+let a,b :A ;ASCII character
+let x,y :B ;Binary number 
 
 set a := '0'    ; representation of 0
 set x := a -> B ; convert to 30
@@ -225,8 +225,8 @@ set b := y -> A ; convert to '0'
 We can use variable type to verify expressions.
 
 ```
-var a: Z = 0   ;integer variable
-var b: R = 0.0 ;real variable
+let a: Z = 0   ;integer variable
+let b: R = 0.0 ;real variable
 
 set b := 10   ; PASS: automatic safe conversion  
 set a := 10.5 ; FAIL: a is of type: Integer
@@ -270,14 +270,14 @@ Logical expression have value { 0 or 1 }
 
 ```
 ; simple expressions
-var x:L = False
-var y:L = True 
+let x:L = False
+let y:L = True 
 
 put(x)  ; will print: 0
 put(y)  ; will print: 1
 
 ;complex expressions
-put(x == y)  ; Will print 0
+put(x = y)  ; Will print 0
 put(x and y) ; will print 0
 put(x or y)  ; Will print 1
 
@@ -288,31 +288,22 @@ put(x or y)  ; Will print 1
 Bitwise operations are executed on entire binary value.
 
 
- operator | meaning
-----------|-------------------------------
-  .\<    | shift left
-  .\>    | shift right
-  .\~    | bitwise not
-  .\&    | bitwise and
-  .\|    | bitwise or
-  .\^    | bitwise xor
-
 **Shifting Bits**
  
- A    | A .< 1  | A .> 2  
-------|---------|----------
- 0000 | 0000    | 0000
- 1111 | 1110    | 0011
- 0111 | 1110    | 0001
- 0110 | 1100    | 0001
+ A    | A ← 1 | A → 2 | ¬ A
+------|-------|-------|-------
+ 0000 | 0000  | 0000  |1111
+ 1111 | 1110  | 0011  |0000
+ 0111 | 1110  | 0001  |1000
+ 0110 | 1100  | 0001  |1001
 
 
- A    | B   |A .\& B | A .\| B| A .\^ B| .\~ A
-------|-----|--------|--------|--------|------
- 00   |00   | 00     | 00     |  11    |  00 
- 01   |00   | 00     | 01     |  10    |  01 
- 11   |01   | 01     | 11     |  00    |  10 
- 10   |11   | 10     | 11     |  01    |  01 
+ A    | B   |A .\& B | A .\| B| A .\^ B
+------|-----|--------|--------|--------
+ 00   |00   | 00     | 00     |  11    
+ 01   |00   | 00     | 01     |  10    
+ 11   |01   | 01     | 11     |  00    
+ 10   |11   | 10     | 11     |  01    
 
 
 ## Conditional
@@ -332,13 +323,13 @@ Observe that "if" is not a statement and can''t be used alone.
 The statement is executed only if the expression is True. 
 
 ```
-var a:Z
+let a:Z
 
 ; conditional execution
-set a:=1 if (a == 0) 
+set a:=1 if (a = 0) 
 
 ; conditional output
-put("a is 0") if (a == 0)
+put("a is 0") if (a = 0)
 put("a >  0") if (a >= 0)
  
 write 
@@ -357,10 +348,10 @@ A decision is based on logical expressions and keywords { is, no } and symbol "?
 Logical expression must be enclosed in paranthesis () alwais.
 
 ```
-var a:= 10
+let a:= 10
 
 ; single brach
-is a == 10 ?
+is a = 10 ?
    put('yes')
 is.   
 
@@ -385,9 +376,9 @@ set a := 10
 
 ; default check 
 check
-  when a == 10:
+  when a = 10:
     put('a is 10')
-  when a == 20:
+  when a = 20:
     put('a is 20')
 else
   put('a is not 10 or 20')
@@ -399,7 +390,7 @@ write
 Using "..." (ellipsis) to continue.
 
 ```
-var a := 15
+let a := 15
 
 ; fallthrough using: "..."
 check
@@ -415,7 +406,7 @@ check
    when a > 10:
      put('a > 10')
 else
-  put('a == 0')
+  put('a = 0')
 check.   
 ```  
 
@@ -424,13 +415,13 @@ check.
 Repetition is a block of code that execute multiple times. It is using keywords: {cycle, repeat, exit}
 
 ```
-var a:Z=10
+let a:Z=10
 
 cycle
   set a-=1
   
   ; conditional repetition
-  repeat if (a % 2 == 0)
+  repeat if (a % 2 = 0)
   
   out(a, ' ')
   
@@ -458,11 +449,11 @@ Range is a series of integer numbers between two limits.
 
 
 ```
-var n := 0, m := 20
+let n := 0, m := 20
 
 ; using range to define i
-for i :> [n..m] do
-  is (a % 2 == 0) ?
+for i ∈ [n..m] do
+  is (a % 2 = 0) ?
     next ;force next iteration
   no  
     put(a, ' ')
@@ -482,7 +473,7 @@ These expressions are separated by coma and enclosed in (...).
 **Syntax:**
 
 ```
-var <v>:<t>
+let <v>:<t>
 
 ; single matching with default value
 set <v> := (<xp> | <cnd>, <dx>)
@@ -510,12 +501,12 @@ set <v> := (
 **Example**
 
 ```
-var  x   := 10
-var  a,r := 0
+let  x   := 10
+let  a,r := 0
 
 cycle
   set r := x%2
-  set a := (0 | r == 0, 1 | r > 0, 2)
+  set a := (0 | r = 0, 1 | r > 0, 2)
   out (a, ',')
   set x-=1
   exit if (x < -1)
@@ -543,7 +534,7 @@ write
 **Example:** 
 
 ```
-var z:Z
+let z:Z
 
 func(x,y:Z):Z
   set x += 1
@@ -592,7 +583,7 @@ def Foo: { p1:N, p2:N, p3:S }
 ;initialization method for Foo type
 bar(x:Foo,p1,p2:Z,p3:S):
   ;precondition
-  halt if (p1<0 or p2<0 or p3=='')
+  halt if (p1<0 or p2<0 or p3='')
   
   ;modify Foo members
   set x.p1 := p1
@@ -606,7 +597,7 @@ print(x:Foo):
 print.
 
 ; declare instance of Foo
-var foo:Foo;
+let foo:Foo;
 
 foo.bar(1,2,'Test'); initialize foo
 foo.print; call second method for foo

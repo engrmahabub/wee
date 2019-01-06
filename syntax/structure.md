@@ -63,13 +63,13 @@ Rogue statements are executed top down in synchronous mode.
 ;demo program "main"
 
 #driver "main" 
-var i: Z ; declare variable i
+let i: Z ; declare variable i
 
 ; list all parameters
 is length($params) > 0 ?
   cycle
     put($params[i])
-    is i==length($params) ?
+    is i=length($params) ?
       exit
     no
       i+=1
@@ -143,7 +143,7 @@ A public member from another module can be access using dot notation.
 
 ```
 ;public variable
-var .v: N 
+let .v: N 
 
 ;public function
 .f(x:N) :N => x+1 f.
@@ -236,22 +236,20 @@ To understend more abput interacting with other languages check this article abp
 | %=   | Reminder modifier 
 | ->   | Function pipleine \| unsafe conversion 
 | <+   | Insert one or more values into a string template
-| &    | Intersection between two collections
-| &=   | Intersection modifier 
 | --   | Dequeue operator \| Stack pop operator
 
-## Bit Operators
+## Bitwise Operators
 
 We use "~" to represent prefix for "bit" operators
 
-| symbol  | description
-|---------|-----------------------------------------------------------------------
-|  \<\<   | shift bits to left  
-|  \>\>   | shift bits to right
-|  \~not  | bitwise not
-|  \~and  | bitwise and
-|  \~or   | bitwise or
-|  \~xor  | bitwise xor
+| symbol | description
+|--------|----------------------------------
+|  ←     | shift bits to left  
+|  →     | shift bits to right
+|  ¬     | bit not
+|  ∧     | bit and
+|  ∨     | bit or
+|  ~     | bit xor
  
 ## Relations
 
@@ -259,24 +257,27 @@ Relation operators are used to compare expressions.
 
 symbol| meaning
 ------|-----------------------------------
- ==   |equality of two values  
- !=   |divergence of two values (not equal)
- \>   |value is greater than 
- \<   |value is less than
- \>=  |greater than or equal to
- \<=  |less than or equal to
+ =    |equality of two values  
+ ≠    |divergence of two values (not equal)
+ ≈    |almost equal (ignore decimals)
+ >    |value is greater than 
+ <    |value is less than
+ ≥    |greater than or equal to
+ ≤    |less than or equal to
   
 ## Logical
 
-Logical operators return: 1 == True or 0 == False
+Logical operators return: 1 = True or 0 = False
 
-symbol    | meaning
-----------|-----------------------------------
- not      | Logic operator not
- and      | Logic operator and
- or       | Logic operator or
- xor      | Logic operator xor
- in       | Belong to collection: ∈
+symbol| meaning
+------|-----------------------------------
+ ∈    | Element belong to set 
+ ∉    | Not element of set
+ !    | Logic not
+ &    | Logic and
+ \|   | Logic or
+ ⊕    | Logic xor
+ 
 
 ## Statements
 
@@ -290,7 +291,7 @@ Wee has 24 keywords to create statements.
 | stop     | stop program execution with no message
 | halt     | stop program with error message
 | def      | Define user data type or type alias using :
-| var      | Declare variables using : with type or :=
+| let      | Declare variables using : with type or :=
 | set      | Establish or modify value for variables using :=
 | out      | Add something to console buffer but no new line 
 | get      | Accept input from console and wait for read
