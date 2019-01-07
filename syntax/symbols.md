@@ -101,7 +101,7 @@ Symbol|UNC    | Description
 
 Symbol | Unicode | Description
 -------|---------|----------------------------------------------------------
-∅      |U+2205   | Empty set
+∅      |U+2205   | Empty set or collection
 ∃      |U+2203   | There exist one or many
 ∄      |U+2204   | There does not exist any
 ∈      |U+2208   | Element of set

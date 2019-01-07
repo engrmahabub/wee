@@ -9,8 +9,8 @@ We can use composite types to declare variables, constants or other composite ty
 * A can be used to create arrays of ASCII characters compatible with C strings; 
 
 ```
-let str ∈ S ;Unlimited capacity string
-let a := [x ∈ A: x := 0 ↻ 25] ;array of 25 characters
+let str:S ;Unlimited capacity string
+let a  := [A](25) ;array of 25 characters
 
 set  str := 'Long ASCII string'
 set  a   := 'Short ASCII string'   
@@ -20,7 +20,7 @@ set  a   := 'Short ASCII string'
 Conversion of a string into number is done using _parse_ function:
 
 ```
-let x,y ∈ R
+let x,y:R
 
 ; function parse return a Real number
 set x := parse('123.5',2,',.')       ;convert to real 123.5
@@ -59,7 +59,7 @@ Default Unicode character set is UTF8. This has variable size: (1..4) Bytes.
 
 ```
 let s := "This is a Unicode string"
-put(type(s)); Print: U
+put type(s); Print: U
 ```
 
 **Note:** String literals '' and "" is an empty string.
@@ -71,8 +71,8 @@ See also: https://utf8everywhere.org/
 Strings can be concatenated using operator "+"
 
 ```
-let u ∈ U
-let c ∈ U
+let u:U
+let c:U
 
 set u := "This is" + " a long string."
 set c := "Unicode and " + 'ASCII'
@@ -140,7 +140,7 @@ Elements in array are indexed from 0 to n-1 where n is capacity.
 
 **Example:**
 ```
-let test := [x ∈ R](10) ; define array with 10 Integer elements
+let test := [R](10) ; define array with 10 Integer elements
 
 put(test[0]) ; first element
 put(test[?]) ; last element
@@ -153,8 +153,8 @@ for.
 write
 
 ; modify all elements of array
-let m:N
-set m:= length(test)  
+let m : N
+set m := length(test)  
 
 for i ∈ [0.!m] do
   test[i] ⋅= 2
@@ -177,7 +177,7 @@ We can define a view for a section of array using [n..m] notation. This is calle
 
 ```
 ; declare an arry with capacity (n)
-let <array_name> := [<type>](n)
+let <array_name> : [<type>](n)
 
 ;we use range notation [..] to create a slice from array
 set <slice_name> := <array_name>[n..m]
@@ -213,9 +213,8 @@ let m:[R](4,4) ; define matrix
 ; initialize matrix using new ":="
 set m := [[1,2,3,4],[5,6,7,8],[9,10,11,12],[13,14,15,16]]
 
-
-put(m[0,0]) ; first element
-put(m[3,3]) ; last element
+put m[0,0] ;first element
+put m[3,3] ;last element
 
 ```
 
@@ -252,8 +251,8 @@ Tuples are immutable. Once a tuple is initialized it can''t be modified.
 ; define a tuple using type inference
 let v := (1,'a',2,'b') 
 
-set(v[0]) :=  4 ;error you try to modify a tuple
-put(v[0]) ;members of a tuple are not accesible using index
+put v[0] ;error members of a tuple are not accesible by index
+set v[0] :=  4 ;two errors you try to modify a tuple by index
 ```
 
 **Unit***
@@ -261,11 +260,10 @@ put(v[0]) ;members of a tuple are not accesible using index
 An empty tuple () represents an _"unit"_ 
 
 ```
-let c:(); empty tuple is not initialized
+let a:= (); empty tuple
 
-set c:= (1,2,3); initialize empty tuple
-set c:= (2,3,4); throw to garbage (1,2,3)
-
+set a:= (1,2,3); initialize tuple
+set a:= (2,3,4); re-initialize and throw to garbage (1,2,3)
 ```
 
 ### Unpacking
@@ -284,8 +282,8 @@ put(y) ;  65
 put(z) ;  1
 
 ;template unpacking into string
-set s := "{0} > {1}, {2}" <+ (2,1,'True'); 
-put(s) ; "2 > 1, True"
+let s := "{0} > {1}, {2}" <+ (2,1,'True'); 
+put s ; "2 > 1, True"
 ```
 
 
@@ -294,17 +292,16 @@ put(s) ; "2 > 1, True"
 A function can create as a results a tuple.
 
 ```
-test(x,y:Z):(Z,Z) 
-  => (x+1, y+1) 
-test.
+;body-less function do not use ":" and "."
+test(x,y ∈ Z) => (x+1, y+1)
 
 let n,m:Z
 
 ;unpacking the result
 set n,m := test(1,2)
 
-put(n) ;will print 2
-put(m) ;will print 3
+put n ;will print 2
+put m ;will print 3
 
 ; ignoring the result
 set _,_ := test(3,4)
@@ -333,8 +330,8 @@ This is the reason Wee is not a curly bracket language. We use the brackets for 
 
 **Syntax:**
 ```
-def <TypeName> <: {<element>:<type> [,<element>:<type>]...}
-let <name>:<TypeName>
+def <TypeName> <: {<element> : <type>,<element> : <type>...}
+let <var_name> : <TypeName>
 
 ;using qualifier with attributes
 set <var_name.element> := <value>
@@ -351,15 +348,23 @@ set <var_name> := {
 **Example:**
 ```
 def Person <: {
-      name:S, age:W,  
-      child: {name:S, age:W}
+      name : S, 
+      age  : N,  
+      children:[Person]
     }  
 
-let r1,r2 : Person
+let r1,r2 ∈ Person
 
-set r1 := {name:'Barbu', age:25, {name:'Telu', age:4}};
-set r2 := {name:'Mica',  age:21, {name:'Radu', age:1}};
+;person with no children          
+set r1 := {name:'Mica', age:21};
 
+;person with two children
+set r1 := {name:'Barbu', age:25, 
+             children:[
+               {name:'Telu', age:4},
+               {name:'Radu', age:1} 
+             ]
+          };
 ```
 ## Structure _size_
 
@@ -368,55 +373,58 @@ For variable size elements Wee is using _implicit references_.
 
 **Example:**
 ```
-def Person: {name:U, age:N}
-let catalog : [Person](10) ;array of 10 persons
+def Person <: {name : U, age : N}
+
+;array of 10 persons
+let catalog := [Person](10) 
   
-;assign value by position using implicit constructor
-set catalog[0] := Person("Cleopatra",15)
-  
-;assign value using literal
+;assign value using literals
+set catalog[0] := {name:"Cleopatra", age:15}
 set catalog[1] := {name:"Martin", age:17}
 
 ;using one element with dot operators
-put(caralog[0].name) ;will print Cleopatra
-put(caralog[1].name) ;will print Martin
+put caralog[0].name ;will print Cleopatra
+put caralog[1].name ;will print Martin
 
-;member type is can be check using _type()_ built in
-put(type(Person.name)) ; will print U
-put(type(Person.age) ) ; will print W
+;member type can be check using _type()_ built in
+put type(Person.name) ; will print U
+put type(Person.age)  ; will print W
 
 ;print size of structure
-put(size(Person));
+put size(Person);
+
+write
 ```
 
 ## Dynamic structures
 
 These are data structures that can grow or shrink size during program execution.
-Dynamic structures are implicit references. Default value is Empty collection.
+Dynamic structures are implicit references. Default value is empty collection.
 
 **Syntax:**
 ```
-let  <var_name> : [<type>]        ;list 
-let  <var_name> : {<type>}        ;set
-let  <var_name> : {<type>:<type>} ;map
+let <var_name>:[<member_type>] ;list 
+let <var_name>:{<member_type>} ;set
+let <var_name>:{<key>:<value>} ;map
+
 ```
 
 **Example:**
 ```
 ; define a string
-let  m,n : S  ;string 
+let  m,n: S  ;string 
 
 set  m := 'This is '           
 set  n := 'a very long string'
 
 ; define lists of strings
-let  lst1,lst2,list : [S] 
+let  lst1,lst2,list:[S] 
   
 set lst1 := split(m)
 set lst2 := split(n)
 
 set list := lst1 ++ lst2 ; concatenate two lists
-put(list.join(n))        ; This is a very long string
+put list.join(n)        ; This is a very long string
 
 write
 ```
@@ -427,23 +435,23 @@ A mathematical set is a collection of unique elements.
 
 ```
 ;define 3 collections
-let s1 :{N} = {1,2,3} 
-let s2 :{N} = {2,3,4}
-let s  :{N} ;this is an empty set
+let s1:= {1,2,3} 
+let s2:= {2,3,4}
+let s :{N} ;this is an empty set
 
 ; empty collection
 put("set s is empty") if s = {}
 
 ; collection operations
-set s := s1 & s2 ;{2,3}     ;intersection
-set s := s1 + s2 ;{1,2,3,4} ;union
+set s := s1 ∪ s2 ;{1,2,3,4} ;union
+set s := s1 ∩ s2 ;{2,3}     ;intersection
 set s := s1 - s2 ;{1}       ;difference 1
 set s := s2 - s1 ;{4}       ;difference 2
 
 ; append/remove operators
 let a := {1,2,3}
-set a += 4 ; {1,2,3,4}
-set a -= 3 ; {1,2,4}
+set a += 4 ; {1,2,3,4} ;append
+set a -= 3 ; {1,2,4}   ;remove
 ```
 
 **Note:** Wee sets are internally sorted not indexed.   
@@ -455,13 +463,10 @@ A list is a collection of non unique elements.
 let l1 := [1,2,3]
 let l2 := [2,3,4]
 
-;concatenation "+" is different than for sets.
+;concatenation "+" 
 set l := l1 + l2 ;[1,2,3,2,3,4]
 
-;intersection is similar to set
-set l := l1 & l2 ;[2,3]
-
-;difference is similar to set
+;difference "-"
 set l := l1 - l2  ;[1]
 set l := l2 - l1  ;[4]
 ```
@@ -517,9 +522,9 @@ set map := {'a':'first', 'b':'second'}
 ; create new element
 set map['c'] := 'third'
 
-put(map['a']) ;'first'
-put(map['b']) ;'second'
-put(map['c']) ;'third'
+put map['a'] ;'first'
+put map['b'] ;'second'
+put map['c'] ;'third'
 
 write
 ```
@@ -534,7 +539,7 @@ We can check if an element is included in a collection.
 ```
 let map := {'a':'first', 'b':'second'}
 
-is ('a' in map) ?
+is ('a' in map)?
   put("a is found")
 no
   put("not found")
@@ -569,7 +574,7 @@ set a[0..1] += 1 ; [1,2,2,3]
 set a[0..1] -= 1 ; [0,1,2,3]
 
 ; multiply last elements startinx from index 2
-set a[2..?] ⋅= 2 ; [0,1,4,6]
+set a[2..?] *= 2 ; [0,1,4,6]
 set a[2..?] /= 2 ; [0,1,2,3]
 ```
 
@@ -583,9 +588,9 @@ let a : []  ; define empty list
 let b : {}  ; define empty set or map
 let c : ()  ; define empty tuple
     
-put(a = [])  ; 1 
-put(b = {})  ; 1 
-put(c = ())  ; 1 
+put a = []  ; 1 
+put b = {}  ; 1 
+put c = ()  ; 1 
   
 set a := ['A','B','C'] ;Bound to List of A elements
 set b := {'a','b','c'} ;Bound to Set of A elements
@@ -602,10 +607,9 @@ Range notation is used to define a range of values.
 let a := 0
 let b := 10
  
-put [a..b] ;include both limits [0,1,2,3,4,5,6,7,8,9,10]
-put [a!!b] ;exclude both limits [1,2,3,4,5,6,7,8,9]
-put [a.!b] ;exclude upper linit [0,1,2,3,4,5,6,7,8,9]
-put [a!.b] ;exclude lower linit [1,2,3,4,5,6,7,8,9,10]
+put [a..b] ;include both limits  [0,1,2,3,4,5,6,7,8,9,10]
+put [a.!b] ;exclude upper limits [0,1,2,3,4,5,6,7,8,9]
+put [a!.b] ;exclude lower linit  [1,2,3,4,5,6,7,8,9,10]
 
 write
 ```
@@ -622,7 +626,7 @@ def Positive      <: Z[0!.]
 def Negative      <: Z[.!0]
 
 ;Check variable belong to sub-type
-is ('x' in AlfaChar)? 
+is ('x' ∈ AlfaChar)? 
   put('yes')
 no
   put('no')
@@ -646,7 +650,7 @@ let a,b: {Z}
 set  a := { e : e ∈ [0.!10] }
 set  b := { x : x ∈ Z & 0 ≤ x < 10 }
 
-put(a = b) ; True
+put a = b; True
 ```
 
 ## Copy collection
@@ -655,13 +659,13 @@ Assignment and slicing do not copy member collections.
 
 ```
 let a:=[0,1,2,3,4]
-let c,d:=[e ∈ Z]
+let c,d:[Z]
 
 ; coppy the entire collection
 set c:= [ x : x ∈ a ] ; now c = a
 
 ; coppy slice starting from a[2]
-set d:= [ x : x∈ a[2..?]] ; => [2,3,4]
+set d:= [ x : x ∈ a[2..?]] ; => [2,3,4]
 ```
 
 ## Collection filters
@@ -695,17 +699,17 @@ One function or method can receive variable number of arguments into an array us
 
 ```
 ;parameter *bar must be an array 
-foo(*bar[Z]) => x ∈ Z:
+foo(*bar:[Z]) => x ∈ Z:
   for i ∈ bar do
-    x +=bar[i]
+    x += bar[i]
   for.
 foo.
 
 ;we can call foo with variable number of arguments
-put(foo()     ); 0
-put(foo(1)    ); 1
-put(foo(1,2)  ); 3
-put(foo(1,2,3)); 6
+put foo()     ; 0
+put foo(1)    ; 1
+put foo(1,2)  ; 3
+put foo(1,2,3); 6
 
 write
 ```

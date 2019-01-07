@@ -246,7 +246,7 @@ def .L <: {.False, .True}
 For Logic type "L" Wee uses two numbers: {0, 1}    
 Logical operators in order of precendence: {not, and, or}
 
- A     | B     | A & B | A \| B | !A    |  !B   | A ⊕ B
+ A     | B     | A & B | A \| B | !A    |  !B   | A ~ B
 -------|-------|-------|--------|-------|-------|--------
  True  | True  | True  | True   | False | False | False
  True  | False | False | True   | False | True  | True
@@ -256,10 +256,10 @@ Logical operators in order of precendence: {not, and, or}
 
 ## Operator precedence
 
-! - has higest precedence
-⊕ - has the lowest precendence
+!  has higest precedence
+~  has the lowest precendence
 
-Precedence: { !, in, &, |, ⊕ }
+Precedence: { !, in, &, |, ~ }
 
 ## Logical expression
 
@@ -277,7 +277,7 @@ put(y)  ; will print: 1
 put(x = y) ; Will print 0
 put(x & y) ; will print 0
 put(x | y) ; Will print 1
-
+put(x ~ y) ; Will print 1
 ```
 
 ## Bitwise operators
@@ -295,12 +295,12 @@ Bitwise operations are executed on entire binary value.
  0110 | 1100  | 0001  |1001
 
 
- A    | B   |A .\& B | A .\| B| A .\^ B
-------|-----|--------|--------|--------
- 00   |00   | 00     | 00     |  11    
- 01   |00   | 00     | 01     |  10    
- 11   |01   | 01     | 11     |  00    
- 10   |11   | 10     | 11     |  01    
+ A    | B   | A ∧ B | A ∨ B | A ∘ B
+------|-----|-------|-------|--------
+ 00   | 00  | 00    | 00    |  11    
+ 01   | 00  | 00    | 01    |  10    
+ 11   | 01  | 01    | 11    |  00    
+ 10   | 11  | 10    | 11    |  01    
 
 
 ## Conditional
@@ -345,12 +345,12 @@ Logical expression must be enclosed in paranthesis () alwais.
 let a:= 10
 
 ; single brach
-is a = 10:
+is (a = 10)?
    put('yes')
 is.   
 
 ; two branches
-is a < 5:
+is (a < 5)?
   put('yes')
 no
   put('no')
@@ -370,9 +370,9 @@ set a := 10
 
 ; default check 
 check
-  when a = 10:
+  when (a = 10):
     put('a is 10')
-  when a = 20:
+  when (a = 20):
     put('a is 20')
 else
   put('a is not 10 or 20')
@@ -388,16 +388,16 @@ let a := 15
 
 ; fallthrough using: "..."
 check
-   when a < 0:
+   when (a < 0):
      put 'a <0'
      ...
-   when a > 0:
+   when (a > 0):
      put 'a >0'
      ...
-   when 5 <= a or a <= 10:
+   when (5 <= a | a <= 10):
      put 'a >= 5 and a <= 10'
      ...
-   when a > 10:
+   when (a > 10):
      put 'a > 10'
 else
   put 'a = 0'
@@ -420,7 +420,7 @@ cycle
   out (a, ' ')
   
   ;conditional termination
-  exit if a < 0
+  exit if (a < 0)
 cycle.
 
 write
@@ -447,13 +447,13 @@ let n := 0, m := 20
 
 ; using range to define i
 for i ∈ [n..m] do
-  is a % 2 = 0:
+  is (a % 2 = 0)?
     next ;force next iteration
   no  
     out (a, ' ')
   is.
   ;force early exit
-  done if a > 10
+  done if (a > 10)
 for.    
 
 write
@@ -504,7 +504,7 @@ cycle
   out (a, ',')
   set x-=1
   
-  exit if x < -1
+  exit if (x < -1)
 cycle.
 
 write
@@ -529,9 +529,9 @@ write
 **Example:** 
 
 ```
-let z ∈ Z
+let z: Z
 
-func(x,y ∈ Z) => z ∈ Z:
+func(x,y:Z) => z ∈ Z:
   x += 1
   y += 1 
   z := x+y ;function result
@@ -576,7 +576,7 @@ Usually a method is working for a specific type.
 ; define Foo subtype of set {}
 def Foo <: {p1 ∈ N, p2 ∈ N, p3 ∈ S} 
 
-;Foo constructor
+;constructor (same name as Foo)
 foo()=> me ∈ Foo:
   me := {0,0,0}
 foo.
@@ -598,10 +598,10 @@ print(x ∈ Foo):
 print.
 
 ; declare instance of Foo
-let foo ∈ Foo := foo();
+let foo₁ ∈ Foo := foo();
 
-foo.bar(1,2,'Test'); initialize foo
-foo.print; call second method for foo
+foo₁.bar(1,2,'Test'); initialize foo
+foo₁.print; call second method for foo
 
 write
 ```

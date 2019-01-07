@@ -249,7 +249,7 @@ We use "~" to represent prefix for "bit" operators
 |  ¬     | bit not
 |  ∧     | bit and
 |  ∨     | bit or
-|  ~     | bit xor
+|  ∘     | bit xor
  
 ## Relations
 
@@ -273,11 +273,11 @@ symbol| meaning
 ------|-----------------------------------
  ∈    | Element belong to set 
  ∉    | Not element of set
- !    | Logic not
- &    | Logic and
- \|   | Logic or
- ⊕    | Logic xor
- 
+ !    | Logic NOT
+ &    | Logic AND
+ \|   | Logic OR  (shortcut)
+ \|\| | Full  OR  
+ ~    | Logic XOR
 
 ## Statements
 
