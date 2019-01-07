@@ -13,7 +13,7 @@ put (Enum.third) ; 3
 
 write
 
-; varine hash map variable
+; define hash map variable
 let s: {A:N} 
 
 ; assign (name:value) pairs
