@@ -47,7 +47,16 @@ http://www.unifoundry.com/unifont.html
 ## Some examples
 
 Alternative notation for numeric types:
-ℤ ℕ ℂ ℙ ℚ ℍ ℝ  
+
+* ℕ = Natural Numbers   
+* ℤ = Integers          
+* ℚ = Rational Numbers  
+* ℝ = Real Numbers      
+* ℂ = Complex Numbers  
+
+Alternative notation for numeric types:
+* ℙ = Maybe pointer ?
+* ℍ = Hexadecimal number
 
 Several Greek letters for variable names:
 α β γ δ η ∂ λ μ ξ δ β Ω θ ε π φ ψ ω

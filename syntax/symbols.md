@@ -2,16 +2,6 @@
 
 Use this file is to find unicode symbols.
 
-* ℕ = Natural Numbers   
-* ℤ = Integers          
-* ℚ = Rational Numbers  
-* ℝ = Real Numbers      
-* ℂ = Complex Numbers  
-
-Alternative notation for numeric types:
-* ℙ = Maybe pointer ?
-* ℍ = Hexadecimal number
-
 **Superscript**
 M⁽⁾ ⁺ ⁻ ⁼ · ⁰ ¹ ² ³ ⁴ ⁵ ⁶ ⁷ ⁸ ⁹ 
 A ⁿ ʰ ˣ ʸ ʰ ʷ ʳ ʴ ˢ ʲ ʺ ʻ ʼ 

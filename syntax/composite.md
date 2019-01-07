@@ -165,8 +165,8 @@ put(test); expect: [0,2,4,6,8,10,12,14,16,18]
 
 **Notes:**
  
-* Array of undefined capacity []() is Null. Capacity can be established later.
-* Array with capacity is automatically initialized, elements of array are 0 or Null.
+* Array of undefined capacity []() is ∅. Capacity can be established later.
+* Array with capacity is automatically initialized, elements of array are 0 or ∅.
 
 ## Array Slicing
 
@@ -547,7 +547,7 @@ let map := {'a':'first', 'b':'second'}
 
 is ('a' in map)?
   put("a is found")
-no
+no:
   put("not found")
 is.
   
@@ -590,20 +590,24 @@ Declare empty collections are initialized later.
 
 **Unbound literals:**
 ```
-let a : []  ; define empty list
-let b : {}  ; define empty set or map
-let c : ()  ; define empty tuple
-    
-put a = []  ; 1 
-put b = {}  ; 1 
-put c = ()  ; 1 
+let a <: []  ; define empty list
+let b <: {}  ; define empty set or map
+let c <: ()  ; define empty tuple
+
+;before initialization    
+put a = ∅; 1 
+put b = ∅; 1 
+put c = ∅; 1 
   
 set a := ['A','B','C'] ;Bound to List of A elements
 set b := {'a','b','c'} ;Bound to Set of A elements
 set c := ('a','b','c') ;Bound to Tuple of A elements 
-```
 
-More examples: [ct.wee](ex/ct.wee)
+;after initialization
+put a = ∅; 0 
+put b = ∅; 0 
+put c = ∅; 0 
+```
 
 ## Range Subtype
 
@@ -634,7 +638,7 @@ def Negative      <: Z[.!0]
 ;Check variable belong to sub-type
 is ('x' ∈ AlfaChar)? 
   put('yes')
-no
+no:
   put('no')
 is.
 ```

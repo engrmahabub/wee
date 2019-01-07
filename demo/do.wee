@@ -12,7 +12,7 @@ cycle
   
   is (i = 9) ?
     exit
-  no   
+  no:   
     set i+=1
     repeat  
   is.

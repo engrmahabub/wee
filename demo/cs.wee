@@ -1,5 +1,5 @@
 ;------------------------------
-; conrol structure demo
+; control structure demo
 ;------------------------------
 #driver "cs"
 
@@ -21,7 +21,7 @@ is.
 ;decision with two braches
 is (a < 5) ?
   put("yes")
-no
+no:
   put("no")
 is.
 
@@ -32,10 +32,10 @@ set a := 5
 
 is (a < 5) ? 
   put("a<5") 
-no 
+no: 
   is (a > 5) ? 
      put("a>5") 
-  no
+  no:
      put('a = 5')
   is. 
 is.
@@ -63,11 +63,17 @@ set a, b := 10
 ;two values in one statement  
 set a := 1, b := 0
   
-;logical operators: and, not, or  
-is (a or b) or not (a or b) ?
-  put("yes")
-no
-  put("no")
+;cascade decision statement
+is (a & b)?
+  put("both a, b are true")
+no:is (a | b)?  
+  put("one of a or b is true")
+no:is a?
+  put("a is true")
+no:is b?
+  put("b is true")
+no:
+  put("this is impossible")  
 is.
 
 write

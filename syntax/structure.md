@@ -73,7 +73,7 @@ cycle
     put $params[i]
     is (i = l)?
       exit
-    no
+    no:
       i+=1
       repeat
     is.

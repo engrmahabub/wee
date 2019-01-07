@@ -347,15 +347,29 @@ let a:= 10
 
 ; single branch
 is (a = 10)?
-   put('yes')
+   put 'yes'
 is.   
 
 ; two branches
 is (a < 5)?
-  put('yes')
-no
-  put('no')
+  put 'yes'
+no:
+  put 'no'
 is.
+
+; multiple branches
+is (a < 0)?
+  put ('yes')
+no:is (a > 5)?
+  put ('no')
+no:is (a = 0)?  
+  put ("a = 0")  
+no:is (a = 5)?  
+  put ("a = 5")    
+no:
+  put ("a = #n" <+ a)  
+is.
+
 ```  
 
 **selector**
@@ -450,7 +464,7 @@ let n := 0, m := 20
 for i ∈ [n..m] do
   is (a % 2 = 0)?
     next ;force next iteration
-  no  
+  no:  
     out (a, ' ')
   is.
   ;force early exit
