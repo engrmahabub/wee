@@ -393,6 +393,6 @@ In Wee there are available following collection types:
 | pow      | power
 | sqr      | square root
 | fac      | factorial
-| mod      | modulo y = |x|  
+| mod      | modulo y = \|x\|  
 
 **Read next:** [Syntax Overview](syntax.md)

@@ -303,16 +303,51 @@ Bitwise operations are executed on entire binary value.
  11   | 01  | 01    | 11    |  00    
  10   | 11  | 10    | 11    |  01    
 
+## Unicode usage
 
-## Conditional
+Wee is using Unicode for identifier names.
 
-A conditional is using "if" keyword to enable or disable it''s execution.   
-Observe that "if" is not a statement and can''t be used alone.
+* Names can use Greek alphabet and subscript;
+* Superscript numbers can be used as Power (^);
+* You have already encounter several Unicode operators;
+
+**Using subscript**
+```
+let hdd₀,hdd₁,hdd₂,hdd₃,jdd₄ := ('A:','B:','C:','D:','E:')
+```
+
+**Example:**
+```
+; -------------------------------------;
+; compute distance between two points  ; 
+; -------------------------------------;
+;               _________________      ;
+;   Distance = √(x₂-x₁)²+(y₂-y₁)²      ;
+;                                      ; 
+; -------------------------------------;
+; Normally we use this ugly formula:   ;
+; d := sqr((x2−x1)^2+(y2−y1)^2)        ;
+; -------------------------------------;
+
+; subscript notation for coordinates
+let x₁,x₂:= 0
+let y₁,y₂:= 10
+
+; use Unicode superscript for power
+let d := sqr((x₂-x₁)²+(y₂-y₁)²)
+```
+
+**Unicode**: [symbols](symbols.md)
+
+## Conditionals
+
+A conditional is using "if" keyword to control one statement.   
+Observe that "if" is not itself a full statement only an augment.
 
 1. Conditional can apply to single line statements or method calls.   
 1. Conditional can''t be used with declaration statements.
 1. Conditional can''t be used with block statements.
-1. Expression before the conditional must be enclosed in ()
+1. Complex expression before conditionals must be enclosed in ()
 
 ```
 <statement> if <expression>

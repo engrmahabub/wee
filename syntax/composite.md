@@ -52,8 +52,7 @@ DEC|HEX|CODE|ESCAPE|NAME
 put('this represents \n new line in string')
 ```
 
-
-## Unicode type
+## Unicode string
 
 Default Unicode character set is UTF8. This has variable size: (1..4) Bytes.
 

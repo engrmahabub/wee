@@ -4,14 +4,14 @@
 #driver "pm"
 
 ; using decision
-pm₁(p1,p2 ∈ N)=> r ∈ N:
-  is (p1 = 0): 
+pm₁(p₁,p₂ ∈ N)=> r ∈ N:
+  is p₁ = 0 ?
     r := 0
-  no:is (p2 = 0): 
+  no:is p₂ = 0 ? 
     r := 1
-  no:is (p1 = p2): 
+  no:is p₁ = p₂ ? 
     r := 2    
-  no:is (p1 > p2): 
+  no:is p₁ > p₂ ? 
     r := 3
   no: 
     r := 4
@@ -19,11 +19,11 @@ pm₁(p1,p2 ∈ N)=> r ∈ N:
 pm₁.
 
 ; expression matching
-pm₂(p1,p2 ∈ N)=> r ∈ N:
-  r:=(0 : p1 = 0 ,
-      1 : p2 = 0 ,
-      2 : p1 = p2, 
-      3 : p1 > p2,
+pm₂(p₁,p₂ ∈ N)=> r ∈ N:
+  r:=(0 : p₁ = 0 ,
+      1 : p₂ = 0 ,
+      2 : p₁ = p₂, 
+      3 : p₁ > p₂,
       4)
 pm₂. 
 
