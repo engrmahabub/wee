@@ -2,30 +2,29 @@
 ; function declaration demo:
 ; we do not use a keyword!
 ;------------------------------
-#driver
+#driver "fn"
 
-;simple addition function
-add(a, b:Z):Z 
-  => (a + b) 
+;simple function
+add(a, b ∈ Z)=> y ∈ Z: 
+  y := a + b 
 add.
 
 ;next is not part of the function
-put(add(1, 2));print 3
-put(add(-10, 10));print 0
+put add(1, 2)  ;print 3
+put add(-10, 10)  ;print 0
 
 write
 
-;factorial function demo
-fac(n:N):N 
-  is (n == 0) ? ;chech n  
-    => 1
+;recursive function
+fac(n ∈ N)=> y ∈ N:
+  is (n = 0)? 
+    y := 1
   no
-    => fac(n-1)
+    y := fac(n-1)
   is.
 fac.
 
-;use factorial function
-put(fac(3)) ;print result: 6
+put fac(3) ; expect 6
 
 write
 

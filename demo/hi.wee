@@ -1,15 +1,16 @@
 ;demo of input form 
-#driver
+#driver "hi"
+
 put("Hello, I'm Wee")
 write
  
-var $name:S
-var $age :N
+let name ∈ S
+let age  ∈ N
 
-get ("Your name:", $name)
-get ("Your age?:", $age)
+get ("Your name?:", name)
+get ("Your age ?:", age)
 read
 
-put ("hello:" + $name)
+put ("hello:" + name)
 write
 ;end

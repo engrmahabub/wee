@@ -552,6 +552,7 @@ write
 * Functions must have at least one resilt "=>"
 * You can''t intrerupt a function execution.
 * Next statements after "=>" are also executed.
+* Argiment of function call require ()
 
 ## Declare a Method
 
@@ -566,11 +567,19 @@ foo; execute method
 ```
 
 **Notes:**
+* Method call do not require empty brackets ()
+* Method call do not need brackets for single argument
+* Method call arguments can be enumerated in a tuple
 * A method can not be used in expressions
-* A method can have side-effects
-* We can intrerupt a procedure using "halt(0)" 
+* A method can have side-effects and output parameters
+* We can interrupt a method prematurely using "halt(0)" 
 
-Usually a method is working for a specific type.
+Usually a method is bound to a specific user type.
+This is the first parameter and is explicit declared.
+
+**Constructor**
+
+A special method is a constructor. This method has usually same name as the user type with lowercase, but can have other name defined by the user imagination.
 
 **example**
 ```

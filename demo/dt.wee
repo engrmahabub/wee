@@ -2,20 +2,14 @@
 ; defined data types
 ;----------------------------------------
 ;type: structurated data
-#driver
+#driver "dt"
 
-;this type is public (uses capital D)
-def Data: (key:A, value:N)
-
-;lowercase "data" will be private
-def data: (key:A, value:N)
+;this type is public (uses dot prefix)
+def .Data <: {key:A, value:N}
 
 ; new variable using type alias
-var x: Data
-set x:= (
-  key   : 'a', 
-  value : 10
-)
+let x ∈ Data
+set x:= {key:'a', value:10}
 
 ; public enumeration type with public elements
 ; elements starting with "." do not need qualifier
@@ -38,9 +32,9 @@ def Number: {
 *}
 
 ; example of use
-var a := 0
+let a := 0
 
-put("zero") if (a == zero)
+put "zero" if (a = zero)
 
 write
 

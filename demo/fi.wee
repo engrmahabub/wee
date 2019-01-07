@@ -1,20 +1,18 @@
 ;------------------------------
 ; fibonacci function fib()
 ;------------------------------
-#driver
+#driver "fi"
 
-fib(n: N):N 
-  is (n == 1 or n == 0) ? 
-    => 1
+fib(n ∈ N) => y ∈ N: 
+  is (n = 1 | n = 0)? 
+    set y := 1
   no
-    => fib(n - 1) + fib(n - 2)
+    set y := fib(n - 1) + fib(n - 2)
   is.
 fib.
 
 ; use function fib    
-put(fib(5))
-put(fib(10))
+put fib(5)
+put fib(10)
   
-write
-
-;end
+write ;end

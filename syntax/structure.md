@@ -90,7 +90,7 @@ stop(0)
 * Program _module_, _system_ and _extend_ files do not have _rogue_ statements;
 
 ## External Code
-In level external code can be imported like this:
+In Wee external code can be imported like this:
 
 **Imports:**
 

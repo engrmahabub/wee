@@ -1,20 +1,20 @@
 ;---------------------------------
 ; Demo composite types
 ;---------------------------------
-#driver
+#driver "ct"
 
 ; enumration is a type 
-def Enum:{first=1, second, third} 
+def Enum <: {first:1, second, third} 
 
 ; print enumeration members
-put(Enum.first); 1
-put(Enum.second); 2
-put(Enum.third); 3
+put (Enum.first) ; 1
+put (Enum.second); 2
+put (Enum.third) ; 3
 
 write
 
 ; varine hash map variable
-var s: {A:N} 
+let s: {A:N} 
 
 ; assign (name:value) pairs
 set s := 
@@ -30,31 +30,31 @@ put(s["third"]); 30
 write
 
 ; array with capacity
-var v1: [Z](10)  ;vector of 10 integer elements
-var v2: [R](2,3) ;matrix of 2 rows and 3 columns
+let v1 <: [Z](10)  ;vector of 10 integer elements
+let v2 <: [R](2,3) ;matrix of 2 rows and 3 columns
 
 ; dynamic set / map collections
-var p: {A}    ;set collection of ASCII characters
-var m: {R,S}  ;hash map of strings with real key
+let p <: {A}    ;set collection of ASCII characters
+let m <: {R,S}  ;hash map of strings with real key
 
 ; Establish map using literals
 set m := {'a':1, 'b':2, 'c':3}
 
 ; complex list examples
-var q1: [A]        ; a list of characters
-var q2: [R]        ; a list of real numbers
-var q3: [[A]]      ; a list of lists of characters
-var q4: [[A](10)]  ; a list of array with capacity 10
+let q1 <: [A]        ; a list of characters
+let q2 <: [R]        ; a list of real numbers
+let q3 <: [[A]]      ; a list of lists of characters
+let q4 <: [[A](10)]  ; a list of array with capacity 10
 
 ; Array & Matrix literals
-var l2 := [1,2,3] ; short list of 3 elements
-var m2 := [[1,1],[2,2]]; matrix of 4x4
+let l2 := [1,2,3] ; short list of 3 elements
+let m2 := [[1,1],[2,2]]; matrix of 4x4
 
 ; Demo for set operations
-var s1 : {Z} ; empty set of strings
+let s1 <: {Z} ; empty set of strings
 
 ; Initialized set of 3 elements
-var s2 : {Z} = {1, 2, 3} 
+let s2 := {1, 2, 3} 
 
 ;append one element into a set
 set s1 += 0 ;{0}
@@ -69,14 +69,15 @@ set s1 -= 2; {0}
 put(s1 + s2); {0,1,2,3}
 
 ;set literals using type inference
-var s3 := {'a','b', 'c'} ; set of 2 elements
-var s4 := {'b','c','d'} ; set of 2 elements
+let s3 := {'a','b', 'c'} ; set of 2 elements
+let s4 := {'b','c','d'} ; set of 2 elements
 
 ;intersection between 2 sets
-put(s3 & s4); {'b','c'}
+put (s3 ∪ s4); {'a','b', 'c','d'}
+put (s3 ∩ s4); {'b','c'}
 
 ;difference between two sets
-put(s3 - s4); {'a'}
-put(s4 - s3); {'d'}
+put (s3 - s4); {'a'}
+put (s4 - s3); {'d'}
 
 ;end

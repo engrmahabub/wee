@@ -1,25 +1,25 @@
 ;----------------------------------------
 ; demonstrate method associated to a type
 ;----------------------------------------
-#driver
+#driver "me"
 
 ; enumeration with public members
-def Number: {.zero, .one, .two}
+def Number <: {.zero, .one, .two}
 
-var test :Number
+let test ∈ Number
 set test := zero ; instance of Number  
 
 ; create a method for type Number
-convert(x:Number):S 
-  => ('zero'| x == zero,
-      'one' | x == one, 
-      'two' | x == two,   
-      'none')
+convert(x ∈ Number)=> y ∈ S: 
+  set y:= ('zero': x = zero,
+        'one' : x = one, 
+        'two' : x = two,   
+        'none')
 convert.
 
 ; a wrapper method for convert     
-equal(x:Number, s:S): L 
-  => (s == x.convert()) 
+equal(x ∈ Number, s ∈ S):=> r ∈ L:
+  set r := (s = x.convert()) 
 equal.
     
 ; calling test methods 

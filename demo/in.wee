@@ -1,6 +1,6 @@
 ; wee input value demo
-#driver
-var a:N
+#driver "in"
+let a ∈ N
 put("to stop enter 0")
 write
 
@@ -11,7 +11,7 @@ cycle
   put("you enter: " + a)
   write   
   
-  exit if (a == 0)
+  exit if (a = 0)
 cycle.
 
 stop

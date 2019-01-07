@@ -1,36 +1,36 @@
 ;--------------------------------------------
 ;type inference demo
 ;--------------------------------------------
-#driver
+#driver "ti"
 ; constant literal create type
 con a := 10          ;Integer 
 con x := 0.5         ;Real
 
 ; type declaration is missing
-var v := [1,2,3]     ;List
-var s := 'string'    ;String
+let v := [1,2,3]     ;List
+let s := 'string'    ;String
 
 
 ;unicode strings inference
-var u := "♙ ♖ ♘ ♗ ♔ ♕" ; Unicode
+let u := "♙ ♖ ♘ ♗ ♔ ♕" ; Unicode
 
 ;use = with automatic conversion
-var t:T12 = '1:45am'    ; Time
-var t:T24 = '23:45'     ; Time
-var d:DMY = '10/10/2010'; Date
+let t := '1:45am'     -> T12; Time
+let t := '23:45'      -> T24; Time
+let d := '10/10/2010' -> DMY; Date
 
 ; parameters are optional
-add(x,y := 0):Z 
-  => (x + y) 
+add(x,y := 0) => z ∈ Z:
+  z := x + y 
 add.
 
-put(add(1,1)) ; will print 2
+put add(1,1) ; will print 2
 
 write
 
 ; argument x is mandatory, argument y is optional
-plus(x:Z, y := 1):Z 
-  => (x + y) 
+plus(x ∈ Z, y := 1) => z ∈ Z:
+  z := (x + y) 
 plus.
 
 put(plus(1)) ; will print 2

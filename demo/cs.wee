@@ -1,13 +1,13 @@
 ;------------------------------
 ; conrol structure demo
 ;------------------------------
-#driver
+#driver "cs"
 
 ;use type inference
-var a := 10, b := 5
+let a := 10, b := 5
 
 ;simple decision 
-put("a = b") if (a == b)
+put("a = b") if (a = b)
 put("a < b") if (a <  b)
 put("a > b") if (a >  b)
 
@@ -36,7 +36,7 @@ no
   is (a > 5) ? 
      put("a>5") 
   no
-     put('a == 5')
+     put('a = 5')
   is. 
 is.
 
