@@ -9,18 +9,18 @@ We can use composite types to declare variables, constants or other composite ty
 * A can be used to create arrays of ASCII characters compatible with C strings; 
 
 ```
-let str:S ;Unlimited capacity string
-let a  := [A](25) ;array of 25 characters
+let str ∈  S       ;Unlimited capacity string
+let a   <: [A](25) ;array of 25 characters
 
 set  str := 'Long ASCII string'
-set  a   := 'Short ASCII string'   
+set  a   := split(str)
 ```
 
 ## String conversion
 Conversion of a string into number is done using _parse_ function:
 
 ```
-let x,y:R
+let x,y ∈ R
 
 ; function parse return a Real number
 set x := parse('123.5',2,',.')       ;convert to real 123.5
@@ -71,8 +71,8 @@ See also: https://utf8everywhere.org/
 Strings can be concatenated using operator "+"
 
 ```
-let u:U
-let c:U
+let u ∈ U
+let c ∈ U
 
 set u := "This is" + " a long string."
 set c := "Unicode and " + 'ASCII'
@@ -107,7 +107,7 @@ Enumeration values can start with a different number. First value can be specifi
 ```
 def TypeName <: { name₁:2, name₂, name₃}
 
-let a, b, c: TypeName
+let a, b, c ∈ TypeName
 
 set  a := TypeName.name₁ ;a=2
 set  b := TypeName.name₂ ;b=3
@@ -122,8 +122,8 @@ def TypeName <: { .name1, .name2 }
 
 let a, b := 0
 
-set  a := name1 ;a = 0
-set  b := name2 ;b = 1
+set a := name1 ;a = 0
+set b := name2 ;b = 1
 
 ```
 
@@ -140,7 +140,7 @@ Elements in array are indexed from 0 to n-1 where n is capacity.
 
 **Example:**
 ```
-let test := [R](10) ; define array with 10 Integer elements
+let test <: [R](10) ; define array with 10 Integer elements
 
 put(test[0]) ; first element
 put(test[?]) ; last element
@@ -153,8 +153,7 @@ for.
 write
 
 ; modify all elements of array
-let m : N
-set m := length(test)  
+let m := length(test)  
 
 for i ∈ [0.!m] do
   test[i] ⋅= 2
@@ -176,8 +175,8 @@ We can define a view for a section of array using [n..m] notation. This is calle
 **Syntax:**
 
 ```
-; declare an arry with capacity (n)
-let <array_name> : [<type>](n)
+; declare an array with capacity (n)
+let <array_name> <: [<type>](n)
 
 ;we use range notation [..] to create a slice from array
 set <slice_name> := <array_name>[n..m]
@@ -208,7 +207,7 @@ It is an array with 2 or more indexes. We can have 2D or 3D array.
 
 **Example:** 
 ```
-let m:[R](4,4) ; define matrix
+let m <: [R](4,4) ; define matrix
 
 ; initialize matrix using new ":="
 set m := [[1,2,3,4],[5,6,7,8],[9,10,11,12],[13,14,15,16]]
@@ -295,7 +294,7 @@ A function can create as a results a tuple.
 ;body-less function do not use ":" and "."
 test(x,y ∈ Z) => (x+1, y+1)
 
-let n,m:Z
+let n,m ∈ Z
 
 ;unpacking the result
 set n,m := test(1,2)
@@ -313,7 +312,7 @@ Tuple members can be ignored when unpacking using anonymous variable: "_"
 
 ```
 let t := (0, 1, 2, 3, 4, 5)
-let x,y,z:Z
+let x,y,z ∈ Z
 
 ; first element and last 2 are ignored
 set _, z, y, z, _, _ := t
@@ -331,7 +330,7 @@ This is the reason Wee is not a curly bracket language. We use the brackets for 
 **Syntax:**
 ```
 def <TypeName> <: {<element> : <type>,<element> : <type>...}
-let <var_name> : <TypeName>
+let <var_name> ∈ <TypeName>
 
 ;using qualifier with attributes
 set <var_name.element> := <value>
@@ -350,7 +349,7 @@ set <var_name> := {
 def Person <: {
       name : S, 
       age  : N,  
-      children:[Person]
+      children: [Person]
     }  
 
 let r1,r2 ∈ Person
@@ -403,27 +402,27 @@ Dynamic structures are implicit references. Default value is empty collection.
 
 **Syntax:**
 ```
-let <var_name>:[<member_type>] ;list 
-let <var_name>:{<member_type>} ;set
-let <var_name>:{<key>:<value>} ;map
+let <var_name> <: [<member_type>] ;list 
+let <var_name> <: {<member_type>} ;set
+let <var_name> <: {<key>:<value>} ;map
 
 ```
 
 **Example:**
 ```
 ; define a string
-let  m,n: S  ;string 
+let  m,n ∈ S  ;string 
 
 set  m := 'This is '           
 set  n := 'a very long string'
 
 ; define lists of strings
-let  lst1,lst2,list:[S] 
+let  lst1,lst2,list := [S] 
   
 set lst1 := split(m)
 set lst2 := split(n)
 
-set list := lst1 ++ lst2 ; concatenate two lists
+set list := lst1 + lst2 ; concatenate two lists
 put list.join(n)        ; This is a very long string
 
 write
@@ -437,10 +436,10 @@ A mathematical set is a collection of unique elements.
 ;define 3 collections
 let s1:= {1,2,3} 
 let s2:= {2,3,4}
-let s :{N} ;this is an empty set
+let s <: {N} ;this is an empty set
 
 ; empty collection
-put("set s is empty") if s = {}
+put("set s is empty") if s = ∅
 
 ; collection operations
 set s := s1 ∪ s2 ;{1,2,3,4} ;union
@@ -486,8 +485,11 @@ set last :=  ls[?] ; 'c'
 A stack is a LIFO sparsed collection of elements. We use "*" on right side.
 
 ```
-let a:[N*] = [1,2,3]
-let last:N
+let a <: [N*]
+let last ∈ N
+
+;initial value for a
+set a:= [1,2,3]
 
 ; using push operator "+="
 set a += 4 ; [1,2,3,4]
@@ -501,10 +503,12 @@ set last := --a[?] ; last = 4, a = [1,2,3]
 A queue is a FIFO sparsed collection of elements. We use "*" on left side.
 
 ```
-let a:[*N] = [1,2,3]
+let a <: [*N] 
 let first:M
 
-; using engueue operator "+="
+set a := [1,2,3]
+
+; using enqueue operator "+="
 set a += 4 ; [1,2,3,4]
 
 ; using dequeue operator "--"
@@ -516,7 +520,9 @@ set first := --a[0] ; 1 and a = [2,3,4]
 A map is a hash collection of data indexed by a key.
 
 ```
-let map :  {A:S}
+let map <: {A:S}
+
+; initial value of map
 set map := {'a':'first', 'b':'second'}
 
 ; create new element
@@ -553,14 +559,14 @@ write
 To avoid loops we introduce notation notation [*] for all elements.
 
 ```
-let a:[1,2,3]
+let a:=[1,2,3]
 
 ; modify all elements
 set a[*] += 1 ; [2,3,4]
 set a[*] -= 1 ; [1,2,3]
 
 ; multiply all elements
-set a[*] ⋅= 2 ; [2,4,6]
+set a[*] *= 2 ; [2,4,6]
 set a[*] /= 2 ; [1,2,3]
 ```
 
@@ -645,7 +651,7 @@ is.
 Wee is using a special notation to create a sub-set.
 
 ```
-let a,b: {Z}
+let a,b <: {Z}
 
 set  a := { e : e ∈ [0.!10] }
 set  b := { x : x ∈ Z & 0 ≤ x < 10 }
@@ -674,8 +680,8 @@ A filter is a logical expression after "if" keyword enclosed in paranthesis ().
 In next example we convert a set into a list of elements.
 
 ```
-let a:{N}
-let n:[N]
+let a <: {N}
+let n <: [N]
 
 set a := {0,1,2,3,4,5,6,7,8,9} 
 set b := [ x : x ∈ a, (x % 2 = 0)]
@@ -699,7 +705,7 @@ One function or method can receive variable number of arguments into an array us
 
 ```
 ;parameter *bar must be an array 
-foo(*bar:[Z]) => x ∈ Z:
+foo(*bar <: [Z]) => x ∈ Z:
   for i ∈ bar do
     x += bar[i]
   for.

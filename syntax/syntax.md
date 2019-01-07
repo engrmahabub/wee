@@ -2,14 +2,12 @@
 
 For syntax notation we use modified BNF convention:
 
-* We use <...> to represent identifier names.
-* We use  ...  to represent repetitive sequence.
-* We use [...] to represent optional things. 
+* We use \<name\> to represent identifier names;
+* We use  ...  to represent repetitive sequence;
+* We use notes to mention optional things;
 
-**Note:** This syntax is not deterministic. Sometimes [] represents the real deal. Also "..." can be used as real symbol.
-
-## Expresions
-Expresions are created using identifiers, operators, functions and constant literals. 
+## Expressions
+Expressions are created using identifiers, operators, functions and constant literals. 
 
 * can be enumerated using comma separator ","
 * can be combined to create more complex expressions;
@@ -21,16 +19,15 @@ Expresions are created using identifiers, operators, functions and constant lite
 **Examples**
 ```
 ;simple expressions in put statement
-put(10)     ; print 10
-put(10,11)  ; print 1011
-put(n)      ; print value of n
+put 10    ; print 10
+put 10,11 ; print 1011
 
 write
 
 ;complex expressions are using ()  
-put(10,11,12)    
-put(10 + 10) + 15 
-put((10 > 5) and (2 < 3))
+put 10,11,12    
+put 10 + 10 + 15 
+put (10 > 5) & (2 < 3)
 
 ;multiple expressions in a line
 put(1,',',2,',',3) ;expect 1,2,3
@@ -39,11 +36,13 @@ put(10, 11, 12)    ;expected 101112
 write
 ```
 
-**Note:** put statement add new line atuomatically
+**Notes:** 
+* put statement add new line automatically
+* put statement can receive multiple parameters
 
 ## Data types
 
-Digital data is based on binary numbers: {0, 1} named bit.
+Digital data is based on binary numbers: {0, 1}.
 Using this basic values we represent all data types.
 
 Wee use 3 kind of data types:
@@ -97,23 +96,25 @@ Wee has support for numeric constants. These can be used in expressions to repre
 
  op | purpose
 ----|--------------------------------------------------------------
- :  | declare type, function or block also used as pair-up operator
- := | establish value for a variable or constant using let statement
+ :  | declare type, function or code block or pair-up operator
+ :> | declare type, subtype or composite type (class or pattern)
+ := | establish value for a variable or constant using let or set
 
 ## Variable declarations
 
-Variables are defined using let keyword and ":" symbol.
-One variable can have initial value defined with "=" symbol.
+Variables are defined using let keyword and ":=" symbol.
 
 ```
 let <var_name> := <constant>
 let <var_name> := <constructor>
+let <var_name> <: <composite_type>
+let <var_name> ∈  <base_type> | <user_type>
 ```
 
 Multiple variables can be define in one single line using comma separator:
 ```
-let <var_name>[,<var_name>] ... := <constant>
-let <var_name>[,<var_name>] ... := <constructor>
+let <var_name>,<var_name> ... := <constant>
+let <var_name>,<var_name> ... := <constructor>
 ```
 
 ## Constant declaration
@@ -134,7 +135,7 @@ We can modify variables using _set_ statement.
 
 ```
 let a := 10 ; declare integer variable 
-let b ∈ Z   ; declare variable b
+let b ∈ Z   ; declare variable b=0
 
 set b := a  ; modify b
 put b       ; expected 10
@@ -174,7 +175,7 @@ set a := 11, q := False, x,y := 20.15
 User can define types using keyword _def_ and operator ":".
 
 ```
-def <type_name> <: <sub-tipe constructor> 
+def <type_name> <: <subtype constructor> 
 
 ;using new type
 let <var_name>[,<var_name>] ... ∈ <type_name>
@@ -193,8 +194,8 @@ Numeric types are automatically converted when this is safe.
 
 **example:**
 ```
-let a := 0, b := 20   ∈ N
-let v := 10.5, x:=0.0 ∈ R
+let a := 0, b := 20   
+let v := 10.5, x:=0.0 
 
 ;unsafe conversion
 set a:= v -> N;
@@ -223,11 +224,11 @@ set b := y -> A ; convert to '0'
 We can use variable type to verify expressions.
 
 ```
-let a := 0   ∈ Z ;integer variable
-let b := 0.0 ∈ R ;real variable
+let a := 0   ;integer variable
+let b := 0.0 ;real variable
 
-set b := 10     ;PASS: automatic safe conversion  
-set a := 10.5   ;FAIL: a is of type: Integer
+set b := 10  ;PASS: automatic safe conversion  
+set a := 10.5;FAIL: a is of type: Integer
 ```
 
 ## Logic type
@@ -267,8 +268,8 @@ Logical expression have value { False or True }
 
 ```
 ; simple expressions
-let x:= False
-let y:= True 
+let x:= False ∈ L
+let y:= True  ∈ L
 
 put(x)  ; will print: 0
 put(y)  ; will print: 1
@@ -326,8 +327,8 @@ let a ∈ Z
 set a:=1 if a = 0 
 
 ; conditional output
-put "a is 0" if a = 0
-put "a >  0" if a ≥ 0
+put "a is 0" if (a = 0)
+put "a >  0" if (a ≥ 0)
  
 write 
 ```
@@ -342,9 +343,9 @@ A decision is based on logical expressions and keywords { is, no } and symbol "?
 Logical expression must be enclosed in paranthesis () alwais.
 
 ```
-let a:= 10
+let a:= 10 
 
-; single brach
+; single branch
 is (a = 10)?
    put('yes')
 is.   
@@ -386,7 +387,7 @@ Using "..." (ellipsis) to continue.
 ```
 let a := 15
 
-; fallthrough using: "..."
+; fall-through using: "..."
 check
    when (a < 0):
      put 'a <0'
@@ -409,7 +410,7 @@ check.
 Repetition is a block of code that execute multiple times. It is using keywords: {cycle, repeat, exit}
 
 ```
-let a:Z=10
+let a := 10
 
 cycle
   set a -= 1
@@ -499,7 +500,7 @@ let  x   := 10
 let  a,r := 0
 
 cycle
-  set r := x%2
+  set r := x % 2
   set a := (0 : r = 0, 1 : r > 0, 2)
   out (a, ',')
   set x-=1
@@ -529,7 +530,7 @@ write
 **Example:** 
 
 ```
-let z: Z
+let z ∈ Z
 
 func(x,y:Z) => z ∈ Z:
   x += 1
@@ -558,7 +559,7 @@ A function that have no result is called a method.
 
 ```
 foo():
-  put("hello, I am foo")
+  put "hello, I am foo"
 foo.  
   
 foo; execute method
@@ -577,7 +578,7 @@ Usually a method is working for a specific type.
 def Foo <: {p1 ∈ N, p2 ∈ N, p3 ∈ S} 
 
 ;constructor (same name as Foo)
-foo()=> me ∈ Foo:
+foo() => me ∈ Foo:
   me := {0,0,0}
 foo.
 

@@ -158,7 +158,7 @@ other operators
  
 − ∕ ∗ 
 ∘ 2217 Ring Operator
-∙ 2219 Bulet Operator
+∙ 2219 Bullet Operator
 ⋅      Middle dot 
 ⋆      Star operator
 

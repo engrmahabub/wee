@@ -66,11 +66,14 @@ When we define parameters we can use type inference for:
 
 **Optional Parameters:**
 ```
-f(a, b := 0):Z => (a+b) f.
+; single line function
+; result type is not specified
+; function body is enclosed in parentheses
+f(a, b := 0) => (a+b)
 
-put(f()   ); 0
-put(f(1)  ); 1
-put(f(1,2)); 3
+put f()   ; 0
+put f(1)  ; 1
+put f(1,2); 3
 ```
 
 **Multiple parameters:**
@@ -78,7 +81,7 @@ put(f(1,2)); 3
 Parameters: a, b are mandatory, c is optional.
 
 ```
-f(a,b:Z, c := 0 ):Z => (a+b+c) f.
+f(a,b ∈ Z, c := 0 ) => (a+b+c) 
 
 put f(1,2)   ; 3
 put f(1,2,3) ; 6

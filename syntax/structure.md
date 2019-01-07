@@ -60,33 +60,33 @@ Rogue statements are executed top down in synchronous mode.
 
 
 ```
-;demo program "main"
-
-#driver "main" 
-let i: Z ; declare variable i
+#driver "main"
 
 ; list all parameters
-is length($params) > 0 ?
-  cycle
-    put($params[i])
-    is i=length($params) ?
+let i ∈ Z  ; declare control variable i
+let l := $params.count() ; declare number of parameters
+
+; check precondition
+halt(1) if (l = 0)
+
+cycle
+    put $params[i]
+    is (i = l)?
       exit
     no
       i+=1
       repeat
     is.
-  cycle.
-  stop(0) ;end program
-no
-  halt(1) ;error: no parameters
-is.
+cycle.
 
-; end main
+stop(0)
+;end program
 ```
 
 **Notes:** 
-* $params is a global system variable available in #driver and any #module.
-* Parameter _params_ is of type [S] that is a list are strings.
+* This program is a #driver having file-name "main.wee";
+* $params is a global system variable available in #driver and #module;
+* Parameter _params_ is of type [S] that is a list are strings;
 * Program _module_, _system_ and _extend_ files do not have _rogue_ statements;
 
 ## External Code
@@ -96,12 +96,12 @@ In level external code can be imported like this:
 
 ```
 wee math.*
-cpp myLib,x,y,z
+cpp myLib:x, y, z
 asm myAsm.*
 ```
 
-use (.*) all public members are used
-use ,x,y,z only x,y,z members are used
+use .* all public members are used
+use :x,y,z only x,y,z members are used
 
 **Environment variables*
 Environment variables are globals anthat start with $ symbol. 
@@ -143,10 +143,12 @@ A public member from another module can be access using dot notation.
 
 ```
 ;public variable
-let .v: N 
+let .v ∈ N:
 
 ;public function
-.f(x:N) :N => x+1 f.
+.func(x:N) => y ∈ N: 
+  y := x+1 
+ func.
 ```
 
 ## Execution
@@ -168,7 +170,7 @@ This is myLib.wee file:
 
 cpp myLib
 
-fib(n:Z) => x  Z 
+fib(n:Z) => x ∈ Z: 
    myLib.fib 
 fib.
 ```
@@ -214,12 +216,12 @@ To understend more abput interacting with other languages check this article abp
 |symbol| description
 |------|-----------------------------------------------------------------------
 | \\   | Escape literal character (\n = New Line)
-|  :   | Define type alias, variable, parameter or function result type
+|  :   | Define function, method or data type
+|  <:  | Define new data type from a supertipe or create a composite type 
 | ..   | Define range between two values (n..m) \| array slice [n..m]
 | !.   | Define range and exclude left limit [n!.m]
 | .!   | Define range and exclude right limit [n.!m]
 | !!   | Define range and exclude the limits [n!!m]
-|  :\> | Define control variable from collection
 |  :=  | Modify variable value \| Initialize variables
 |   =  | Set initial value for variables and constants
 | \+   | Numeric addition |\ union between two collections    
@@ -228,8 +230,8 @@ To understend more abput interacting with other languages check this article abp
 | -=   | Subtraction modifier \| collection remove
 | ^    | Numeric power 
 | ^=   | Numeric power mofifier
-| *    | Numeric multiplication \| multiple parameters prefix
-| ⋅=   | Multiplication modifier 
+| *    | Numeric multiplication \| multi-parameters prefix
+| *=   | Multiplication modifier 
 | /    | Numeric division
 | /=   | Division modifier 
 | %    | Numeric reminder 
@@ -338,15 +340,13 @@ Time    | T |Time data type
 ## Collection types
 In Wee there are available following collection types:
 
-* String
-* Unicode
-* Array   
-* Matrix   
-* List
-* Hash Map
-* Set 
-* Queue
-* Stack
+* [] = Array   
+* [] = Matrix   
+* [] = List
+* {} = Hash Map
+* {} = Set 
+* {} = Queue
+* {} = Stack
  
 ## Builtin functions/methods
  
@@ -365,7 +365,7 @@ In Wee there are available following collection types:
 
 | Function | Purpose
 |----------|------------------------------------------ 
-| split    | Split a string into a list
+| split    | Split a string into a list / array
 | join     | Join a list into a string 
 | find     | Search one sub-string in a string
 | replace  | Replace one sub-string in a string
@@ -392,6 +392,7 @@ In Wee there are available following collection types:
 | tan      | tangetn
 | pow      | power
 | sqr      | square root
-| fac      | factorial  
+| fac      | factorial
+| mod      | modulo y = |x|  
 
 **Read next:** [Syntax Overview](syntax.md)

@@ -9,9 +9,25 @@ Use this file is to find unicode symbols.
 * ℂ = Complex Numbers  
 
 Alternative notation for numeric types:
-* ℙ ?
-* ℍ ?
+* ℙ = Maybe pointer ?
+* ℍ = Hexadecimal number
 
+**Superscript**
+M⁽⁾ ⁺ ⁻ ⁼ · ⁰ ¹ ² ³ ⁴ ⁵ ⁶ ⁷ ⁸ ⁹ 
+A ⁿ ʰ ˣ ʸ ʰ ʷ ʳ ʴ ˢ ʲ ʺ ʻ ʼ 
+
+**Subscript**
+M . ‚ ₀ ₁ ₂ ₃ ₄ ₅ ₆ ₇ ₈ ₉ 
+Xₐ…ₑₕᵢⱼₖₗₘₙₒₚᵣₛₜᵤᵥₓₔ
+
+**Actionable**
+
+sym  | xp          | action
+-----|-------------|----------------
+ ⋅=  | x ⋅= 2      |multiplication  
+ ⋅   | y  = x⋅2    |multiplication  
+ ↻   | xp ↻ n      |repeat n times 
+     
 **Set symbols**
 
 Symbol | Unicode | Description
@@ -51,11 +67,6 @@ Sym | Interpretation
 ∨   | bit or
 ~   | bit xor
 
-Symbol |UNC    | Description
--------|-------|----------------------------------------------------------
-π      |U+03C0 | 3.14 (radian) equivalent to 180°  
-λ      |U+03BB | lambda function
-
 **Logical operators**
 
 Symbol |UNC    | Description
@@ -70,9 +81,14 @@ Symbol |UNC    | Description
 ≤      |U+2264 | Less then or equal to 
 ≥      |U+2265 | Greater then or equal to
 ∴      |U+2234 | Therefore (→) U+2192
-∵      |U+2235 | Becouse   (←) U+2190
+∵      |U+2235 | Because   (←) U+2190
 ∝      |       | Proportion
 ≡      |U+2261 | Equivalent/Identical (set/collection/object)
+
+Symbol |UNC    | Description
+-------|-------|----------------------------------------------------------
+π      |U+03C0 | 3.14 (radian) equivalent to 180°  
+λ      |U+03BB | lambda function
 
 **Math operators**
 
@@ -121,22 +137,4 @@ Symbol | Unicode | Description
 ≻      |U+227B   | Succeeds
 ≼      |U+227C   | Precedes or equal to
 ≽      |U+227D   | Succeeds or equal to
-
-**Actionable**
-
-sym  | xp          | action
------|-------------|----------------
- ⋅=  | x ⋅= 2      |multiplication  
- ⋅   | y  = x⋅2    |multiplication  
- ↻   | xp ↻ n      |repeat n times 
-     |             |
-     
-**Superscript**
-M⁽⁾ ⁺ ⁻ ⁼ · ⁰ ¹ ² ³ ⁴ ⁵ ⁶ ⁷ ⁸ ⁹ 
-A ⁿ ʰ ˣ ʸ ʰ ʷ ʳ ʴ ˢ ʲ ʺ ʻ ʼ 
-
-**Subscript**
-M . ‚ ₀ ₁ ₂ ₃ ₄ ₅ ₆ ₇ ₈ ₉ 
-Xₐ…ₑₕᵢⱼₖₗₘₙₒₚᵣₛₜᵤᵥₓₔ
-
      
