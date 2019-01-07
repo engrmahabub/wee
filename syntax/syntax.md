@@ -332,9 +332,10 @@ let hdd₀,hdd₁,hdd₂,hdd₃,jdd₄ := ('A:','B:','C:','D:','E:')
 ; subscript notation for coordinates
 let x₁,x₂:= 0
 let y₁,y₂:= 10
+let d ∈ R
 
 ; use Unicode superscript for power
-let d := sqr((x₂-x₁)²+(y₂-y₁)²)
+set d := sqr((x₂-x₁)²+(y₂-y₁)²)
 ```
 
 **Unicode**: [symbols](symbols.md)
