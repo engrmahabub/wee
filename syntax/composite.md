@@ -9,21 +9,22 @@ We can use composite types to declare variables, constants or other composite ty
 * A can be used to create arrays of ASCII characters compatible with C strings; 
 
 ```
-let s : S ; Unlimited capacity string
-let a : [A](25) ; C like string of 25 characters
+let str ∈ S ;Unlimited capacity string
+let a := [x ∈ A: x := 0 ↻ 25] ;array of 25 characters
 
-set  a := 'short string'
-set  s := 'This is long ASCII string'   
+set  str := 'Long ASCII string'
+set  a   := 'Short ASCII string'   
 ```
 
 ## String conversion
 Conversion of a string into number is done using _parse_ function:
 
 ```
-let x,y: R
+let x,y ∈ R
 
-set  x := parse('123.5',2,",.")       ;convert to real 123.5
-set  y := parse('10,000.3333',2,",.") ;convert to real 10000.33
+; function parse return a Real number
+set x := parse('123.5',2,',.')       ;convert to real 123.5
+set y := parse('10,000.3333',2,',.') ;convert to real 10000.33
 ```
 
 ## Control codes:
@@ -70,8 +71,8 @@ See also: https://utf8everywhere.org/
 Strings can be concatenated using operator "+"
 
 ```
-let u: U
-let c: U
+let u ∈ U
+let c ∈ U
 
 set u := "This is" + " a long string."
 set c := "Unicode and " + 'ASCII'
@@ -90,8 +91,8 @@ set  <variable> := <template> <+ (<var1>,[<var2>,]...)
 
 **Examples:**
 ```
-set  x := 30 ; Code ASCII 0
-set  y := 41 ; Code ASCII A
+let x := 30 ; Code ASCII 0
+let y := 41 ; Code ASCII A
 
 ;template writing
 put('{0} > {1}' <+ (x,y)) ;print "30 > 41"
@@ -100,29 +101,29 @@ put('{0} > {1}' <+ (x,y)) ;print "30 > 41"
 
 ## Enumeration
 
-Enumeration is an abstract data set. It is a group of identifiers. Each identifier represents an integer value starting from 0 to n-1.
-Enumeration values can start with a different number. First value is specified using assogm "=" operator.
+Enumeration is an abstract data set. It is a group of identifiers. Each identifier represents an integer value starting from 0 to n-1 by default.
+Enumeration values can start with a different number. First value can be specified using pair-up ":" operator.
 
 ```
-def TypeName : { name1 = value ,name2 ... }
+def TypeName <: { name₁:2, name₂, name₃}
 
-let a, b: TypeName
+let a, b, c: TypeName
 
-set  a := TypeName.name1
-set  b := TypeName.name2
-
+set  a := TypeName.name₁ ;a=2
+set  b := TypeName.name₂ ;b=3
+set  c := TypeName.name₃ ;c=4
 ```
 
 **Note:** When element name start with "." no need to use qualifiers for individual values
 
 ```
 ; using public elements in enumeration
-def TypeName: { .name1, .name2 }
+def TypeName <: { .name1, .name2 }
 
 let a, b := 0
 
-set  a := name1 ;a becomes 0
-set  b := name2 ;b becomes 1
+set  a := name1 ;a = 0
+set  b := name2 ;b = 1
 
 ```
 
@@ -131,15 +132,15 @@ set  b := name2 ;b becomes 1
 Wee define Array variable using notation:[]().
 
 ```
-let <array_name> : [member_type](n)   ;one dimension with capacity n
-let <matrix_name>: [member_type](n,m) ;two dimensions with capacity n x m
+let <array_name> :=[<member-type>](n)   ;one dimension with capacity n
+let <matrix_name>:=[<member-type>](n,m) ;two dimensions with capacity n x m
 ```
 
 Elements in array are indexed from 0 to n-1 where n is capacity.
 
 **Example:**
 ```
-let test: [R](10) ; define array with 10 Integer elements
+let test := [x ∈ R](10) ; define array with 10 Integer elements
 
 put(test[0]) ; first element
 put(test[?]) ; last element
@@ -156,7 +157,7 @@ let m:N
 set m:= length(test)  
 
 for i ∈ [0.!m] do
-  test[i] *= 2
+  test[i] ⋅= 2
 for.
     
 ; print put the entire array
@@ -176,23 +177,29 @@ We can define a view for a section of array using [n..m] notation. This is calle
 
 ```
 ; declare an arry with capacity (n)
-let <array_name> : [<type>](n)
+let <array_name> := [<type>](n)
 
-;we use := to create a slice from array
+;we use range notation [..] to create a slice from array
 set <slice_name> := <array_name>[n..m]
 ```
 
 **Notes:** 
 * Slice is a view for a series of members in original array.
 * Slice members are references to original array members not a copy.
-* Last element is simbolized by "?"
+* Last element of array is simbolized by "?"
 
 ```
+; slice examples
 let a:=[1,2,3,4]
-let b,c,d:[Z]
+let b:=a[1..?] ; [2,3,4]
+let c:=a[0..2] ; [1,2,3]
 
-set b:=a[1..?] ; [2,3,4]
-set c:=a[0..2] ; [1,2,3]
+;modify slice elements
+set b[0] := 8
+set c[0] := 0
+
+;original array is modified
+put a ; expect [0,8,3,4
 ```
 
 ## Matrix
@@ -326,7 +333,7 @@ This is the reason Wee is not a curly bracket language. We use the brackets for 
 
 **Syntax:**
 ```
-def <TypeName>: {<element>:<type> [,<element>:<type>]...}
+def <TypeName> <: {<element>:<type> [,<element>:<type>]...}
 let <name>:<TypeName>
 
 ;using qualifier with attributes
@@ -343,7 +350,7 @@ set <var_name> := {
 
 **Example:**
 ```
-def Person: {
+def Person <: {
       name:S, age:W,  
       child: {name:S, age:W}
     }  
@@ -548,7 +555,7 @@ set a[*] += 1 ; [2,3,4]
 set a[*] -= 1 ; [1,2,3]
 
 ; multiply all elements
-set a[*] *= 2 ; [2,4,6]
+set a[*] ⋅= 2 ; [2,4,6]
 set a[*] /= 2 ; [1,2,3]
 ```
 
@@ -562,7 +569,7 @@ set a[0..1] += 1 ; [1,2,2,3]
 set a[0..1] -= 1 ; [0,1,2,3]
 
 ; multiply last elements startinx from index 2
-set a[2..?] *= 2 ; [0,1,4,6]
+set a[2..?] ⋅= 2 ; [0,1,4,6]
 set a[2..?] /= 2 ; [0,1,2,3]
 ```
 
@@ -607,12 +614,12 @@ write
 
 ```
 ;sub-type declarations
-def SmallRange    : B[0..9]
-def NegativeRange : Z[-10..-1]
-def AlfaChar      : A[a..Z]
-def NumChar       : A[0..9]
-def Positive      : Z[0!.]
-def Negative      : Z[.!0]
+def SmallRange    <: B[0..9]
+def NegativeRange <: Z[-10..-1]
+def AlfaChar      <: A[a..Z]
+def NumChar       <: A[0..9]
+def Positive      <: Z[0!.]
+def Negative      <: Z[.!0]
 
 ;Check variable belong to sub-type
 is ('x' in AlfaChar)? 
@@ -688,10 +695,9 @@ One function or method can receive variable number of arguments into an array us
 
 ```
 ;parameter *bar must be an array 
-foo(*bar:[Z]) => x ∈ Z:
-  let result:Z 
+foo(*bar[Z]) => x ∈ Z:
   for i ∈ bar do
-      result +=bar[i]
+    x +=bar[i]
   for.
 foo.
 

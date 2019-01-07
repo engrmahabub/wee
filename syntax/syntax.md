@@ -82,25 +82,23 @@ Wee native types are represented with one uppercase larter.
 
 Wee has support for numeric constants. These can be used in expressions to represent numbers.
 
-   Literal     | Description
----------------|-------------------------------------------------------------------------
-0              | integer zero
-1234567890     | integer number using symbols: (0,1,2,3,4,5,6,7,8,9)
-0b10101010     | binary integer using symbols: {0b,0,1}
-0xFF           | hexadecimal integer using symbols: (0x,0,1,2,3,4,5,6,7,8,9,A,B,C,D,E,F)
-0.5            | real number: (.,0,1,2,3,4,5,6,7,8,9)
-0.0            | real number: (.,0,1,2,3,4,5,6,7,8,9) 
-5E2            | real number: 5*10²  = 500  (E use positive exponent)
-5e2            | real number: 5*10⁻² = 0.05 (e use negative exponent)
+   Literal | Description
+-----------|---------------------------------------------------------------------
+0          | integer zero
+1234567890 | integer number using symbols: (0,1,2,3,4,5,6,7,8,9)
+0b10101010 | binary integer using symbols: {0b,0,1}
+0xFF       | hexadecimal integer using symbols: (0x,0,1,2,3,4,5,6,7,8,9,A,B,C,D,E,F)
+0.5        | real number: (.,0,1,2,3,4,5,6,7,8,9)
+0.0        | real number: (.,0,1,2,3,4,5,6,7,8,9) 
+5E2        | real number: 5*10²  = 500  (E use positive exponent)
+5e2        | real number: 5*10⁻² = 0.05 (e use negative exponent)
 
 **Operators** 
 
  op | purpose
 ----|--------------------------------------------------------------
- :  | declare variable type or parameter type or result type
- :  | is also used as pair-up operator in composite types
- =  | assign initial value for variables, arguments or parameters
-:=  | modify value of a variable using set statement or inference
+ :  | declare type, function or block also used as pair-up operator
+ := | establish value for a variable or constant using let statement
 
 ## Variable declarations
 
@@ -108,20 +106,21 @@ Variables are defined using let keyword and ":" symbol.
 One variable can have initial value defined with "=" symbol.
 
 ```
-let <var_name> : <type>
-let <var_name> : <type> = <constant>
+let <var_name> := <constant>
+let <var_name> := <constructor>
 ```
 
 Multiple variables can be define in one single line using comma separator:
 ```
-let <var_name>[,<var_name>] ... : <type>
-let <var_name>[,<var_name>] ... : <type> = <constant>
+let <var_name>[,<var_name>] ... := <constant>
+let <var_name>[,<var_name>] ... := <constructor>
 ```
 
 ## Constant declaration
 
 ```
-con <constant_name> : <type> = <value>
+con <constant_name> := <constant>
+con <constant_name> := <constructor>
 ```
 
 **Notes**
@@ -134,28 +133,28 @@ con <constant_name> : <type> = <value>
 We can modify variables using _set_ statement.
 
 ```
-let a:Z = 10 ; declare integer variable 
-let b:Z      ; declare variable b
+let a := 10 ; declare integer variable 
+let b ∈ Z   ; declare variable b
 
-set b := a ; modify b
-put(b)      ; expected 10
+set b := a  ; modify b
+put b       ; expected 10
 ```
 
 **Statement _set_** 
 
-* must use at least one modifier ( :=, +=, *=, ++, --, ... )
+* must use at least one modifier ( :=, +=, ⋅=, ++, --, ... )
 * can modify multiple variables separated with comma
 * can execute multiple expressions separated with comma
 
 **Examples:**
 ```
 ; define a constant that can't change it's value
-con pi:R = 3.14
+con pi:= 3.14
 
 ; establis a let region for multiple variables
-let a   : Z ;Integer 
-let x,y : R ;Double
-let q,p : L ;Logic
+let a   ∈ Z ;Integer 
+let x,y ∈ R ;Double
+let q,p ∈ L ;Logic
 
 ;using modifier operators
 set a := 10  ; modify value of a
@@ -163,8 +162,8 @@ set a += 1   ; increment value of a-
 set a -= 1   ; decrement value of a 
 
 ; modify two variables using one constant
-set  q, p := True  ; modify value of q
-set  x, y := 10.5  ; modify value of x and y
+set q, p := True  ; modify value of q
+set x, y := 10.5  ; modify value of x and y
 
 ;modify several variables in a single line
 set a := 11, q := False, x,y := 20.15
@@ -175,11 +174,10 @@ set a := 11, q := False, x,y := 20.15
 User can define types using keyword _def_ and operator ":".
 
 ```
-def <type_name> : <type_specification> 
+def <type_name> <: <sub-tipe constructor> 
 
 ;using new type
-let <var_name> : <type_name>
-let <var_name>[,<var_name>] ... : <type_name>
+let <var_name>[,<var_name>] ... ∈ <type_name>
 ```
 
 ## Type conversion
@@ -195,8 +193,8 @@ Numeric types are automatically converted when this is safe.
 
 **example:**
 ```
-let a:N=0, b:N=20
-let v:R=10.5, x:R=0
+let a := 0, b := 20   ∈ N
+let v := 10.5, x:=0.0 ∈ R
 
 ;unsafe conversion
 set a:= v -> N;
@@ -212,8 +210,8 @@ put(b) ; expect 20
 Wee define A = ASCII character as native type.
 
 ```
-let a,b :A ;ASCII character
-let x,y :B ;Binary number 
+let a,b ∈ A ;ASCII character
+let x,y ∈ B ;Binary number 
 
 set a := '0'    ; representation of 0
 set x := a -> B ; convert to 30
@@ -225,12 +223,11 @@ set b := y -> A ; convert to '0'
 We can use variable type to verify expressions.
 
 ```
-let a: Z = 0   ;integer variable
-let b: R = 0.0 ;real variable
+let a := 0   ∈ Z ;integer variable
+let b := 0.0 ∈ R ;real variable
 
-set b := 10   ; PASS: automatic safe conversion  
-set a := 10.5 ; FAIL: a is of type: Integer
-
+set b := 10     ;PASS: automatic safe conversion  
+set a := 10.5   ;FAIL: a is of type: Integer
 ```
 
 ## Logic type
@@ -238,7 +235,7 @@ set a := 10.5 ; FAIL: a is of type: Integer
 Logic type is an enumeration of two constants False and True.
 
 ```
-def .L: {.False, .True}
+def .L <: {.False, .True}
 ```
 **Notes:** 
 * Public members start with dot "." symbol.
@@ -249,37 +246,37 @@ def .L: {.False, .True}
 For Logic type "L" Wee uses two numbers: {0, 1}    
 Logical operators in order of precendence: {not, and, or}
 
- A    | B     | A and B  | A or B | not A |  not B  | A xor B
-------|-------|----------|--------|-------|---------|--------
- True | True  | True     | True   | False | False   | False
- True | False | False    | True   | False | True    | True
- False| True  | False    | True   | True  | False   | True
- False| False | False    | False  | True  | True    | False
------------------------------------------------------------
+ A     | B     | A & B | A \| B | !A    |  !B   | A ⊕ B
+-------|-------|-------|--------|-------|-------|--------
+ True  | True  | True  | True   | False | False | False
+ True  | False | False | True   | False | True  | True
+ False | True  | False | True   | True  | False | True
+ False | False | False | False  | True  | True  | False
+---------------------------------------------------------
 
 ## Operator precedence
 
-not: has higest precedence
-xor: has the lowest precendence
+! - has higest precedence
+⊕ - has the lowest precendence
 
-Precedence: { not, in, and, or, xor }
+Precedence: { !, in, &, |, ⊕ }
 
 ## Logical expression
 
-Logical expression have value { 0 or 1 }
+Logical expression have value { False or True }
 
 ```
 ; simple expressions
-let x:L = False
-let y:L = True 
+let x:= False
+let y:= True 
 
 put(x)  ; will print: 0
 put(y)  ; will print: 1
 
 ;complex expressions
-put(x = y)  ; Will print 0
-put(x and y) ; will print 0
-put(x or y)  ; Will print 1
+put(x = y) ; Will print 0
+put(x & y) ; will print 0
+put(x | y) ; Will print 1
 
 ```
 
@@ -323,22 +320,19 @@ Observe that "if" is not a statement and can''t be used alone.
 The statement is executed only if the expression is True. 
 
 ```
-let a:Z
+let a ∈ Z
 
 ; conditional execution
-set a:=1 if (a = 0) 
+set a:=1 if a = 0 
 
 ; conditional output
-put("a is 0") if (a = 0)
-put("a >  0") if (a >= 0)
+put "a is 0" if a = 0
+put "a >  0" if a ≥ 0
  
 write 
 ```
 
-**Notes:** 
-* "if" do not pair with "else" like in other languages.
-* logical expression is enclosed in (...)
-
+**Notes:** Keyword "if" do not pair-up with "else".
 
 ## Control flow
 Wee has 4 control flow statements { is, check, cycle, for }:
@@ -351,12 +345,12 @@ Logical expression must be enclosed in paranthesis () alwais.
 let a:= 10
 
 ; single brach
-is a = 10 ?
+is a = 10:
    put('yes')
 is.   
 
 ; two branches
-is a < 5 ?
+is a < 5:
   put('yes')
 no
   put('no')
@@ -395,18 +389,18 @@ let a := 15
 ; fallthrough using: "..."
 check
    when a < 0:
-     put('a <0')
+     put 'a <0'
      ...
    when a > 0:
-     put('a >0')
+     put 'a >0'
      ...
    when 5 <= a or a <= 10:
-     put('a >= 5 and a <= 10')
+     put 'a >= 5 and a <= 10'
      ...
    when a > 10:
-     put('a > 10')
+     put 'a > 10'
 else
-  put('a = 0')
+  put 'a = 0'
 check.   
 ```  
 
@@ -418,15 +412,15 @@ Repetition is a block of code that execute multiple times. It is using keywords:
 let a:Z=10
 
 cycle
-  set a-=1
+  set a -= 1
   
   ; conditional repetition
   repeat if (a % 2 = 0)
   
-  out(a, ' ')
+  out (a, ' ')
   
   ;conditional termination
-  exit if (a < 0)
+  exit if a < 0
 cycle.
 
 write
@@ -453,13 +447,13 @@ let n := 0, m := 20
 
 ; using range to define i
 for i ∈ [n..m] do
-  is (a % 2 = 0) ?
+  is a % 2 = 0:
     next ;force next iteration
   no  
-    put(a, ' ')
+    out (a, ' ')
   is.
   ;force early exit
-  done if (a > 10)
+  done if a > 10
 for.    
 
 write
@@ -473,18 +467,18 @@ These expressions are separated by coma and enclosed in (...).
 **Syntax:**
 
 ```
-let <v>:<t>
+let <v> ∈ <Type>
 
 ; single matching with default value
-set <v> := (<xp> | <cnd>, <dx>)
+set <v> := (<xp> : <cnd>, <dx>)
 
 ; multiple matching with default value
-set <v> := (<xp1> | <cnd1>[, <xp2> | <cnd2>...], <dx>)
+set <v> := (<xp1> : <cnd1>, <xp2> : <cnd2>..., <dx>)
 
 ; alternative code alignment
 set <v> := (
-  <xp1> | <cnd1>,
-  <xp2> | <cnd2>,
+  <xp1> : <cnd1>,
+  <xp2> : <cnd2>,
   <dx>)
 ```
 
@@ -506,10 +500,11 @@ let  a,r := 0
 
 cycle
   set r := x%2
-  set a := (0 | r = 0, 1 | r > 0, 2)
+  set a := (0 : r = 0, 1 : r > 0, 2)
   out (a, ',')
   set x-=1
-  exit if (x < -1)
+  
+  exit if x < -1
 cycle.
 
 write
@@ -524,30 +519,30 @@ write
 
 **Syntax**
 ```
-<name>(<param>:<type>,...):<result_type>
+<name>(<param>:<type>,...) => <result> ∈ <type>:
    [<statement>]
    ...   
-   => <expression>
+   <result> := <expression>
 <name>.
 ```
 
 **Example:** 
 
 ```
-let z:Z
+let z ∈ Z
 
-func(x,y:Z):Z
-  set x += 1
-  set y += 1 
-  => x+y ;function result
+func(x,y ∈ Z) => z ∈ Z:
+  x += 1
+  y += 1 
+  z := x+y ;function result
 func.
   
 ; call func and assign result to z  
 set z := func(1,1) 
-put(z); print 4 
+put z ; print 4 
 
 ;call function func using and print result
-put(func(0,0)) ; print 2
+put func(0,0) ; print 2
 
 write
 ```
@@ -572,18 +567,24 @@ foo; execute method
 **Notes:**
 * A method can not be used in expressions
 * A method can have side-effects
-* We cann be intrerupt using "halt". 
+* We can intrerupt a procedure using "halt(0)" 
 
 Usually a method is working for a specific type.
 
 **example**
 ```
-def Foo: { p1:N, p2:N, p3:S } 
+; define Foo subtype of set {}
+def Foo <: {p1 ∈ N, p2 ∈ N, p3 ∈ S} 
+
+;Foo constructor
+foo()=> me ∈ Foo:
+  me := {0,0,0}
+foo.
 
 ;initialization method for Foo type
-bar(x:Foo,p1,p2:Z,p3:S):
+bar(x ∈ Foo, p1, p2 ∈ Z, p3 ∈ S):
   ;precondition
-  halt if (p1<0 or p2<0 or p3='')
+  halt if (p1 < 0 | p2 < 0 | p3 = ∅)
   
   ;modify Foo members
   set x.p1 := p1
@@ -592,18 +593,17 @@ bar(x:Foo,p1,p2:Z,p3:S):
 bar.
 
 ;second method for Foo type
-print(x:Foo):
-  put('{p1={0},p2={1},p3={2}}' <+ (x.p1, x.p2, x.p3));
+print(x ∈ Foo):
+  put '{p1={0},p2={1},p3={2}}' <+ (x.p1, x.p2, x.p3)
 print.
 
 ; declare instance of Foo
-let foo:Foo;
+let foo ∈ Foo := foo();
 
 foo.bar(1,2,'Test'); initialize foo
 foo.print; call second method for foo
 
 write
-
 ```
 **Note:** 
 * Wee is using single dispatch to identify first parameter.

@@ -1,5 +1,7 @@
 **Numbers:**
 
+Use this file is to find unicode symbols.
+
 * ℕ = Natural Numbers   
 * ℤ = Integers          
 * ℚ = Rational Numbers  
@@ -9,6 +11,8 @@
 Alternative notation for numeric types:
 * ℙ ?
 * ℍ ?
+
+**Set symbols**
 
 Symbol | Unicode | Description
 -------|---------|---------------------
@@ -59,6 +63,7 @@ Symbol |UNC    | Description
 ¬      |U+00AC | NOT
 ∧      |U+2227 | AND
 ∨      |U+2228 | OR
+⊕      |       | XOR 
 ≈      |U+2248 | Almost equal to (1.5 ≈ 1) = (1.5 ≈ 2)
 =      |U+003D | Equal
 ≠      |U+2260 | Not equal
@@ -116,3 +121,22 @@ Symbol | Unicode | Description
 ≻      |U+227B   | Succeeds
 ≼      |U+227C   | Precedes or equal to
 ≽      |U+227D   | Succeeds or equal to
+
+**Actionable**
+
+sym  | xp          | action
+-----|-------------|----------------
+ ⋅=  | x ⋅= 2      |multiplication  
+ ⋅   | y  = x⋅2    |multiplication  
+ ↻   | xp ↻ n      |repeat n times 
+     |             |
+     
+**Superscript**
+M⁽⁾ ⁺ ⁻ ⁼ · ⁰ ¹ ² ³ ⁴ ⁵ ⁶ ⁷ ⁸ ⁹ 
+A ⁿ ʰ ˣ ʸ ʰ ʷ ʳ ʴ ˢ ʲ ʺ ʻ ʼ 
+
+**Subscript**
+M . ‚ ₀ ₁ ₂ ₃ ₄ ₅ ₆ ₇ ₈ ₉ 
+Xₐ…ₑₕᵢⱼₖₗₘₙₒₚᵣₛₜᵤᵥₓₔ
+
+     

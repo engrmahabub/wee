@@ -80,9 +80,9 @@ Parameters: a, b are mandatory, c is optional.
 ```
 f(a,b:Z, c := 0 ):Z => (a+b+c) f.
 
-put(f(1,2)  ) ; 3
-put(f(1,2,3)) ; 6
-put(f(1)    ) ; Error: Expected 2 arguments, 1 is given!
+put f(1,2)   ; 3
+put f(1,2,3) ; 6
+put f(1)     ; Error: Expected 2 arguments, 1 is given!
 ```
 
 **Pass arguments by name:**
@@ -91,11 +91,13 @@ We can use parameter name and "=" symbol for argument value:
 
 ```
 ;f has optional parameters a, b, c
-f(a,b,c:= 0 ):Z => (a+b+c) f.
+f(a,b,c:= 0) => z ∈ Z: 
+  z := (a+b+c) 
+f.
 
-put(f(a = 1))   ; b,c are 0
-put(f(b = 1))   ; a,b are 0
-put(f(c = 1))   ; a,b are 0
+put f(a = 1);1 - b,c = 0
+put f(b = 1);1 - a,b = 0
+put f(c = 1);1 - a,b = 0
 ```
 
 **Read next:** [Wee Structure](structure.md)

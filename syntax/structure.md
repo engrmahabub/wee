@@ -168,8 +168,8 @@ This is myLib.wee file:
 
 cpp myLib
 
-fib(n:Z): Z 
-  => myLib.fib 
+fib(n:Z) => x  Z 
+   myLib.fib 
 fib.
 ```
 
@@ -229,7 +229,7 @@ To understend more abput interacting with other languages check this article abp
 | ^    | Numeric power 
 | ^=   | Numeric power mofifier
 | *    | Numeric multiplication \| multiple parameters prefix
-| *=   | Multiplication modifier 
+| ⋅=   | Multiplication modifier 
 | /    | Numeric division
 | /=   | Division modifier 
 | %    | Numeric reminder 

@@ -289,22 +289,21 @@ A ₐ ₑ ₕ ᵢ ⱼ ₖ ₗ ₘ ₙ ₒ ₚ ᵣ ₛ ₜ ᵤ ᵥ ₓ ₔ
 **Misc**
 Line, oveline, solidus, (large solidus is missing)
 
+↻ ↺ ‡ ⍜ ⍛ ⍶ ⍙ ⍚ ¦ Ɐ ♇ ◻ ◯ ◬ ⍭ ⌽ ↹ ↯ ⁉ ⁈ ⁇ ‼ ‡ † ւ ǂ ǁ ǀ ÷ ¿ ⸮ ? ¬ 
+
 ```
 ___
 \
 /
 ‾‾‾
 ```
-Note: We can''t do large sum using DejaVu even though exist in unicode.
+Note: We can''t do large sum symbol using DejaVu even though exist in unicode.
 
 Arrows:
  ⇤ ⇥ ↼ ⇀ 
 
 *Logic*
 ∧ ∨ & | ! ∀  
-
-‡ ⍜ ⍛ ⍶ ⍙ ⍚ ¦ Ɐ ♇ ◻ ◯ ◬ ⍭ ⌽ ↹ ↯ ⁉ ⁈ ⁇ ‼ ‡ † ւ ǂ ǁ ǀ ÷ ¿ ⸮ ? ¬ 
-
  
 **Missing**
 Some subscript/superscript characters are missing.
