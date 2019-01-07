@@ -117,7 +117,7 @@ Star shapes:
 
 **Misc.**
  
-Δ ▽ Ψ⌁ ϵ ϶ ⍙ ⍫ ◇ ⨯ ∀Ɐ ⎊ ⍜ ⍉ ⌘ ‼ ¿ ǂ ʊ Ұ θ ≡
+Δ ▽ Ψ⌁ ϵ ϶ ⍙ ⍫ ◇ ⨯ ∀ Ɐ ⎊ ⍜ ⍉ ⌘ ‼ ¿ ǂ ʊ Ұ θ ≡
 
 ## Unicode Operators
 
@@ -173,7 +173,7 @@ other operators
 
 … u-2026 (Alt+0133) Horizontal elipsis
 
-⇒ ‼ ⁇ «»
+⇒ ‼ ⁇ « »
 
 **Set symbols**
 
@@ -209,8 +209,8 @@ Misc relations ⊏ ⊐ ⊑ ⊒ ⋢ ⋣ ⋤ ⋥
 
 **Logic**
 
-Logic ¬ ⊨ ⊭ ∀ ∁ ∃ ∄ ∴ ∵ ⊦ ⊬ ⊧ ⊩ ⊮ ⊫ ⊯ ⊪ ⊰ ⊱
-Logic binary ∧ ∨ 
+Logic ∀ ∁ ∃ ∄ ∴ ∵ ⊨ ⊭ ⊦ ⊬ ⊧ ⊩ ⊮ ⊫ ⊯ ⊪ ⊰ ⊱
+Logic binary ∧ ∨ ¬  
 
 **Geometry**
 
@@ -306,7 +306,7 @@ ___
 /
 ‾‾‾
 ```
-Note: We can''t do large sum symbol using DejaVu even though exist in unicode.
+Note: We can''t do large sum symbol using DejaVu even though exist in Unicode.
 
 Arrows:
  ⇤ ⇥ ↼ ⇀ 
@@ -333,3 +333,81 @@ https://en.wikipedia.org/wiki/APL_(programming_language)
 **Bit Manipulation**
 
 https://en.wikipedia.org/wiki/Bit_manipulation
+
+
+**Set operators:**
+
+Symbol | Unicode | Description
+-------|---------|----------------------------------------------------------
+∅      |U+2205   | Empty set or collection
+∃      |U+2203   | There exist one or many
+∄      |U+2204   | There does not exist any
+∈      |U+2208   | Element of set
+∉      |U+2209   | Not element of set
+∩      |U+2229   | Intersection
+∪      |U+220C   | Union
+⊂      |U+2282   | Subset of B  (A ⊂ B) 
+⊄      |U+2284   | Not subset of 
+⊆      |U+2286   | Subset of or equal
+⊊      |U+228A   | Proper superset
+⊃      |U+2283   | Superset of B  (A ⊃ B) 
+⊅      |U+2285   | Mot a superset of
+⊇      |U+2287   | Superset of or equal to
+⊉      |U+2289   | Not superset and not equal to
+⊋      |U+228B   | Superset of and not equal to 
+≺      |U+227A   | Precedes
+≻      |U+227B   | Succeeds
+≼      |U+227C   | Precedes or equal to
+≽      |U+227D   | Succeeds or equal to
+
+**Math operators**
+
+Symbol|UNC    | Description
+------|-------|----------------------------------------------------------
+∞     |U+211E | Infinite number
+°     |U+00B0 | Degree symbol
+∠     |U+2220 | Angle between lines
+∟     |U+221F | Angle between lines 
+⊢     |U+22A2 | Is Right Tack 
+⊣     |U+22A3 | Is Left Tack 
+⊤     |U+22A4 | Is Down Tack  
+⊥     |U+22A5 | Is Up Tack 
+·     |U+00B7 | Middle Dot
+∗     |U+2217 | Middle Asterisk
+×     |U+00D7 | Multiplication 
+÷     |U+00F7 | Division 
+±     |U+00B1 | Change sign unary operator (-1xA) =±A
+√     |U+221A | Square root sqrt(m).
+∑     |U+2211 | ∑A = A[0] + A[1]+…A[n]
+∏     |U+220F | ∏A = A[0] × A[1]×…A[n] |= A[0] + A[1]+…A[n]
+∆     |U+2206 | Increment: ∆x=x2-x1, ∆(x,y)=√(x²-y²)
+∫     |U+220F | Integral:  ex. ∫\[a..b](x\^2)dx
+
+**Logical operators**
+
+Symbol |UNC    | Description
+-------|-------|-----------------------
+=      |U+003D | Equal
+≠      |U+2260 | Not equal
+≤      |U+2264 | Less then or equal to 
+≥      |U+2265 | Greater then or equal to
+≈      |U+2248 | Almost equal to (1.5 ≈ 1) = (1.5 ≈ 2)
+∴      |U+2234 | Therefore
+∵      |U+2235 | Because  
+
+**Set symbols**
+
+Symbol | Unicode | Description
+-------|---------|---------------------
+∅      |U+2205   | Empty set
+⊂      |U+2282   | Subset of
+⊆      |U+2286   | Subset of or equal
+∈      |U+2208   | Element of set
+∩      |U+2229   | Intersection
+∪      |U+220C   | Union
+∀      |U+2200   | For all in set
+∃      |U+2203   | There exist one or many
+⊄      |U+2284   | Not subset of
+∉      |U+2209   | Not element of set
+∄      |U+2204   | There does not exist any
+     

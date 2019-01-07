@@ -14,7 +14,7 @@ put("a > b") if (a >  b)
 write
 
 ;single branch decision
-is (a != b) ?
+is (a ≠ b) ?
   put("a is not equals to b")
 is.
 
@@ -45,9 +45,9 @@ write
 ;multi-decisions with range
 set a := 10 
 
-is (a ∈ [0.!5])?
+is a ∈ [0.!5] ?
    put('a ≥ 0 and a < 5')  
-no:is (a ∈ [5.!10])? 
+no:is a ∈ [5.!10] ? 
    put('a ≥ 5 and a < 10')
 no:
    put('a ≥ 10')

@@ -84,9 +84,9 @@ Wee has support for numeric constants. These can be used in expressions to repre
    Literal | Description
 -----------|---------------------------------------------------------------------
 0          | integer zero
-1234567890 | integer number using symbols: (0,1,2,3,4,5,6,7,8,9)
-0b10101010 | binary integer using symbols: {0b,0,1}
-0xFF       | hexadecimal integer using symbols: (0x,0,1,2,3,4,5,6,7,8,9,A,B,C,D,E,F)
+1234567890 | integer number : (0,1,2,3,4,5,6,7,8,9)
+0b10101010 | binary integer : {0b,0,1}
+0xFF       | hexadecimal integer: (0x,0,1,2,3,4,5,6,7,8,9,A,B,C,D,E,F)
 0.5        | real number: (.,0,1,2,3,4,5,6,7,8,9)
 0.0        | real number: (.,0,1,2,3,4,5,6,7,8,9) 
 5E2        | real number: 5*10²  = 500  (E use positive exponent)
@@ -360,7 +360,7 @@ The statement is executed only if the expression is True.
 let a ∈ Z
 
 ; conditional execution
-set a:=1 if a = 0 
+set a:= 1 if a = 0 
 
 ; conditional output
 put "a is 0" if (a = 0)
@@ -382,28 +382,28 @@ Logical expression must be enclosed in paranthesis () alwais.
 let a:= 10 
 
 ; single branch
-is (a = 10)?
+is a = 10 ?
    put 'yes'
 is.   
 
 ; two branches
-is (a < 5)?
+is a < 5 ?
   put 'yes'
 no:
   put 'no'
 is.
 
 ; multiple branches
-is (a < 0)?
-  put ('yes')
-no:is (a > 5)?
-  put ('no')
-no:is (a = 0)?  
-  put ("a = 0")  
-no:is (a = 5)?  
-  put ("a = 5")    
+is a < 0    ?
+  put 'yes'
+no:is a > 5 ?
+  put 'no'
+no:is a = 0 ?  
+  put "a = 0"  
+no:is a = 5 ?  
+  put "a = 5"    
 no:
-  put ("a = #n" <+ a)  
+  put "a = #n" <+ a  
 is.
 
 ```  
@@ -456,7 +456,7 @@ let n := 0, m := 20
 
 ; using range to define i
 for i ∈ [n..m] do
-  is (a % 2 = 0)?
+  is a % 2 = 0 ?
     next ;force next iteration
   no:  
     out (a, ' ')
@@ -511,7 +511,7 @@ cycle
   set r := x % 2
   set a := (0 : r = 0, 1 : r > 0, 2)
   out (a, ',')
-  set x-=1
+  set x-= 1
   
   exit if (x < -1)
 cycle.
