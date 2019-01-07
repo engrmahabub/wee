@@ -187,7 +187,7 @@ put(fib(5))
 write
 ```
 
-To understend more abput interacting with other languages check this article abput ABI:
+To understand more about interacting with other languages check this article abput ABI:
 [Application Binary Interface](https://en.wikipedia.org/wiki/Application_binary_interface)
 
 ## Punctuation

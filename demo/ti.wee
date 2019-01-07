@@ -2,6 +2,7 @@
 ;type inference demo
 ;--------------------------------------------
 #driver "ti"
+
 ; constant literal create type
 con a := 10          ;Integer 
 con x := 0.5         ;Real
