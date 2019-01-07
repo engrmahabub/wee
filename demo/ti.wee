@@ -12,7 +12,7 @@ let v := [1,2,3]     ;List
 let s := 'string'    ;String
 
 
-;unicode strings inference
+;Unicode strings inference
 let u := "♙ ♖ ♘ ♗ ♔ ♕" ; Unicode
 
 ;use = with automatic conversion

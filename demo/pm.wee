@@ -3,32 +3,42 @@
 ;----------------------------------
 #driver "pm"
 
-; using check selector
-pm1(p1,p2 ∈ N)=> r ∈ N:
-  check
-    when p1 = 0 : r := 0
-    when p2 = 0 : r := 1
-    when p1 = p2: r := 2    
-    when p1 > p2: r := 3
-  else
+; using decision
+pm₁(p1,p2 ∈ N)=> r ∈ N:
+  is (p1 = 0): 
+    r := 0
+  no:is (p2 = 0): 
+    r := 1
+  no:is (p1 = p2): 
+    r := 2    
+  no:is (p1 > p2): 
+    r := 3
+  no: 
     r := 4
-  check.  
-pm1.
+  is.
+pm₁.
 
-; pattern matching
-pm1(p1,p2 ∈ N)=> r ∈ N:
+; expression matching
+pm₂(p1,p2 ∈ N)=> r ∈ N:
   r:=(0 : p1 = 0 ,
       1 : p2 = 0 ,
       2 : p1 = p2, 
       3 : p1 > p2,
       4)
-pm2. 
+pm₂. 
 
-; expression result is printed
-put pm(0,10)  ; will print 0
-put pm(10,0)  ; will print 1
-put pm(10,10) ; will print 2
-put pm(10,11) ; will print 4
+;execute both functions
+put pm₁(0,10)  ; will print 0
+put pm₂(0,10)  ; will print 0
+
+put pm₁(10,0)  ; will print 1
+put pm₂(10,0)  ; will print 1
+
+put pm₁(10,10) ; will print 2
+put pm₂(10,10) ; will print 2
+
+put pm₁(10,11) ; will print 4
+put pm₂(10,11) ; will print 4
 
 write.
 

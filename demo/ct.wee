@@ -3,7 +3,7 @@
 ;---------------------------------
 #driver "ct"
 
-; enumration is a type 
+; enumeration is a type 
 def Enum <: {first:1, second, third} 
 
 ; print enumeration members

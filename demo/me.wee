@@ -12,9 +12,9 @@ set test := zero ; instance of Number
 ; create a method for type Number
 convert(x ∈ Number)=> y ∈ S: 
   set y:= ('zero': x = zero,
-        'one' : x = one, 
-        'two' : x = two,   
-        'none')
+           'one' : x = one, 
+           'two' : x = two,   
+           'none')
 convert.
 
 ; a wrapper method for convert     

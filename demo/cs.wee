@@ -34,7 +34,7 @@ is (a < 5) ?
   put("a<5") 
 no: 
   is (a > 5) ? 
-     put("a>5") 
+     put('a>5') 
   no:
      put('a = 5')
   is. 
@@ -44,21 +44,20 @@ write
 
 ;multi-decisions with range
 set a := 10 
-check 
-  when a in [0..5]:
-     put('a >= 0 and a <= 5')  
-  when a in [5.!10]: 
-     put('a >  5 and a < 10')
-  else
-     put("a > 10")
-check.
+
+is (a ∈ [0.!5])?
+   put('a ≥ 0 and a < 5')  
+no:is (a ∈ [5.!10])? 
+   put('a ≥ 5 and a < 10')
+no:
+   put('a ≥ 10')
+is.
 
 write
 
 ; two assign statements on same line
 ; variable a and b are already bind
 set a, b := 10
-
   
 ;two values in one statement  
 set a := 1, b := 0

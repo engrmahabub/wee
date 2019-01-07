@@ -1,4 +1,4 @@
-## Wee Readme
+## Wee Read-me
 
 Wee is a new technical computer language.
 

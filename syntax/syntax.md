@@ -260,7 +260,7 @@ Logical operators in order of precendence: {not, and, or}
 !  has higest precedence
 ~  has the lowest precendence
 
-Precedence: { !, in, &, |, ~ }
+Precedence: { !, ∈, &, |, ~ }
 
 ## Logical expression
 
@@ -336,7 +336,7 @@ write
 **Notes:** Keyword "if" do not pair-up with "else".
 
 ## Control flow
-Wee has 4 control flow statements { is, check, cycle, for }:
+Wee has 3 control flow statements { is, cycle, for }:
 
 **decision**
 A decision is based on logical expressions and keywords { is, no } and symbol "?".
@@ -372,56 +372,11 @@ is.
 
 ```  
 
-**selector**
+**Repetition**
 
-This is a block statement based on keywords {check, when, else} and symbol "...".
+Wee can execute a block of code multiple times.
 
-* Using check statement we can evaluate multiple conditions.
-* When first condition is true the other conditions are not evaluated.
-* If no condition is true the _else_ branch is executed.
-
-```
-set a := 10
-
-; default check 
-check
-  when (a = 10):
-    put('a is 10')
-  when (a = 20):
-    put('a is 20')
-else
-  put('a is not 10 or 20')
-check.
-
-write
-```
-
-Using "..." (ellipsis) to continue.
-
-```
-let a := 15
-
-; fall-through using: "..."
-check
-   when (a < 0):
-     put 'a <0'
-     ...
-   when (a > 0):
-     put 'a >0'
-     ...
-   when (5 <= a | a <= 10):
-     put 'a >= 5 and a <= 10'
-     ...
-   when (a > 10):
-     put 'a > 10'
-else
-  put 'a = 0'
-check.   
-```  
-
-**repetition**
-
-Repetition is a block of code that execute multiple times. It is using keywords: {cycle, repeat, exit}
+Keywords used: {cycle, repeat, exit}
 
 ```
 let a := 10
@@ -447,15 +402,18 @@ write
 * Nested cycle is not supported in Wee language;
 * One cycle can be controled using variables;
 
+**Iteration**
 
-**range**
-Range is a series of integer numbers between two limits.
+Is used to iterate over one range of values.
+
+Keywords used: {for, do, next,done}
+
+A _range_* is a series of integer numbers between two limits.
 
 * [n..m] is inclusive range
 * [n!!m] is exclusive range
-* [n.!m] is exclude max limit
-* [n!.m] is exclude min limit
-
+* [n.!m] exclude max limit
+* [n!.m] exclude min limit
 
 ```
 let n := 0, m := 20

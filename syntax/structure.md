@@ -27,6 +27,9 @@ Wee is using 3 kind of declarations:
 * var: create/initialize variables
 * con: define/initialize constants
 
+**Note:**
+Wee support Unicode identifiers in declarations.
+
 ## Statements
 
 Wee statements start with a keyword.
@@ -42,7 +45,7 @@ Statements can be contained in blocks of code.
 Each block of code start with a specific keyword.
 Block of code is ending with same keyword and final dot "."
 
-**Ketwords:**
+**Keywords:**
 * cycle: repetitive group of statements
 * for:   create a range iteration
 * is:    create a decision block
@@ -262,8 +265,8 @@ symbol| meaning
  =    |equality of two values  
  ≠    |divergence of two values (not equal)
  ≈    |almost equal (ignore decimals)
- >    |value is greater than 
- <    |value is less than
+ \>   |value is greater than 
+ \<   |value is less than
  ≥    |greater than or equal to
  ≤    |less than or equal to
   
@@ -283,7 +286,7 @@ symbol| meaning
 
 ## Statements
 
-Wee has 24 keywords to create statements.
+Wee has 23 keywords to create statements.
 
 | Keyword  | Purpose
 |----------|--------------------------------------------------
@@ -310,9 +313,6 @@ Wee has 24 keywords to create statements.
 | if       | Conditional statement execution 
 | is       | Start logical decision block
 | no       | Second path of conditional block
-| check    | Start multiple branch conditional statement
-| when     | Start a conditional branch in check statement
-| else     | Alternative block for _check_ statement
 
 ## Basic types
 
@@ -348,7 +348,7 @@ In Wee there are available following collection types:
 * {} = Queue
 * {} = Stack
  
-## Builtin functions/methods
+## Built-in functions/methods
  
 **Introspection** 
 
