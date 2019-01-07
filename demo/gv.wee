@@ -18,9 +18,9 @@ add1:
 add1.
 
 ;call a subroutine by name
-add1() ;print 2
-add1() ;print 3
-add1() ;print 4
+add1 ;print 2
+add1 ;print 3
+add1 ;print 4
 
 put $x ;expect 4    
 
@@ -36,9 +36,9 @@ add2():
   put x        ; print local x
 add2.
 
-add2()  ; print 1
-add2()  ; print 1
-add2()  ; print 1
+add2  ; print 1
+add2  ; print 1
+add2  ; print 1
 
 put x; x remain 4
 

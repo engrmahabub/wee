@@ -22,8 +22,8 @@ write
 ; changing x influence method
 set x := 0  ; new x value 
 
-add()   ; will print 1
-add()   ; will print 2
+add   ; will print 1
+add   ; will print 2
 
 put(x); x = 2 (modified)
 
