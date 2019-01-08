@@ -1,6 +1,6 @@
 ## Wee Read-me
 
-Wee is a new technical computer language.
+Wee is a Unicode scientific computer language.
 
 Copyright (c) January 2019 
 
