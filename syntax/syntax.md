@@ -18,20 +18,20 @@ Expressions are created using identifiers, operators, functions and constant lit
 
 **Examples**
 ```
-;simple expressions in put statement
-put 10    ; print 10
-put 10,11 ; print 1011
+-- simple expressions in put statement
+put 10    -- print 10
+put 10,11 -- print 1011
 
 write
 
-;complex expressions are using ()  
+--complex expressions are using ()  
 put 10,11,12    
 put 10 + 10 + 15 
 put (10 > 5) & (2 < 3)
 
-;multiple expressions in a line
-put(1,',',2,',',3) ;expect 1,2,3
-put(10, 11, 12)    ;expected 101112   
+--multiple expressions in a line
+put(1,',',2,',',3) --expect 1,2,3
+put(10, 11, 12)    --expected 101112   
 
 write
 ```
@@ -134,11 +134,11 @@ con <constant_name> := <constructor>
 We can modify variables using _set_ statement.
 
 ```
-let a := 10 ; declare integer variable 
-let b ∈ Z   ; declare variable b=0
+let a := 10 -- declare integer variable 
+let b ∈ Z   -- declare variable b=0
 
-set b := a  ; modify b
-put b       ; expected 10
+set b := a  -- modify b
+put b       -- expected 10
 ```
 
 **Statement _set_** 
@@ -149,24 +149,24 @@ put b       ; expected 10
 
 **Examples:**
 ```
-; define a constant that can't change it's value
+-- define a constant that can't change it's value
 con pi:= 3.14
 
-; establis a let region for multiple variables
-let a   ∈ Z ;Integer 
-let x,y ∈ R ;Double
-let q,p ∈ L ;Logic
+-- establis a let region for multiple variables
+let a   ∈ Z --Integer 
+let x,y ∈ R --Double
+let q,p ∈ L --Logic
 
-;using modifier operators
-set a := 10  ; modify value of a
-set a += 1   ; increment value of a-
-set a -= 1   ; decrement value of a 
+--using modifier operators
+set a := 10  -- modify value of a
+set a += 1   -- increment value of a-
+set a -= 1   -- decrement value of a 
 
-; modify two variables using one constant
-set q, p := True  ; modify value of q
-set x, y := 10.5  ; modify value of x and y
+-- modify two variables using one constant
+set q, p := True  -- modify value of q
+set x, y := 10.5  -- modify value of x and y
 
-;modify several variables in a single line
+--modify several variables in a single line
 set a := 11, q := False, x,y := 20.15
 ```
 
@@ -177,7 +177,7 @@ User can define types using keyword _def_ and operator "<:".
 ```
 def <type_name> <: <subtype constructor> 
 
-;using new type
+--using new type
 let <var_name>[,<var_name>] ... ∈ <type_name>
 ```
 
@@ -197,13 +197,13 @@ Numeric types are automatically converted when this is safe.
 let a := 0, b := 20   
 let v := 10.5, x:=0.0 
 
-;unsafe conversion
-set a:= v -> N;
-put(a) ; expect 10
+--unsafe conversion
+set a:= v -> N
+put a -- expect 10
 
-;safe conversion
+--safe conversion
 set x:= b
-put(b) ; expect 20
+put b -- expect 20
 ```
 
 ## ASCII type
@@ -211,24 +211,24 @@ put(b) ; expect 20
 Wee define A = ASCII character as native type.
 
 ```
-let a,b ∈ A ;ASCII character
-let x,y ∈ B ;Binary number 
+let a,b ∈ A --ASCII character
+let x,y ∈ B --Binary number 
 
-set a := '0'    ; representation of 0
-set x := a -> B ; convert to 30
-set y := 30     ; ASCII code for '0'
-set b := y -> A ; convert to '0'
+set a := '0'    -- representation of 0
+set x := a -> B -- convert to 30
+set y := 30     -- ASCII code for '0'
+set b := y -> A -- convert to '0'
 ```
 ## Type checking
 
 We can use variable type to verify expressions.
 
 ```
-let a := 0   ;integer variable
-let b := 0.0 ;real variable
+let a := 0   --integer variable
+let b := 0.0 --real variable
 
-set b := 10  ;PASS: automatic safe conversion  
-set a := 10.5;FAIL: a is of type: Integer
+set b := 10  --PASS: automatic safe conversion  
+set a := 10.5--FAIL: a is of type: Integer
 ```
 
 ## Logic type
@@ -267,23 +267,23 @@ Precedence: { !, ∈, &, |, ~ }
 Logical expression have value { False or True }
 
 ```
-; simple expressions
+-- simple expressions
 let x:= False ∈ L
 let y:= True  ∈ L
 
-put(x)  ; will print: 0
-put(y)  ; will print: 1
+put(x)  -- will print: 0
+put(y)  -- will print: 1
 
-;complex expressions
-put (x = y) ; equal: 0
-put (x < y) ; lt   : 1
-put (x > y) ; gt   : 1
+--complex expressions
+put (x = y) -- equal: 0
+put (x < y) -- lt   : 1
+put (x > y) -- gt   : 1
 
-;Unicode expressions
-put (¬ x  ) ; not   0 is 1
-put (x ∧ y) ; 0 or  1 is 0
-put (x ∨ y) ; 0 and 1 is 1
-put (x ⊕ y) ; 0 xor 1 is 1
+--Unicode expressions
+put (¬ x  ) -- not   0 is 1
+put (x ∧ y) -- 0 or  1 is 0
+put (x ∨ y) -- 0 and 1 is 1
+put (x ⊕ y) -- 0 xor 1 is 1
 ```
 
 ## Bitwise operators
@@ -332,12 +332,12 @@ let hdd₀,hdd₁,hdd₂,hdd₃,jdd₄ := ('A:','B:','C:','D:','E:')
 |*                                 *|
 +-----------------------------------+
 
-; subscript notation for coordinates
+-- subscript notation for coordinates
 let x₁,x₂:= 0
 let y₁,y₂:= 10
 let d ∈ R
 
-; use Unicode superscript for power
+-- use Unicode superscript for power
 set d := sqr((x₂-x₁)²+(y₂-y₁)²)
 ```
 
@@ -362,10 +362,10 @@ The statement is executed only if the expression is True.
 ```
 let a ∈ Z
 
-; conditional execution
+-- conditional execution
 set a:= 1 if a = 0 
 
-; conditional output
+-- conditional output
 put "a is 0" if (a = 0)
 put "a >  0" if (a ≥ 0)
  
@@ -383,19 +383,19 @@ A decision is based on logical expressions and keywords { is, no } and symbol "?
 ```
 let a:= 10 
 
-; single branch
+-- single branch
 is a = 10 ?
    put 'yes'
-is.   
+is;  
 
-; two branches
+-- two branches
 is a < 5 ?
   put 'yes'
 no:
   put 'no'
-is.
+is;
 
-; multiple branches
+-- multiple branches
 is a < 0    ?
   put 'yes'
 no:is a > 5 ?
@@ -406,7 +406,7 @@ no:is a = 5 ?
   put "a = 5"    
 no:
   put "a = #n" <+ a  
-is.
+is;
 
 ```  
 
@@ -417,19 +417,22 @@ Wee can execute a block of code multiple times.
 Keywords used: {cycle, repeat, stop}
 
 ```
+---------------------------
+|*    Repetitive block   *|
+---------------------------
 let a := 10
 
 cycle
   set a -= 1
   
-  ; conditional repetition
+  -- conditional repetition
   repeat if (a % 2 = 0)
   
   out (a, ' ')
   
-  ;conditional termination
+  -- conditional termination
   stop if (a < 0)
-cycle.
+cycle;
 
 write
 ```
@@ -456,16 +459,16 @@ A _range_ is a series of integer numbers between two limits.
 ```
 let n := 0, m := 20
 
-; using range to define i
+-- using range to define i
 for i ∈ [n..m] do
   is a % 2 = 0 ?
-    next ;force next iteration
+    next --force next iteration
   no:  
     out (a, ' ')
-  is.
-  ;force early stop
+  is;
+  --force early stop
   done if (a > 10)
-for.    
+for;    
 
 write
 ```
@@ -480,13 +483,13 @@ These expressions are separated by coma and enclosed in (...).
 ```
 let <v> ∈ <Type>
 
-; single matching with default value
+-- single matching with default value
 set <v> := (<xp> : <cnd>, <dx>)
 
-; multiple matching with default value
+-- multiple matching with default value
 set <v> := (<xp1> : <cnd1>, <xp2> : <cnd2>..., <dx>)
 
-; alternative code alignment
+-- alternative code alignment
 set <v> := (
   <xp1> : <cnd1>,
   <xp2> : <cnd2>,
@@ -516,7 +519,7 @@ cycle
   set x-= 1
   
   stop if (x < -1)
-cycle.
+cycle;
 
 write
 ```
@@ -545,15 +548,15 @@ let z ∈ Z
 func(x,y:Z) => z ∈ Z:
   x += 1
   y += 1 
-  z := x+y ;function result
+  z := x+y --function result
 func.
   
-; call func and assign result to z  
+-- call func and assign result to z  
 set z := func(1,1) 
-put z ; print 4 
+put z -- print 4 
 
-;call function func using and print result
-put func( 0, 0 ) ; print 2
+--call function func using and print result
+put func( 0, 0 ) -- print 2
 
 write
 ```
@@ -571,8 +574,11 @@ A function that have no result is called a method.
 foo():
   put "hello, I am foo"
 foo.  
-  
-foo; execute method
+
+--execute method foo  
+foo
+
+end. 
 ```
 
 **Notes:**
@@ -595,7 +601,7 @@ Constructor has an explicit declaration and result type is the user type it crea
 
 **example**
 ```
-; define Foo subtype of set {}
+-- define Foo subtype of set {}
 def Foo <: {p1 ∈ N, p2 ∈ N, p3 ∈ S} 
 
 ;constructor (same name as Foo)
@@ -618,15 +624,17 @@ bar.
 ;second method for Foo type
 print(me ∈ Foo):
   put "{p1={0},p2={1},p3={2}}" <+ (me.p1, me.p2, me.p3)
-print.
+print;
 
-; declare instance of Foo
+-- declare instance of Foo
 let foo₁ ∈ Foo := foo();
 
-foo₁.bar(1,2,'Test'); initialize foo
-foo₁.print; call second method for foo
+foo₁.bar(1,2,'Test')-- initialize foo
+foo₁.print-- call second method for foo
 
 write
+
+end.
 ```
 **Note:** 
 * Wee is using single dispatch to identify first parameter;

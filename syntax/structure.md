@@ -8,12 +8,12 @@ Compiler directive symbol "#" is used to identify file type.
 Wee has 3 kind of program files each with different role: 
 
 ```
-#library ;reusable library
-#module  ;data module/class
-#driver  ;main driving program
+#library -- reusable library
+#module  -- data module/class
+#driver  -- main driving program
 ```
 
-**Notes;**
+**Notes**
 * A program must have one single driver file;
 * A program can be created using multiple modules
 * A library can be included in driver or modules programs;
@@ -43,13 +43,12 @@ Wee statements start with a keyword.
 ## Code blocks
 Statements can be contained in blocks of code.
 Each block of code start with a specific keyword.
-Block of code is ending with same keyword and final dot "."
+Block of code is ending with same keyword and ";"
 
 **Keywords:**
-* cycle: repetitive group of statements
-* for:   create a range iteration
-* is:    create a decision block
-* when:  start a selection block
+* "cycle" repetitive group of statements
+* "for"   create a range iteration
+* "is"    create a decision block
 
 ## Driver file
 
@@ -65,11 +64,11 @@ Rogue statements are executed top down in synchronous mode.
 ```
 #driver "main"
 
-; list all parameters
-let i ∈ Z  ; declare control variable i
-let l := $params.count() ; declare number of parameters
+-- list all parameters
+let i ∈ Z  -- declare control variable i
+let l := $params.count() -- declare number of parameters
 
-; check precondition
+-- check precondition
 exit 1 if (l = 0)
 
 cycle
@@ -79,11 +78,10 @@ cycle
     no:
       i+=1
       repeat
-    is.
-cycle.
+    is;
+cycle;
 
-stop(0)
-;end program
+end.
 ```
 
 **Notes:** 
@@ -91,6 +89,7 @@ stop(0)
 * $params is a global system variable available in #driver and #module;
 * Parameter _params_ is of type [S] that is a list are strings;
 * Program _module_, _system_ and _extend_ files do not have _rogue_ statements;
+* Wee file is ending with end. Following end with "." is mandatory.
 
 ## External Code
 In Wee external code can be imported like this:
@@ -119,17 +118,17 @@ Global variables are unique and are visible in all project modules.
 Global variables are lowercase and are predefined in Wee language.
 
 ```
-#cpp $wee.cpp.myLib.* ;import cpp library
-#asm $wee.asm.myLib.* ;import asm library
-#wee $wee.lib.myLib.* ;import core library
-#wee $pro.lib.myLib.* ;import project library
+#cpp $wee.cpp.myLib.* --import cpp library
+#asm $wee.asm.myLib.* --import asm library
+#wee $wee.lib.myLib.* --import core library
+#wee $pro.lib.myLib.* --import project library
 ```
 
 Other predefined global variables:
 
 ```
-$params ;contains a list of parameters
-$path   ;contains a list of folders 
+$params --contains a list of parameters
+$path   --contains a list of folders 
 ```
 
 **See example:** [gv.wee](../demo/gv.wee)
@@ -145,10 +144,10 @@ In Wee all members that start with dot "." are public members.
 A public member from another module can be access using dot notation.
 
 ```
-;public variable
+--public variable
 let .v ∈ N:
 
-;public function
+--public function
 .func(x:N) => y ∈ N: 
   y := x+1 
  func.
@@ -184,7 +183,7 @@ This is the driver file.
 
 wee myLib.*
 
-;use external function
+--use external function
 put(fib(5))
 
 write
@@ -196,10 +195,11 @@ To understand more about interacting with other languages check this article abp
 ## Single symbols
 
 symbol| description
-------|----------------------------------------------------------
+------|-------------------------------------------------------------
   #   | Compiler directives prefix
-  ;   | Single line comment  \| End of block
-  .   | Dot operator: Member \| Public
+  ;   | End of block {is; cycle; for;} \| statement separator
+  .   | Dot operator: Member \| Public \| Concatenation
+  .   | Dot symbol: end of function \| method \| module
   :   | Declaration \| Definition \| Key:Value Pairs
   '   | ASCII string literals are using single quotes "'"
   "   | Unicode string literals are using double quotes '"'
@@ -240,7 +240,8 @@ symbol| description
 symbol| description
 ------|-----------------------------------------------------------------------
   <:  | Define new data type from a supertipe or create a composite type 
- \|*  | Start for expression comment, or nested comment *|
+\|*   | Begin expression comment, or nested comment *|
+ *\|  | End expression comment or neste comment
  \--  | Start for single line comment (at beginning of the line) 
  ..   | Define range between two values [n..m] \| array slice [n..m]
  .,   | Define range and exclude left limit  [n.,m]
@@ -329,13 +330,14 @@ Wee has 23 keywords to create statements.
 | for      | Start _range iteration_ or _collection iteration_
 | do       | Used with iteration _for_
 | next     | Continue iteration _for_ from beginning
-| done     | Terminate iteration _for_ and continue after for.
+| done     | Terminate iteration _for_ and continue after for;
 | cycle    | Start point for repetitive block
 | repeat   | Jump to beginning of _cycle_ block
 | stop     | stop inner cycle and continue after end of cycle.
 | if       | Conditional statement execution 
 | is       | Start logical decision block
 | no       | Second path of conditional block
+| end      | End of file. Must be followed by a "."
 
 ## Basic types
 

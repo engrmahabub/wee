@@ -112,14 +112,14 @@ It is common to create strings automatically.
 let sep := "+" + "-" ↻ 18 + "+"
 
 put sep 
-put ";  this is a test  ;"
+put "|*  this is a test  *|"
 put sep 
 ```
 This example will print:
 ```
-+------------------+
-;  this is a test  ;
-+------------------+
++-------------------+
+|*  this is a test *|
++-------------------+
 ```
 **Range:**
 
@@ -196,7 +196,7 @@ put test[?] ; last element
 ; print all elements of array: 0,1,2,3,4,5,6,7,8,9,
 for e ∈ test do
   put(e,',')
-for.
+for;
 
 write
 
@@ -205,7 +205,7 @@ let m := length(test)
 
 for i ∈ [0.,m] do
   test[i] *= 2
-for.
+for;
     
 ; print put the entire array
 put test; expect: [0,2,4,6,8,10,12,14,16,18]
@@ -283,7 +283,7 @@ So next program will print: 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,
 ; elements in matrix can be accessed using single loop
 for e ∈ m do
   out (e, ',')
-for.
+for;
 
 write
 ```
@@ -622,7 +622,7 @@ is ('a' in map)?
   put("a is found")
 no:
   put("not found")
-is.
+is;
   
 write  
 ```
@@ -713,7 +713,7 @@ is ('x' ∈ AlfaChar)?
   put('yes')
 no:
   put('no')
-is.
+is;
 ```
 
 **Notes:**
@@ -785,7 +785,7 @@ One function or method can receive variable number of arguments into an array us
 foo(*bar <: [Z]) => x ∈ Z:
   for i ∈ bar do
     x += bar[i]
-  for.
+  for;
 foo.
 
 ;we can call foo with variable number of arguments
