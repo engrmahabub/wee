@@ -1,12 +1,12 @@
-;----------------------------------------
-; repetitive statement demo
-;----------------------------------------
+-----------------------------------------
+-- repetitive statement demo
+-----------------------------------------
 #driver "do"
 
-let a <: [Z](10) ;array of 10 Words
-let i ∈  Z       ;index variable 
+let a <: [Z](10) -- array of 10 Words
+let i ∈  Z       -- index variable 
 
-;a cycle can be repetitive
+-- a cycle can be repetitive
 cycle
   set a[i] := i  
   is (i = 9) ?
@@ -14,48 +14,48 @@ cycle
   no:   
     set i+=1
     repeat  
-  is.
-cycle.
+  is;
+cycle;
 
-;control variable
+-- control variable
 let x := 10 
 
-;cycle shortcut 
+-- cycle shortcut 
 cycle
   is (x % 2 = 0) ?
     set x-= 1
-    repeat ;shortcut   
-  is.
+    repeat -- shortcut   
+  is;
   
   put(x)
   is (x < 0) ?
     stop
   no
     set x-= 1
-  is.
-cycle.  
+  is;
+cycle;  
 
 write    
 
-;array traversal demo
-;use range for iteration
+-- array traversal demo
+-- use range for iteration
 let to ∈ Z
 set to := length(a)
 
 for i :> [0.!to] do
-   put('r[{0}] = {1}' <+ (i, a[i]))
-for.
+   put ('r[{0}] = {1}' <+ (i, a[i]))
+for;
    
 write
 
-;array traversal demo
+-- array traversal demo
 let i ∈ Z
 
-for r :> a do
-   put('r[{0}] = {1}' <+ (i, a))
+for r ∈ a do
+   put ('r[{0}] = {1}' <+ (i, a))
    set i += 1
-for.
+for;
 
 write
 
-;end
+end.

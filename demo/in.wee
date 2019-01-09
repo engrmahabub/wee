@@ -1,4 +1,4 @@
-; wee input value demo
+-- wee input value demo
 #driver "in"
 
 let a ∈ N
@@ -13,6 +13,6 @@ cycle
   write   
   
   stop if (a = 0)
-cycle.
+cycle;
 
-;end
+end.

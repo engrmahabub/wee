@@ -1,39 +1,39 @@
-;--------------------------------------------
-;type inference demo
-;--------------------------------------------
+---------------------------------------------
+-- type inference demo
+---------------------------------------------
 #driver "ti"
 
-; constant literal create type
-con a := 10          ;Integer 
-con x := 0.5         ;Real
+-- constant literal create type
+con a := 10          -- Integer 
+con x := 0.5         -- Real
 
-; type declaration is missing
-let v := [1,2,3]     ;List
-let s := 'string'    ;String
+-- type declaration is missing
+let v := [1,2,3]     -- List
+let s := 'string'    -- String
 
 
-;Unicode strings inference
-let u := "♙ ♖ ♘ ♗ ♔ ♕" ; Unicode
+-- Unicode strings inference
+let u := "♙ ♖ ♘ ♗ ♔ ♕" -- Unicode
 
-;use = with automatic conversion
-let t := '1:45am'     -> T12; Time
-let t := '23:45'      -> T24; Time
-let d := '10/10/2010' -> DMY; Date
+-- use = with automatic conversion
+let t := '1:45am'     -> T12-- Time
+let t := '23:45'      -> T24-- Time
+let d := '10/10/2010' -> DMY-- Date
 
-; parameters are optional
+-- parameters are optional
 add(x,y := 0) => z ∈ Z:
   z := x + y 
 add.
 
-put add(1,1) ; will print 2
+put add(1,1) -- will print 2
 
 write
 
-; argument x is mandatory, argument y is optional
+-- argument x is mandatory, argument y is optional
 plus(x ∈ Z, y := 1) => z ∈ Z:
   z := (x + y) 
 plus.
 
-put(plus(1)) ; will print 2
+put plus(1) -- will print 2
 
-;end
+end.

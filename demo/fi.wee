@@ -1,6 +1,6 @@
-;------------------------------
-; Fibonacci function fib()
-;------------------------------
+-------------------------------
+-- Fibonacci function fib()
+-------------------------------
 #driver "fi"
 
 fib(n ∈ N) => y ∈ N: 
@@ -8,11 +8,13 @@ fib(n ∈ N) => y ∈ N:
     set y := 1
   no:
     set y := fib(n - 1) + fib(n - 2)
-  is.
+  is;
 fib.
 
-; use function fib    
+-- use function fib    
 put fib(5)
 put fib(10)
   
-write ;end
+write 
+
+end.

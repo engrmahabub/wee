@@ -1,24 +1,24 @@
-;----------------------------------
-; pattern matching / switch
-;----------------------------------
+-----------------------------------
+-- pattern matching / switch
+-----------------------------------
 #driver "pm"
 
-; using decision
+-- using decision
 pm₁(p₁,p₂ ∈ N)=> r ∈ N:
-  is p₁ = 0 ?
+  is p₁ = 0    ?
     set r := 0
-  no:is p₂ = 0  ? 
+  no:is p₂ = 0 ? 
     set r := 1
-  no:is p₁ = p₂ ? 
+  no:is p₁ = p₂? 
     set r := 2    
-  no:is p₁ > p₂ ? 
+  no:is p₁ > p₂? 
     set r := 3
   no: 
     set r := 4
-  is.
+  is;
 pm₁.
 
-; expression matching
+-- expression matching
 pm₂(p₁,p₂ ∈ N)=> r ∈ N:
   r:=( 0: p₁ = 0 
       ,1: p₂ = 0 
@@ -27,20 +27,22 @@ pm₂(p₁,p₂ ∈ N)=> r ∈ N:
       ,4)
 pm₂. 
 
-;execute both functions
-put pm₁(0,10)  ; will print 0
-put pm₂(0,10)  ; will print 0
-
-put pm₁(10,0)  ; will print 1
-put pm₂(10,0)  ; will print 1
-
-put pm₁(10,10) ; will print 2
-put pm₂(10,10) ; will print 2
-
-put pm₁(10,11) ; will print 4
-put pm₂(10,11) ; will print 4
-
-;single line notation
+-- equivalent to pm₂ in single line
 pm(p₁,p₂ ∈ N) => (0:p₁=0, 1:p₂=0, 2:p₁=p₂, 3:p₁>p₂, 4)
 
-write ;end
+-- execute both functions
+put pm₁(0,10)  -- will print 0
+put pm₂(0,10)  -- will print 0
+
+put pm₁(10,0)  -- will print 1
+put pm₂(10,0)  -- will print 1
+
+put pm₁(10,10) -- will print 2
+put pm₂(10,10) -- will print 2
+
+put pm₁(10,11) -- will print 4
+put pm₂(10,11) -- will print 4
+
+write
+
+end.

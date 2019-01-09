@@ -1,18 +1,20 @@
-;----------------------------------------
-; defined data types
-;----------------------------------------
-;type: structurated data
+-----------------------------------------
+|* "def" demo: defined data types       *|
+-----------------------------------------
+-- type: structured data
 #driver "dt"
 
-;this type is public (uses dot prefix)
+-- this type is public (uses dot prefix)
 def .Data <: {key:A, value:N}
 
-; new variable using type alias
+-- new variable using type alias
 let x ∈ Data
 set x:= {key:'a', value:10}
 
-; public enumeration type with public elements
-; elements starting with "." do not need qualifier
++---------------------------------------------------+ 
+|* public enumeration type with public elements    *|
+|* elements starting with "." do not need qualifier*|
++---------------------------------------------------+ 
 def Number: { 
    .zero, 
    .one, 
@@ -26,16 +28,21 @@ def Number: {
    .nine 
 }
 
-{* 
- Note: first element has assigned a value = 0, 
- all other elements have previous value + 1 
-*}
++------------------------------------------------+ 
+|* Note: first element has assigned a value = 0,*| 
+|* all other elements have previous value + 1   *|
++------------------------------------------------+
 
-; example of use
+-- example of use
 let a := 0
 
-put "zero" if (a = zero)
+-- example of use
+is a = zero ?
+  put "zero" 
+no:
+  put "life is misery"   
+is;
 
 write
 
-;end
+end.

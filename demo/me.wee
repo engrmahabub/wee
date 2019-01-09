@@ -1,15 +1,15 @@
-;----------------------------------------
-; demonstrate method associated to a type
-;----------------------------------------
+-----------------------------------------
+-- demonstrate method associated to a type
+-----------------------------------------
 #driver "me"
 
-; enumeration with public members
+-- enumeration with public members
 def Number <: {.zero, .one, .two}
 
 let test ∈ Number
-set test := zero ; instance of Number  
+set test := zero -- instance of Number  
 
-; create a method for type Number
+-- create a method for type Number
 convert(x ∈ Number)=> y ∈ S: 
   set y:= ('zero': x = zero,
            'one' : x = one, 
@@ -17,13 +17,13 @@ convert(x ∈ Number)=> y ∈ S:
            'none')
 convert.
 
-; a wrapper method for convert     
+-- a wrapper method for convert     
 equal(x ∈ Number, s ∈ S):=> r ∈ L:
   set r := (s = x.convert()) 
 equal.
     
-; calling test methods 
-put(test.convert()); will print "zero"
-put(test.equal('zero')); will print 1
+-- calling test methods 
+put test.convert()     -- will print "zero"
+put test.equal('zero') -- will print 1
   
-;end
+end.

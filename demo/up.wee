@@ -1,27 +1,25 @@
-;------------------------------------
-; unpacking demonstration for tuple
-;------------------------------------
+-------------------------------------
+-- unpacking demonstration for tuple
+-------------------------------------
 #driver "up"
 
 let n,m ∈ Z
 
-; function with two results
+-- function with two results
 test(x, y ∈ Z) => (x+1, y+1)
 
-; function with two results
+-- function with two results
 demo(x, y ∈ Z) => r ∈ (Z, Z):
   r := (x+1, y+1)
 demo.
 
-; use type inference and unpacking
+-- use type inference and unpacking
 set n,m := test(1,2)
 
-put (n, m) ; will print 2, 3
-put type(n); will print Z
-put type(m); will print Z
+put (n, m) -- will print 2, 3
+put type(n)-- will print Z
+put type(m)-- will print Z
 
 write
-
-
   
-;end
+end.

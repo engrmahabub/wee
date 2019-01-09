@@ -1,7 +1,7 @@
-;demo of input form 
+-- demo of input form 
 #driver "hi"
 
-put("Hello, I'm Wee")
+put ("Hello, I'm Wee")
 write
  
 let name ∈ S
@@ -13,4 +13,4 @@ read
 
 put ("hello:" + name)
 write
-;end
+end.

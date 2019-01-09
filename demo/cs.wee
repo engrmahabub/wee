@@ -1,79 +1,80 @@
-;------------------------------
-; control structure demo       
-;------------------------------
-
+-------------------------------
+-- control structure demo       
+-------------------------------
 #driver "cs"
 
-;use type inference
+-- use type inference
 let a := 10, b := 5
 
-;simple decision 
-put("a = b") if (a = b)
-put("a < b") if (a <  b)
-put("a > b") if (a >  b)
+-- simple decision 
+put ("a = b") if (a = b)
+put ("a < b") if (a <  b)
+put ("a > b") if (a >  b)
 
 write
 
-;single branch decision
+-- single branch decision
 is (a ≠ b) ?
-  put("a is not equals to b")
-is.
+  put ("a is not equals to b")
+is;
 
-;decision with two braches
-is (a < 5) ?
-  put("yes")
+-- decision with two braches
+is a < 5 ?
+  put "yes"
 no:
-  put("no")
-is.
+  put "no"
+is;
 
 write
 
-;nested decisions
+-- nested decisions
 set a := 5
 
-is (a < 5) ? 
-  put("a<5") 
+is a < 5 ? 
+  put ("a<5") 
 no: 
-  is (a > 5) ? 
-     put('a>5') 
+  is a > 5 ? 
+    put ('a>5') 
   no:
-     put('a = 5')
-  is.
-is.
+    put ('a = 5')
+  is;
+is;
 
 write
 
-;multi-decisions with range
+-- multi-decisions with range
 set a := 10 
 
 is a ∈ [0.,5] ?
-   put('a ≥ 0 and a < 5')  
+   put ('a ≥ 0 and a < 5')  
 no:is a ∈ [5.,10] ? 
-   put('a ≥ 5 and a < 10')
+   put ('a ≥ 5 and a < 10')
 no:
-   put('a ≥ 10')
-is.
+   put ('a ≥ 10')
+is;
 
 write
 
-; two assign statements on same line
-; variable a and b are already bind
+-- two assign statements on same line
+-- variable a and b are already bind
 set a, b := 10
   
-;two values in one statement  
+-- two values in one statement  
 set a := 1, b := 0
   
-;cascade decision statement
-is (a ∧ b)?
-  put("both a, b are true")
-no:is (a ∨ b)?  
-  put("one of a or b is true")
+-- cascade decision statement
+is a ∧ b?
+  put ("both a, b are true")
+no:is a ∨ b?  
+  put ("one of a or b is true")
 no:is a?
-  put("a is true")
+  put ("a is true")
 no:is b?
-  put("b is true")
+  put ("b is true")
 no:
-  put("this is impossible")  
+  put ("this is impossible")  
 is;
 
-write;
+write
+
+end. 
