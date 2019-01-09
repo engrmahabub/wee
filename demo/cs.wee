@@ -1,6 +1,6 @@
-⌜------------------------------⌝
-| control structure demo       |
-⌞------------------------------⌟
+;------------------------------
+; control structure demo       
+;------------------------------
 
 #driver "cs"
 
@@ -64,9 +64,9 @@ set a, b := 10
 set a := 1, b := 0
   
 ;cascade decision statement
-is (a & b)?
+is (a ∧ b)?
   put("both a, b are true")
-no:is (a | b)?  
+no:is (a ∨ b)?  
   put("one of a or b is true")
 no:is a?
   put("a is true")

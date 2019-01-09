@@ -83,8 +83,8 @@ Symbol | Unicode | Description
 ⊄      |U+2284   | Not subset of
 ∉      |U+2209   | Not element of set
 ∄      |U+2204   | There does not exist any
-≡      |U+2261   | Equivalent / Identical
-≢      |U+2262   | Non Identical
+≡      |U+2261   | Equivalent
+≢      |U+2262   | Non Equivalent
 
 
 ## Math symbols

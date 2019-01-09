@@ -46,7 +46,7 @@ let q2 <: [R]        ; a list of real numbers
 let q3 <: [[A]]      ; a list of lists of characters
 let q4 <: [[A](10)]  ; a list of array with capacity 10
 
-; Array & Matrix literals
+; Array ∧ Matrix literals
 let l2 := [1,2,3] ; short list of 3 elements
 let m2 := [[1,1],[2,2]]; matrix of 4x4
 

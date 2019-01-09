@@ -26,6 +26,12 @@ fac.
 
 put fac(3) ; expect 6
 
-write
+write 
 
+;calculate Δx using modulo function
+Δ(x₁, x₂ ∈ Z) => |x₂-x₁|
+
+put Δ( 0, 10)  ; 10
+put Δ(-5, 5)   ; 10 
+ 
 ;end

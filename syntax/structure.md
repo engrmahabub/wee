@@ -284,8 +284,8 @@ We use "." to represent "bit" prefix.
 
  symbol | description
 --------|----------------------------------
-  <<    | shift bits to left  
-  >>    | shift bits to right
+   ←    | shift bits to left  
+   →    | shift bits to right
   .¬    | bit not
   .∧    | bit and
   .∨    | bit or
@@ -295,15 +295,15 @@ We use "." to represent "bit" prefix.
 
 Relation operators are used to compare expressions.
 
-|symbol| meaning
-|------|-----------------------------------
-  =    |equality of two values  
-  ≠    |divergence of two values (not equal)
-  ≈    |almost equal (ignore decimals)
-  \>   |value is greater than 
-  \<   |value is less than
-  ≥    |greater than or equal to
-  ≤    |less than or equal to
+|symbol | meaning
+|-------|-----------------------------------
+|  =    |equality of two values  
+|  ≠    |divergence of two values (not equal)
+|  ≈    |almost equal (ignore decimals)
+|  \>   |value is greater than 
+|  \<   |value is less than
+|  ≥    |greater than or equal to
+|  ≤    |less than or equal to
 
 ## Statements
 
@@ -410,7 +410,7 @@ In Wee there are available following collection types:
 |----------|------------------------------------------ 
 | sin      | sinus 
 | cos      | cosinus
-| tan      | tangetn
+| tan      | tangent
 | pow      | power
 | sqr      | square root
 | fac      | factorial
