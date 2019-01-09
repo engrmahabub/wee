@@ -410,7 +410,7 @@ is.
 
 Wee can execute a block of code multiple times.
 
-Keywords used: {cycle, repeat, exit}
+Keywords used: {cycle, repeat, stop}
 
 ```
 let a := 10
@@ -424,7 +424,7 @@ cycle
   out (a, ' ')
   
   ;conditional termination
-  exit if (a < 0)
+  stop if (a < 0)
 cycle.
 
 write
@@ -432,7 +432,7 @@ write
 
 **Notes:** 
 
-* If _exit_ condition is missing the cycle is infinite;
+* If _stop_ condition is missing the cycle is infinite;
 * Nested cycle is not supported in Wee language;
 * One cycle can be controled using variables;
 
@@ -459,7 +459,7 @@ for i ∈ [n..m] do
   no:  
     out (a, ' ')
   is.
-  ;force early exit
+  ;force early stop
   done if (a > 10)
 for.    
 
@@ -511,7 +511,7 @@ cycle
   out (a, ',')
   set x-= 1
   
-  exit if (x < -1)
+  stop if (x < -1)
 cycle.
 
 write
@@ -555,10 +555,9 @@ write
 ```
 
 **Note:** 
-* Functions must have at least one resilt "=>"
-* You can''t intrerupt a function execution.
-* Next statements after "=>" are also executed.
-* Argiment of function call require ()
+* Functions must have at least one result "=>"
+* You can''t interrupt a function execution.
+* Arguments for function calls require ()
 
 ## Declare a Method
 
@@ -573,19 +572,22 @@ foo; execute method
 ```
 
 **Notes:**
-* Method call do not require empty brackets ()
+* Method with no parammeters require empty brackets ():
+* Method call do not require brackets () when no parameters
 * Method call do not need brackets for single argument
-* Method call arguments can be enumerated in a tuple
-* A method can not be used in expressions
+* Multiple arguments can be enumerated in a tuple (arg1,arg2...)
+* A method can not be used in expression (have no result)
 * A method can have side-effects and output parameters
-* We can interrupt a method prematurely using "halt(0)" 
+* We can interrupt a method prematurely using "exit" 
 
-Usually a method is bound to a specific user type.
-This is the first parameter and is explicit declared.
+Usually a method is bound to a the first parameter using single dispatch.
+The first parameter can be called: "self","it","this" or "me". It''s name is not restricted like in Python or Java. We believe freedom is better then restriction.
 
 **Constructor**
 
-A special method is a constructor. This method has usually same name as the user type with lowercase, but can have other name defined by the user imagination.
+A special method is a constructor. This method has usually same name as the user type with lowercase, but can have other name defined by the user imagination. 
+
+Constructor has an explicit declaration and result type is the user type it creates. We believe that explicit is better than implicit.
 
 **example**
 ```
@@ -593,24 +595,25 @@ A special method is a constructor. This method has usually same name as the user
 def Foo <: {p1 ∈ N, p2 ∈ N, p3 ∈ S} 
 
 ;constructor (same name as Foo)
+;create a result of type Foo (me)
 foo() => me ∈ Foo:
   me := {0,0,0}
 foo.
 
 ;initialization method for Foo type
-bar(x ∈ Foo, p1, p2 ∈ Z, p3 ∈ S):
+bar(me ∈ Foo, p1, p2 ∈ Z, p3 ∈ S):
   ;precondition
-  halt if (p1 < 0 ∨ p2 < 0 ∨ p3 = ∅)
+  exit 1 if (p1 < 0 ∨ p2 < 0 ∨ p3 = ∅)
   
   ;modify Foo members
-  set x.p1 := p1
-  set x.p2 := p2
-  set x.p3 := p3
+  set me.p1 := p1
+  set me.p2 := p2
+  set me.p3 := p3
 bar.
 
 ;second method for Foo type
-print(x ∈ Foo):
-  put '{p1={0},p2={1},p3={2}}' <+ (x.p1, x.p2, x.p3)
+print(me ∈ Foo):
+  put '{p1={0},p2={1},p3={2}}' <+ (me.p1, me.p2, me.p3)
 print.
 
 ; declare instance of Foo
@@ -622,7 +625,21 @@ foo₁.print; call second method for foo
 write
 ```
 **Note:** 
-* Wee is using single dispatch to identify first parameter.
-* Methods must be bublic otherwise can be used only in current module.
+* Wee is using single dispatch to identify first parameter;
+* If the type is public, it''s constructor should be also public;
+* Methods of a type can be private to module or public;
+* Constructors and methods can be overloaded using multiple dispatch;
+* Constructors and methods can be overwritten in other modules;
+
+## Inheritance and Polymorphism
+
+Can be done at module level. Wee do not have classes, it has only user defined types. However doing an explicit design you can create a type hierarchy similar to OOP. 
+
+We can define a new type based on existing type using symbol "<:". This will inherit all methods of the original type, including the constructor.
+
+We can create new methods and a new constructor. The new constructor can call the super constructor explicit. Nothing is implicit in Wee.
+
+Using this technique, one module can extend user defined types in any other module, including the core library modules. So Wee is a modular language.
+
 
 **Read Next:** [Composite Types](composite.md)   

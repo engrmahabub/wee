@@ -70,12 +70,12 @@ let i ∈ Z  ; declare control variable i
 let l := $params.count() ; declare number of parameters
 
 ; check precondition
-halt(1) if (l = 0)
+exit 1 if (l = 0)
 
 cycle
     put $params[i]
     is (i = l)?
-      exit
+      stop
     no:
       i+=1
       repeat
@@ -201,7 +201,7 @@ symbol| description
   ;   | Single line comment  \| End of block
   .   | Dot operator: Member \| Public
   :   | Declaration \| Definition \| Key:Value Pairs
-  '   | ASCII string literals are using single quotes "'"
+  '   | ASCII string literals are using single quotes "'
   "   | Unicode string literals are using double quotes '"'
   $   | Global variables prefix \| System environment constants
   @   | Context variable prefix \| Static variable prefix
@@ -282,14 +282,14 @@ Logical operators return: 1 = True or 0 = False
 
 We use "." to represent "bit" prefix.
 
- symbol | description
---------|----------------------------------
-   ←    | shift bits to left  
-   →    | shift bits to right
-  .¬    | bit not
-  .∧    | bit and
-  .∨    | bit or
-  .⊕    | bit xor
+| symbol | description
+|--------|----------------------------------
+|   ←    | shift bits to left  
+|   →    | shift bits to right
+|  .¬    | bit not
+|  .∧    | bit and
+|  .∨    | bit or
+|  .⊕    | bit xor
  
 ## Relations
 
@@ -315,7 +315,7 @@ Wee has 23 keywords to create statements.
 | asm      | Import Assembly
 | cpp      | Import C or C++ module
 | stop     | stop program execution with no message
-| halt     | stop program with error message
+| exit n   | stop program with error message
 | def      | Define user data type or type alias using :
 | let      | Declare variables using : with type or :=
 | set      | Establish or modify value for variables using :=
@@ -330,7 +330,7 @@ Wee has 23 keywords to create statements.
 | done     | Terminate iteration _for_ and continue after for.
 | cycle    | Start point for repetitive block
 | repeat   | Jump to beginning of _cycle_ block
-| exit     | exit inner cycle and continue after cycle.
+| stop     | stop inner cycle and continue after end of cycle.
 | if       | Conditional statement execution 
 | is       | Start logical decision block
 | no       | Second path of conditional block
@@ -354,7 +354,7 @@ Wee define composite types:
 | Type    |Wee|Description
 |---------|---|-----------------------------------  
 | String  | S |Define ASCII long string
-| Unicode | U |Define unicode based string
+| Unicode | U |Define Unicode based string
 | Date    | D |Date:YDM DMY MDY
 | Time    | T |Time data type
 
@@ -391,9 +391,9 @@ In Wee there are available following collection types:
 | find     | Search one sub-string in a string
 | replace  | Replace one sub-string in a string
 | trim     | Remove blank spaces from string
-| right    | Allign string to right by adding spaces
-| left     | Allign string to left by adding spaces
-| center   | Allign string to center by adding spaces
+| right    | Align string to right by adding spaces
+| left     | Align string to left by adding spaces
+| center   | Align string to center by adding spaces
  
  **Numeric**
  
@@ -409,7 +409,7 @@ In Wee there are available following collection types:
 | Function | Purpose
 |----------|------------------------------------------ 
 | sin      | sinus 
-| cos      | cosinus
+| cos      | cousin
 | tan      | tangent
 | pow      | power
 | sqr      | square root

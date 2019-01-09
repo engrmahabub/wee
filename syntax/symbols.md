@@ -14,7 +14,7 @@ Factorial: x = n!
 Note: & and ~ are used for set.
 
 **Superscript**
-M²³ ⁽⁾ ⁺ ⁻ ⁼ · ⁰ ¹ ² ³ ⁴ ⁵ ⁶ ⁷ ⁸ ⁹ 
+M ⁽⁾ ⁺ ⁻ ⁼ · ⁰ ¹ ² ³ ⁴ ⁵ ⁶ ⁷ ⁸ ⁹ 
 A ⁿ ʰ ˣ ʸ ʰ ʷ ʳ ʴ ˢ ʲ ʺ ʻ ʼ 
 
 **Subscript**
@@ -76,8 +76,6 @@ Symbol | Unicode | Description
 ∈      |U+2208   | Element of set
 ∩      |U+2229   | Intersection
 ∪      |U+220C   | Union
-&      |New      | Append one element
-~      |New      | Remove one element
 ∀      |U+2200   | For all in set
 ∃      |U+2203   | There exist one or many
 ⊄      |U+2284   | Not subset of
@@ -99,7 +97,8 @@ Symbol|UNC    | Description
 ⊣     |U+22A3 | Is Left Tack 
 ⊤     |U+22A4 | Is Down Tack  
 ⊥     |U+22A5 | Is Up Tack 
-⋅     |U+00B7 | Middle Dot
+⋅     |U+00B7 | Middle Dot (ALT+0183)
+∙     |U+2219 | Bullet Operator
 ∗     |U+2217 | Middle Asterisk
 ×     |U+00D7 | Multiplication (vector) 
 ÷     |U+00F7 | Division 
@@ -110,13 +109,14 @@ Symbol|UNC    | Description
 ∆     |U+2206 | Increment: ∆x=x2-x1, ∆(x,y)=√(x²-y²)
 ∫     |U+220F | Integral:  ex. ∫\[a..b](x\^2)dx
 
+
 **Actionable**
 
-sym  | xp          | action
------|-------------|-----------------------------
- ⋅=  | x ⋅= 2      |multiplication  
- ⋅   | y  = x ⋅ 2  |multiplication  
- ↻   | xp ↻ n      |repeat n times (for strings)
+|sym  | xp          | action
+|-----|-------------|-----------------------------
+| ∙=  | x ∙= 2      |multiplication  
+| ∙   | y  = x ∙ 2  |multiplication  
+| ↻   | xp ↻ n      |repeat n times (for strings)
 
 **Derivative** 
   ∂ ′ ″ ‴ ∆     

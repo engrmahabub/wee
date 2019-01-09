@@ -10,7 +10,7 @@ let i ∈  Z       ;index variable
 cycle
   set a[i] := i  
   is (i = 9) ?
-    exit
+    stop
   no:   
     set i+=1
     repeat  
@@ -29,7 +29,7 @@ cycle
   
   put(x)
   is (x < 0) ?
-    exit
+    stop
   no
     set x-= 1
   is.
