@@ -232,7 +232,7 @@ n-nary product ∏
 ↻ ↺ ‡ ⍜ ⍛ ⍶ ⍙ ⍚ ¦ Ɐ ♇ ◻ ◯ ◬ ⍭ ⌽ ↹ ↯ ⁉ ⁈ ⁇ ‼ ‡ † ւ ǂ ǁ ǀ ÷ ¿ ⸮ ? ¬ 
 
 
-Line: Low line _ Overline: ‾ Vertical | double ̿ ‖ ‗  
+Line: Low line _ Overlain: ‾ Vertical | double ̿ ‖ ‗  
 
  
 **Missing**

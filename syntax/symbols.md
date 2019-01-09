@@ -11,8 +11,6 @@ Bitwise:  .¬ .∧ .∨ .⊕
 Modulo:    y = |x|
 Factorial: x = n!
 
-Note: & and ~ are used for set.
-
 **Superscript**
 M ⁽⁾ ⁺ ⁻ ⁼ · ⁰ ¹ ² ³ ⁴ ⁵ ⁶ ⁷ ⁸ ⁹ 
 A ⁿ ʰ ˣ ʸ ʰ ʷ ʳ ʴ ˢ ʲ ʺ ʻ ʼ 
