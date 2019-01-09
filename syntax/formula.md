@@ -53,12 +53,11 @@ y = ⎮(a+b+x)ₓ
 ```
 **Line solidus**
 Large sigma sum can't be supported. (large solidus is missing)
+That is all I can do for now:
 
 ```
 ___
-\
-/
+╲
+╱
 ‾‾‾
 ```
-
-Note: We can''t do large sum symbol using DejaVu even though exist in Unicode.

@@ -3,12 +3,15 @@
 |* Unicode for tables  *|   
 +-----------------------+   
 ```                         
-                            
-                            
+Note: This document require text editor: Notepad++
+Set font type= Dejavu Sans Mono for best results.   
+
+   
+```                            
 ╭───────────────────────╮   
 │  **Round corners **   │   
 ╰───────────────────────╯   
-                            
+                        
                             
 ╭───┬───┬───┬───┬───┬───╮   
 │   │   │   │   │   │   │   
@@ -177,7 +180,7 @@
 8║ ♜ │ ♞ │ ♝ │ ♚ │ ♛ │ ♝ │ ♞ │ ♜ ║8
  ╚═══╧═══╧═══╧═══╧═══╧═══╧═══╧═══╝ 
    H   G   F   E   D   C   B   A
-
+```
 
 **Using X and V patterns**
 
