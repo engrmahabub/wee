@@ -63,25 +63,30 @@ Several Greek letters for variable names:
 
 π = 180°
 
-** Imaginary number 
+**Imaginary number** 
 
 ⅈ = √(-1)
 
 (λ expression)
 
+_ Overline: ‾ Vertical |
+
 Superscript numbers:
-M⁽⁾ ⁺ ⁻ ⁼ · ⁰ ¹ ² ³ ⁴ ⁵ ⁶ ⁷ ⁸ ⁹ 
-A ⁿ ʰ ˣ ʸ ʰ ʷ ʳ ʴ ˢ ʲ ʺ ʻ ʼ 
+M⁽⁾ ⁺ ⁻ ⁼ · ⁰ ¹ ² ³ ⁴ ⁵ ⁶ ⁷ ⁸ ⁹
+A ⁿ ʰ ˣ ʸ ʰ ʷ ʳ ʴ ˢ ʲ ʺ ʻ ʼ ™
 
 Subscript numbers:
 M . ‚ ₀ ₁ ₂ ₃ ₄ ₅ ₆ ₇ ₈ ₉ 
-X ₋₊₌₍₎‹›
+X ₋₊₌₍₎
+
+Middle small symbols:
+X · ‹› « »
 
 Subscript letters: (b,c,d,y,z missing)
 Xₐ…ₑₕᵢⱼₖₗₘₙₒₚᵣₛₜᵤᵥₓₔ
 
-**Trivial fractions**
-% ½ ¼ ¾ ⅛ ⅜ ⅝ ⅞ 
+**Vulgar fraction**
+⅟ ½ ¼ ¾ ⅛ ⅜ ⅝ ⅞ ⅓ ⅔ ⅕ ⅖ ⅗ ⅘ ⅙ ⅚ ⅛ ⅜ ⅝ ⅞ 
 
 **Fraction sign**
 
@@ -95,10 +100,6 @@ C = {¹⁄₂,¹⁄₄,¹⁄₈}
 
 **Power:**
 X⁻¹·⁵, X²+6*A
-
-**Restriction
-A variable that is using indice can''t also use power. 
-We must use carror "^" operator. x₁^2 for this case.
 
 Table createion/printing:
 ├ ┤ ┬ ┴ ┼ ═ ║ ╒ ╓ ╔ ╕ ╖ ╗ ╘ ╙ ╚ ╛ ╠ ╬ ╧ 
@@ -115,9 +116,9 @@ Star shapes:
 ### Bulet Points
 ➀ ➁ ➂ ➃ ➄ ➅ ➆ ➇ ➈ ➉
 
-**Misc.**
+Arrows:
+ ⇤ ⇥ ↼ ⇀ ← → ↔ 
  
-Δ ▽ Ψ⌁ ϵ ϶ ⍙ ⍫ ◇ ⨯ ∀ Ɐ ⎊ ⍜ ⍉ ⌘ ‼ ¿ ǂ ʊ Ұ θ ≡
 
 ## Unicode Operators
 
@@ -209,7 +210,7 @@ Misc relations ⊏ ⊐ ⊑ ⊒ ⋢ ⋣ ⋤ ⋥
 
 **Logic**
 
-Logic ∀ ∁ ∃ ∄ ∴ ∵ ⊨ ⊭ ⊦ ⊬ ⊧ ⊩ ⊮ ⊫ ⊯ ⊪ ⊰ ⊱
+Logic ∀ ∁ ∃ ∄ ∴ ∵
 Logic binary ∧ ∨ ¬  
 
 **Geometry**
@@ -233,60 +234,16 @@ Tilde Operators ∼ ∽
 n-nary sum ∑ 
 n-nary product ∏
 
-**Qotation brackets**
-
-« » ‹ ›
-
-**Misc indicators**
- ± ∓ 
 
 **Misc symbols**
+ 
+± ∓ Δ ▽ Ψ⌁ ϵ ϶ ⍙ ⍫ ◇ ⨯ ∀ Ɐ ⎊ ⍜ ⍉ ⌘ ‼ ¿ ǂ ʊ Ұ θ ≡  
+↻ ↺ ‡ ⍜ ⍛ ⍶ ⍙ ⍚ ¦ Ɐ ♇ ◻ ◯ ◬ ⍭ ⌽ ↹ ↯ ⁉ ⁈ ⁇ ‼ ‡ † ւ ǂ ǁ ǀ ÷ ¿ ⸮ ? ¬ 
 
-Tacks ⊣ ⊢ ⊥ ⊤ 
+
+Line: Low line _ Overline: ‾ Vertical | double ̿ ‖ ‗  
 
 
-** Advanced formula.**
-
-Using hooks and extension bar:
-```
-    ⎡1 1 1⎤   
-A = ⎢—,—,—⎥   
-    ⎣2 4 8⎦   
-```
-Function call with formula:
-```    
-     ⎛  1+x  ⎞   
-x = √⎜———————⎟   
-     ⎝ x²+y³ ⎠   
-```
-Power expression:
-```
-    ⎧  1+x  ⎫²   
-x = ⎨———————⎬   
-    ⎩ x²+y³ ⎭    
-```
-Large integrale:
-```
-    ⌠ⁿ         
-y = ⎮(a+b+x)ₓ  
-    ⌡₀          
-```
-```
-    ₙ
-y = ∑(x)
-    ¹
-```    
-```    
-    ∑(X)
-a = ————
-     n    
-```
-**Matrix*
-```
-    ⎡e₁₁,e₂₁⎤   
-A = ⎢e₁₂,e₂₂⎥   
-    ⎣e₁₃,e₂₃⎦   
-```
 **Superscript**
 A ⁰ ¹ ² ³ ⁴ ⁵ ⁶ ⁷ ⁸ ⁹ ⁺ ⁻ ⁼ ⁽ ⁾ 
 A ⁿ ⁱ
@@ -295,24 +252,6 @@ A ⁿ ⁱ
 A ₀ ₁ ₂ ₃ ₄ ₅ ₆ ₇ ₈ ₉ ₊ ₋ ₌ ₍ ₎ 
 A ₐ ₑ ₕ ᵢ ⱼ ₖ ₗ ₘ ₙ ₒ ₚ ᵣ ₛ ₜ ᵤ ᵥ ₓ ₔ
 
-**Misc**
-Line, oveline, solidus, (large solidus is missing)
-
-↻ ↺ ‡ ⍜ ⍛ ⍶ ⍙ ⍚ ¦ Ɐ ♇ ◻ ◯ ◬ ⍭ ⌽ ↹ ↯ ⁉ ⁈ ⁇ ‼ ‡ † ւ ǂ ǁ ǀ ÷ ¿ ⸮ ? ¬ 
-
-```
-___
-\
-/
-‾‾‾
-```
-Note: We can''t do large sum symbol using DejaVu even though exist in Unicode.
-
-Arrows:
- ⇤ ⇥ ↼ ⇀ 
-
-*Logic*
-∧ ∨ & | ! ∀  
  
 **Missing**
 Some subscript/superscript characters are missing.
@@ -320,10 +259,6 @@ I found this proposal: http://unicode.org/L2/L2011/11208-n4068.pdf
 
 * Imaginary number ⅈ, ⅉ
 * Euler''s number, base of natural log ℯ, ⅇ (Missing)
-
-**Combining symbols**
-xor is not represented correctly
-Combining symbols does not help.
 
 **Alternative Historical Research**
 There was once upon a time a language called APL.
