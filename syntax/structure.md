@@ -193,96 +193,117 @@ write
 To understand more about interacting with other languages check this article abput ABI:
 [Application Binary Interface](https://en.wikipedia.org/wiki/Application_binary_interface)
 
-## Punctuation
+## Single symbols
 
-|symbol| description
-|------|----------------------------------------------------------
-|  ;   | Comment line start with ';'
-|  .   | Dot operator: Member \| Public \| End Block
-|  :   | Declaration \| Definition \| Key:Value Pairs
-|  '   | ASCII string literals are using single quotes "'"
-|  "   | Unicode string literals are using double quotes '"'
-|  $   | Global variables prefix \| System environment constants
-|  @   | Context variable prefix \| Static variable prefix
-|  #   | Compiler directives prefix
-|  ?   | Used in decision statement after condition
-|  \|  | Used in generators, filters and expression mapping
-|  *   | Parameter prefix for variable arguments
-|  ()  | Expression or group of expressions \| tuple
-|  {}  | Enumeration, structure, set or hash map
-|  []  | List, array or range \| access of element by index 
-|  _   | Anonymous variable \| Ignore value received
-
+symbol| description
+------|----------------------------------------------------------
+  #   | Compiler directives prefix
+  ;   | Single line comment  \| End of block
+  .   | Dot operator: Member \| Public
+  :   | Declaration \| Definition \| Key:Value Pairs
+  '   | ASCII string literals are using single quotes "'"
+  "   | Unicode string literals are using double quotes '"'
+  $   | Global variables prefix \| System environment constants
+  @   | Context variable prefix \| Static variable prefix
+  !   | Factorial: y = n!     \| First element subscript a[!]   
+  ?   | Decision "yes" branch \| Last element subscript  a[?]
+  \|  | Used in modulo function y = \|x\|
+  *   | Parameter prefix for variable arguments
+  _   | Anonymous variable \| Ignore value received
 
 ## Operators
 
-|symbol| description
-|------|-----------------------------------------------------------------------
-| \\   | Escape literal character (\n = New Line)
-|  :   | Define function, method or data type
-|  <:  | Define new data type from a supertipe or create a composite type 
-| ..   | Define range between two values (n..m) \| array slice [n..m]
-| !.   | Define range and exclude left limit [n!.m]
-| .!   | Define range and exclude right limit [n.!m]
-| !!   | Define range and exclude the limits [n!!m]
-|  :=  | Modify variable value \| Initialize variables
-|   =  | Set initial value for variables and constants
-| \+   | Numeric addition |\ union between two collections    
-| -    | Numeric subtraction |\ diference between two collections 
-| \+=  | Addition modifier \| collection append  \| stack push
-| -=   | Subtraction modifier \| collection remove
-| ^    | Numeric power 
-| ^=   | Numeric power mofifier
-| *    | Numeric multiplication \| multi-parameters prefix
-| *=   | Multiplication modifier 
-| /    | Numeric division
-| /=   | Division modifier 
-| %    | Numeric reminder 
-| %=   | Reminder modifier 
-| ->   | Function pipleine \| unsafe conversion 
-| <+   | Insert one or more values into a string template
-| --   | Dequeue operator \| Stack pop operator
+symbol| description
+------|----------------------------------------------------------
+ +    | Numeric addition |\ string concatenation
+ -    | Numeric subtraction |\ difference between two collections 
+ ^    | Numeric power 
+ *    | Numeric multiplication
+ ↻    | String multiplication a = "*" ↻ 3 => a = "***"   
+ /    | Numeric division
+ %    | Numeric reminder 
+ 
+
+
+## Brackets
+symbol| description
+------|----------------------------------------------------------
+  ()  | Expression or group of expressions \| tuple
+  {}  | Enumeration, structure, set or hash map
+  []  | List, array or range \| access of element by index 
+
+
+
+## Double Symbols
+
+symbol| description
+------|-----------------------------------------------------------------------
+ \\   | Escape literal character (\n = New Line)
+  <:  | Define new data type from a supertipe or create a composite type 
+ ..   | Define range between two values [n..m] \| array slice [n..m]
+ .,   | Define range and exclude left limit  [n.,m]
+ ,.   | Define range and exclude right limit [n,.m]
+ ,,   | Define range and exclude the limits [n,,m]
+ ->   | Function pipeline \| unsafe conversion 
+ <+   | Insert one or more values into a string template
+ 
+ 
+## Modifiers
+
+symbol| description
+------|-----------------------------------------------------------------------
+ :=   | Modify variable value \| Initialize variables
+ +=   | Addition modifier 
+ -=   | Subtraction modifier 
+ ^=   | Numeric power modifier
+ *=   | Multiplication modifier 
+ /    | Numeric division
+ /=   | Division modifier 
+ %    | Numeric reminder 
+ %=   | Reminder modifier
+ :+   | Append \| push \| enqueue (LI)
+ :~   | Remove \| pop  \| dequeue  (LO/FO)
+ 
+## Logical
+
+Logical operators return: 1 = True or 0 = False
+
+|symbol| meaning
+|------|-----------------------------------
+|  ∈   | Element belong to set 
+|  ∉   | Not element of set
+|  ¬   | Logic NOT
+|  ∧   | Logic AND
+|  ∨   | Logic OR 
+|  ⊕   | Logic XOR
+
 
 ## Bitwise Operators
 
-We use "~" to represent prefix for "bit" operators
+We use "." to represent "bit" prefix.
 
-| symbol | description
-|--------|----------------------------------
-|  ←     | shift bits to left  
-|  →     | shift bits to right
-|  ¬     | bit not
-|  ∧     | bit and
-|  ∨     | bit or
-|  ∘     | bit xor
+ symbol | description
+--------|----------------------------------
+  <<    | shift bits to left  
+  >>    | shift bits to right
+  .¬    | bit not
+  .∧    | bit and
+  .∨    | bit or
+  .⊕    | bit xor
  
 ## Relations
 
 Relation operators are used to compare expressions.
 
-symbol| meaning
-------|-----------------------------------
- =    |equality of two values  
- ≠    |divergence of two values (not equal)
- ≈    |almost equal (ignore decimals)
- \>   |value is greater than 
- \<   |value is less than
- ≥    |greater than or equal to
- ≤    |less than or equal to
-  
-## Logical
-
-Logical operators return: 1 = True or 0 = False
-
-symbol| meaning
-------|-----------------------------------
- ∈    | Element belong to set 
- ∉    | Not element of set
- !    | Logic NOT
- &    | Logic AND
- \|   | Logic OR  (shortcut)
- \|\| | Full  OR  
- ~    | Logic XOR
+|symbol| meaning
+|------|-----------------------------------
+  =    |equality of two values  
+  ≠    |divergence of two values (not equal)
+  ≈    |almost equal (ignore decimals)
+  \>   |value is greater than 
+  \<   |value is less than
+  ≥    |greater than or equal to
+  ≤    |less than or equal to
 
 ## Statements
 
@@ -318,24 +339,24 @@ Wee has 23 keywords to create statements.
 
 Wee define 6 basic types:
   
-Type    |Wee|Description
---------|---|-----------------------------  
-ASCII   | A |Define one ASCII character
-Logic   | L |Logic data type
-Integer | Z |Integer numbers
-Natural | N |Natural numbers
-Real    | R |Double precision numbers
+| Type    |Wee|Description
+|---------|---|-----------------------------  
+| ASCII   | A |Define one ASCII character
+| Logic   | L |Logic data type
+| Integer | Z |Integer numbers
+| Natural | N |Natural numbers
+| Real    | R |Double precision numbers
 
 ## Composite types
 
 Wee define composite types:
 
-Type    |Wee|Description
---------|---|-----------------------------------  
-String  | S |Define ASCII long string
-Unicode | U |Define unicode based string
-Date    | D |Date:YDM DMY MDY
-Time    | T |Time data type
+| Type    |Wee|Description
+|---------|---|-----------------------------------  
+| String  | S |Define ASCII long string
+| Unicode | U |Define unicode based string
+| Date    | D |Date:YDM DMY MDY
+| Time    | T |Time data type
 
 ## Collection types
 In Wee there are available following collection types:

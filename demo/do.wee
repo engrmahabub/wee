@@ -8,8 +8,7 @@ let i ∈  Z       ;index variable
 
 ;a cycle can be repetitive
 cycle
-  set a[i] := i
-  
+  set a[i] := i  
   is (i = 9) ?
     exit
   no:   

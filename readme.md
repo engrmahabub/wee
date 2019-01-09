@@ -1,6 +1,6 @@
 ## Wee Read-me
 
-Wee is a Unicode scientific computer language.
+Unicode scientific computation language.
 
 Copyright (c) January 2019 
 
@@ -21,7 +21,7 @@ You can learn wee by reading demo source files:
 
 1. [gv.wee](demo/gv.wee) - global variables
 1. [dc.wee](demo/dc.wee) - native declarations
-1. [cs.wee](demo/cs.wee) - conrol structures
+1. [cs.wee](demo/cs.wee) - control structures
 1. [do.wee](demo/do.wee) - repetitive statements
 1. [hi.wee](demo/hi.wee) - input output demo
 1. [in.wee](demo/in.wee) - input multiple values

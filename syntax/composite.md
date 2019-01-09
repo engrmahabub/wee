@@ -97,6 +97,38 @@ let y := 41 ; Code ASCII A
 put('{0} > {1}' <+ (x,y)) ;print "30 > 41"
   
 ```
+## Generator
+
+It is common to create strings automatically.
+
+**Operator: Repeat = "↻" ** 
+
+``
+  let str := <constant> ↻ n
+``
+
+**Example:**
+```
+let sep := "+" + "-" ↻ 18 + "+"
+
+put sep 
+put ";  this is a test  ;"
+put sep 
+```
+This example will print:
+```
++------------------+
+;  this is a test  ;
++------------------+
+```
+**Range:**
+
+Range works for strings and Unicode:
+
+```
+let alpha := A['a'..'z'] ;lowercase letters
+let beta  := A['A'..'Z'] ;uppercase letters
+```
 
 ## Enumeration
 
@@ -126,23 +158,40 @@ set b := name2 ;b = 1
 
 ```
 
-## Array Collection
+## Default Subscript Array (DS Array)
 
 Wee define Array variable using notation:[]().
 
 ```
-let <array_name> :=[<member-type>](n)   ;one dimension with capacity n
+let <array_name> :=[<member-type>](c)   ;one dimension with capacity c
 let <matrix_name>:=[<member-type>](n,m) ;two dimensions with capacity n x m
 ```
 
-Elements in array are indexed from 0 to n-1 where n is capacity.
+Elements in default array are indexed from 0 to c-1 where c is capacity.
+
+## Arbitrary Subscript Array (AS Array)
+
+Optional we can specify subscript domain (n..m)
+
+```
+;one dimension array with subscript in range
+let <array_name> :=[<member-type>](n..m)
+
+;one dimension array with unlimited capacity
+let <array_name> :=[<member-type>](n..∞)
+
+;two dimension array with arbitrary index 
+let <matrix_name>:=[<member-type>](n..m,n..m)
+```
 
 **Example:**
-```
-let test <: [R](10) ; define array with 10 Integer elements
 
-put(test[0]) ; first element
-put(test[?]) ; last element
+```
+; define DAS array with 10 Real elements
+let test <: [R](10) 
+
+put test[!] ; first element
+put test[?] ; last element
 
 ; print all elements of array: 0,1,2,3,4,5,6,7,8,9,
 for e ∈ test do
@@ -154,22 +203,22 @@ write
 ; modify all elements of array
 let m := length(test)  
 
-for i ∈ [0.!m] do
-  test[i] ⋅= 2
+for i ∈ [0.,m] do
+  test[i] *= 2
 for.
     
 ; print put the entire array
-put(test); expect: [0,2,4,6,8,10,12,14,16,18]
+put test; expect: [0,2,4,6,8,10,12,14,16,18]
 ```
 
 **Notes:**
  
 * Array of undefined capacity []() is ∅. Capacity can be established later.
-* Array with capacity is automatically initialized, elements of array are 0 or ∅.
+* Array with capacity is automatically initialized, elements of array are 0 or 0.0.
 
 ## Array Slicing
 
-We can define a view for a section of array using [n..m] notation. This is called slice. 
+We can define a view for a section of array using [n..m] notation. This is called slice. The numbers n and m represent the subscript of array element. First element of the array is [!] and last element is [?].
 
 **Syntax:**
 
@@ -187,17 +236,27 @@ set <slice_name> := <array_name>[n..m]
 * Last element of array is simbolized by "?"
 
 ```
-; slice examples
-let a:=[1,2,3,4]
-let b:=a[1..?] ; [2,3,4]
-let c:=a[0..2] ; [1,2,3]
+; slice examples with AS array
+; capacity is 5, last element is 0
+let a:=[1,2,3,4](5) 
+
+; making 4 slices
+let b:=a[!..?] ; [1,2,3,4,0]
+let c:=a[1..?] ; [2,3,4,0]
+let d:=a[0..2] ; [1,2,3]
+let e:=a[2..4] ; [3,4,0]
 
 ;modify slice elements
-set b[0] := 8
-set c[0] := 0
+set c[!] := 8
+set e[?] := 9
 
 ;original array is modified
-put a ; expect [0,8,3,4
+put a ; expect [1,8,3,4,9]
+
+;modify last 3 elements
+set a[2..?] := 0
+put a ; expect [1,8,0,0,0]
+
 ```
 
 ## Matrix
@@ -228,6 +287,21 @@ for.
 
 write
 ```
+Printing the entire matrix will use Unicode to represent the matrix.
+
+```
+set m := [[1,2,3,4],[5,6,7,8],[9,10,11,12],[13,14,15,16]]
+put m
+```
+
+Will print:
+
+```
+⎡ 1, 2, 3, 4⎤   
+⎢ 5, 6, 7, 8⎥   
+⎢ 9,10,11,12⎥   
+⎣13,14,15,16⎦  
+```
 
 ## Tuple Notation
 
@@ -249,7 +323,7 @@ Tuples are immutable. Once a tuple is initialized it can''t be modified.
 ; define a tuple using type inference
 let v := (1,'a',2,'b') 
 
-put v[0] ;error members of a tuple are not accesible by index
+put v[0] ;error members of a tuple are not accessible by index
 set v[0] :=  4 ;two errors you try to modify a tuple by index
 ```
 
@@ -448,13 +522,13 @@ set s := s2 - s1 ;{4}       ;difference 2
 
 ; append/remove operators
 let a := {1,2,3}
-set a += 4 ; {1,2,3,4} ;append
-set a -= 3 ; {1,2,4}   ;remove
+set a &= 4 ; {1,2,3,4} ;append 4
+set a ~= 3 ; {1,2,4}   ;remove 3 (not 3)
 ```
 
 **Note:** Wee sets are internally sorted not indexed.   
 
-## Dynamc List
+## Dynamic List
 A list is a collection of non unique elements.   
 
 ```
@@ -475,44 +549,44 @@ Fist element in a list is [0] last is [?]
 let ls := ['a','b','c']
 
 ;first and last
-set first:=  ls[0] ; 'a'
+set first:=  ls[!] ; 'a'
 set last :=  ls[?] ; 'c'
 ```
 
 **Stack**
 
-A stack is a LIFO sparsed collection of elements. We use "*" on right side.
+A stack is a LIFO collection of elements.
 
 ```
-let a <: [N*]
+let a <: [N]
 let last ∈ N
 
 ;initial value for a
 set a:= [1,2,3]
 
-; using push operator "+="
-set a += 4 ; [1,2,3,4]
+; using push operator ":+"
+set a :+ 4 ; [1,2,3,4]
 
-; using pop operator "--"
-set last :=   a[?] ; last = 4, a = [1,2,3,4]
-set last := --a[?] ; last = 4, a = [1,2,3]
+; pop last element using ":~"
+set last :=  a[?] ; last = 4, a = [1,2,3,4]
+set last :~  a[?] ; last = 4, a = [1,2,3]
 
 **Queue**
 
-A queue is a FIFO sparsed collection of elements. We use "*" on left side.
+A queue is a FIFO collection of elements.
 
 ```
-let a <: [*N] 
+let a <: [N] 
 let first:M
 
 set a := [1,2,3]
 
-; using enqueue operator "+="
-set a += 4 ; [1,2,3,4]
+; using enqueue operator "+:"
+set a +: 4 ; [1,2,3,4]
 
-; using dequeue operator "--"
-set first :=   a[0] ; 1 and a = [1,2,3,4]
-set first := --a[0] ; 1 and a = [2,3,4]
+; dequeue first element using "~:"
+set first := a[!] ; 1 and a = [1,2,3,4]
+set first :~ a[!] ; 1 and a = [2,3,4]
 ```
 
 ## Dynamic Map
@@ -575,8 +649,8 @@ Scalar operators works also on slices.
 let a:[0,1,2,3]
 
 ; modify first 2 elements
-set a[0..1] += 1 ; [1,2,2,3]
-set a[0..1] -= 1 ; [0,1,2,3]
+set a[!..1] += 1 ; [1,2,2,3]
+set a[!..1] -= 1 ; [0,1,2,3]
 
 ; multiply last elements startinx from index 2
 set a[2..?] *= 2 ; [0,1,4,6]
@@ -617,7 +691,7 @@ let a := 0
 let b := 10
  
 put [a..b] ;include both limits  [0,1,2,3,4,5,6,7,8,9,10]
-put [a.!b] ;exclude upper limits [0,1,2,3,4,5,6,7,8,9]
+put [a.,b] ;exclude upper limits [0,1,2,3,4,5,6,7,8,9]
 put [a!.b] ;exclude lower linit  [1,2,3,4,5,6,7,8,9,10]
 
 write
@@ -632,7 +706,7 @@ def NegativeRange <: Z[-10..-1]
 def AlfaChar      <: A[a..Z]
 def NumChar       <: A[0..9]
 def Positive      <: Z[0!.]
-def Negative      <: Z[.!0]
+def Negative      <: Z[.,0]
 
 ;Check variable belong to sub-type
 is ('x' ∈ AlfaChar)? 
@@ -647,7 +721,7 @@ is.
 * Anonymous range expression [n..m] is of Integer
 * Range can apply only to discrete types (A,B,Z,N)
 * Control variable can be declared in range using "∈"
-* To check value in range use operator "in"
+* To check value is in range use operator "∈"
 
 ## Collection generators
 
@@ -656,10 +730,10 @@ Wee is using a special notation to create a sub-set.
 ```
 let a,b <: {Z}
 
-set  a := { e : e ∈ [0.!10] }
+set  a := { e : e ∈ [0.,10] }
 set  b := { x : x ∈ Z & 0 ≤ x < 10 }
 
-put a = b; True
+put a = b ; 1
 ```
 
 ## Copy collection
@@ -670,10 +744,10 @@ Assignment and slicing do not copy member collections.
 let a:=[0,1,2,3,4]
 let c,d:[Z]
 
-; coppy the entire collection
+; copy the entire collection
 set c:= [ x : x ∈ a ] ; now c = a
 
-; coppy slice starting from a[2]
+; copy slice starting from a[2]
 set d:= [ x : x ∈ a[2..?]] ; => [2,3,4]
 ```
 
@@ -704,7 +778,7 @@ let result:= [x*2 : x ∈ test[0..4]]
 
 ## Variable arguments
 
-One function or method can receive variable number of arguments into an array using prefix "*".
+One function or method can receive variable number of arguments into an array using prefix "*" for parameter name.
 
 ```
 ;parameter *bar must be an array 

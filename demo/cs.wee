@@ -1,6 +1,7 @@
-;------------------------------
-; control structure demo
-;------------------------------
+⌜------------------------------⌝
+| control structure demo       |
+⌞------------------------------⌟
+
 #driver "cs"
 
 ;use type inference
@@ -37,7 +38,7 @@ no:
      put('a>5') 
   no:
      put('a = 5')
-  is. 
+  is.
 is.
 
 write
@@ -45,9 +46,9 @@ write
 ;multi-decisions with range
 set a := 10 
 
-is a ∈ [0.!5] ?
+is a ∈ [0.,5] ?
    put('a ≥ 0 and a < 5')  
-no:is a ∈ [5.!10] ? 
+no:is a ∈ [5.,10] ? 
    put('a ≥ 5 and a < 10')
 no:
    put('a ≥ 10')
@@ -73,8 +74,6 @@ no:is b?
   put("b is true")
 no:
   put("this is impossible")  
-is.
+is;
 
-write
-
-;end
+write;

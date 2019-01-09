@@ -1,7 +1,17 @@
+## Common Symbols
 
-  ≠ ≤ ≥ ≈ 
+  ≠ ≤ ≥ ≈
   ∃ ∀ ∈ ∉
   ∅ ∩ ∪ ⊂
+
+## Other Symbols
+Logic:     ¬  ∧  ∨  ⊕
+Bitwise:  .¬ .∧ .∨ .⊕
+
+Modulo:    y = |x|
+Factorial: x = n!
+
+Note: & and ~ are used for set.
 
 **Superscript**
 M²³ ⁽⁾ ⁺ ⁻ ⁼ · ⁰ ¹ ² ³ ⁴ ⁵ ⁶ ⁷ ⁸ ⁹ 
@@ -11,11 +21,17 @@ A ⁿ ʰ ˣ ʸ ʰ ʷ ʳ ʴ ˢ ʲ ʺ ʻ ʼ
 M . ‚ ₀ ₁ ₂ ₃ ₄ ₅ ₆ ₇ ₈ ₉ 
 Xₐ…ₑₕᵢⱼₖₗₘₙₒₚᵣₛₜᵤᵥₓₔ
 
+**Restrictions**
+
+A variable that is using indice can''t also use power. 
+We must use carror "^" operator. x₁^2 for this case.
+
+
 **Fraction sign** ⁄
 
 ¹⁄₂ ¹⁄₃ ¹⁄₄ ¹⁄₅ ¹⁄₆ ¹⁄₇ ¹⁄₈ ¹⁄₉ ¹⁄₁₀
 
-**Greek Alphabet**
+## Greek Alphabet
 
 Α Β Γ Δ Ε Ζ Η Θ Ι Κ Λ Μ Ν Ξ Ο Π Ρ Σ Τ Υ Φ Χ Ψ Ω 
 α β ε δ ζ η h θ ι κ λ μ ν ξ ο π ρ σ ς τ υ φ
@@ -27,7 +43,7 @@ Symbol |UNC    | Description
 λ      |U+03BB | lambda function
 
 
-**Logical operators**
+## Logical operators
 
 Symbol |UNC    | Description
 -------|-------|-----------------------
@@ -41,23 +57,14 @@ Symbol |UNC    | Description
 
 ** Bitwise Operators
 
-Sym | Interpretation
-----|-----------------
-←   | Shift Left
-→   | Shift Right
-¬   | bit not
-∧   | bit and
-∨   | bit or
-~   | bit xor
-
-**Actionable**
-
-sym  | xp          | action
------|-------------|----------------
- ⋅=  | x ⋅= 2      |multiplication  
- ⋅   | y  = x ⋅ 2  |multiplication  
- ↻   | xp ↻ n      |repeat n times 
-
+Sym  | Interpretation
+-----|-----------------
+ ←   | Shift Left
+ →   | Shift Right
+.¬   | bit not
+.∧   | bit and
+.∨   | bit or
+.⊕   | bit xor
 
 ## Set symbols
 
@@ -69,6 +76,8 @@ Symbol | Unicode | Description
 ∈      |U+2208   | Element of set
 ∩      |U+2229   | Intersection
 ∪      |U+220C   | Union
+&      |New      | Append one element
+~      |New      | Remove one element
 ∀      |U+2200   | For all in set
 ∃      |U+2203   | There exist one or many
 ⊄      |U+2284   | Not subset of
@@ -100,6 +109,14 @@ Symbol|UNC    | Description
 ∏     |U+220F | ∏A = A[0] × A[1]×…A[n] \|= A[0] + A[1]+…A[n]
 ∆     |U+2206 | Increment: ∆x=x2-x1, ∆(x,y)=√(x²-y²)
 ∫     |U+220F | Integral:  ex. ∫\[a..b](x\^2)dx
+
+**Actionable**
+
+sym  | xp          | action
+-----|-------------|-----------------------------
+ ⋅=  | x ⋅= 2      |multiplication  
+ ⋅   | y  = x ⋅ 2  |multiplication  
+ ↻   | xp ↻ n      |repeat n times (for strings)
 
 **Derivative** 
   ∂ ′ ″ ‴ ∆     

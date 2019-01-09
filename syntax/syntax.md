@@ -59,8 +59,8 @@ Data types have information about:
 1. representation
 1. capacity
 1. limits (min/max)
-1. access  (private | public | local)
-1. storage (memory  | registry)
+1. access  (private or public or local)
+1. storage (memory  or registry)
 
 Wee native types are represented with one uppercase larter.
 
@@ -108,7 +108,7 @@ Variables are defined using let keyword and ":=" symbol.
 let <var_name> := <constant>
 let <var_name> := <constructor>
 let <var_name> <: <composite_type>
-let <var_name> ∈  <base_type> | <user_type>
+let <var_name> ∈  <base_type> or <user_type>
 ```
 
 Multiple variables can be define in one single line using comma separator:
@@ -275,10 +275,15 @@ put(x)  ; will print: 0
 put(y)  ; will print: 1
 
 ;complex expressions
-put(x = y) ; Will print 0
-put(x & y) ; will print 0
-put(x | y) ; Will print 1
-put(x ~ y) ; Will print 1
+put (x = y) ; equal: 0
+put (x < y) ; lt   : 1
+put (x > y) ; gt   : 1
+
+;Unicode expressions
+put (¬ x  ) ; not   0 is 1
+put (x ∧ y) ; 0 or  1 is 0
+put (x ∨ y) ; 0 and 1 is 1
+put (x ⊕ y) ; 0 xor 1 is 1
 ```
 
 ## Bitwise operators
@@ -288,7 +293,7 @@ Bitwise operations are executed on entire binary value.
 
 **Shifting Bits**
  
- A    | A ← 1 | A → 2 | ¬ A
+ A    | A ← 1 | A → 2 | .¬ A
 ------|-------|-------|-------
  0000 | 0000  | 0000  |1111
  1111 | 1110  | 0011  |0000
@@ -296,12 +301,12 @@ Bitwise operations are executed on entire binary value.
  0110 | 1100  | 0001  |1001
 
 
- A    | B   | A ∧ B | A ∨ B | A ∘ B
-------|-----|-------|-------|--------
- 00   | 00  | 00    | 00    |  11    
- 01   | 00  | 00    | 01    |  10    
- 11   | 01  | 01    | 11    |  00    
- 10   | 11  | 10    | 11    |  01    
+ A    | B   | A .∧ B | A .∨ B  | A .⊕ B
+------|-----|--------|---------|--------
+ 00   | 00  | 00     | 00      |  11    
+ 01   | 00  | 00     | 01      |  10    
+ 11   | 01  | 01     | 11      |  00    
+ 10   | 11  | 10     | 11      |  01    
 
 ## Unicode usage
 
@@ -318,16 +323,10 @@ let hdd₀,hdd₁,hdd₂,hdd₃,jdd₄ := ('A:','B:','C:','D:','E:')
 
 **Example:**
 ```
-; -------------------------------------;
-; compute distance between two points  ; 
-; -------------------------------------;
-;               _________________      ;
-;   Distance = √(x₂-x₁)²+(y₂-y₁)²      ;
-;                                      ; 
-; -------------------------------------;
-; Normally we use this ugly formula:   ;
-; d := sqr((x2−x1)^2+(y2−y1)^2)        ;
-; -------------------------------------;
++-----------------------------------+
+;                ________________   ;
+;    Distance = √(x₂-x₁)²+(y₂-y₁)²  ;
++-----------------------------------+
 
 ; subscript notation for coordinates
 let x₁,x₂:= 0
@@ -375,8 +374,7 @@ write
 Wee has 3 control flow statements { is, cycle, for }:
 
 **decision**
-A decision is based on logical expressions and keywords { is, no } and symbol "?".
-Logical expression must be enclosed in paranthesis () alwais.
+A decision is based on logical expressions and keywords { is, no } and symbol "?". Logical expression must be enclosed in parenthesis () always.
 
 ```
 let a:= 10 
@@ -447,9 +445,9 @@ Keywords used: {for, do, next,done}
 A _range_* is a series of integer numbers between two limits.
 
 * [n..m] is inclusive range
-* [n!!m] is exclusive range
-* [n.!m] exclude max limit
-* [n!.m] exclude min limit
+* [n,,m] is exclusive range
+* [n.,m] exclude max limit
+* [n,.m] exclude min limit
 
 ```
 let n := 0, m := 20
@@ -602,7 +600,7 @@ foo.
 ;initialization method for Foo type
 bar(x ∈ Foo, p1, p2 ∈ Z, p3 ∈ S):
   ;precondition
-  halt if (p1 < 0 | p2 < 0 | p3 = ∅)
+  halt if (p1 < 0 ∨ p2 < 0 ∨ p3 = ∅)
   
   ;modify Foo members
   set x.p1 := p1
@@ -627,4 +625,4 @@ write
 * Wee is using single dispatch to identify first parameter.
 * Methods must be bublic otherwise can be used only in current module.
 
-**Read Next:** [Composite Tyepes](composite.md)   
+**Read Next:** [Composite Types](composite.md)   
