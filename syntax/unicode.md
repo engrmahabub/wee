@@ -44,9 +44,7 @@ http://evertype.com/emono/
 http://www.gnu.org/software/freefont/
 http://www.unifoundry.com/unifont.html
 
-## Some examples
-
-Alternative notation for numeric types:
+## Mumeric types:
 
 * ℕ = Natural Numbers   
 * ℤ = Integers          
@@ -58,7 +56,8 @@ Alternative notation for numeric types:
 * ℙ = Maybe pointer ?
 * ℍ = Hexadecimal number
 
-Several Greek letters for variable names:
+## Greek
+
 α β γ δ η ∂ λ μ ξ δ β Ω θ ε π φ ψ ω
 
 π = 180°
@@ -69,7 +68,7 @@ Several Greek letters for variable names:
 
 (λ expression)
 
-_ Overline: ‾ Vertical |
+Underline _ Overlie: ‾ Vertical |
 
 Superscript numbers:
 M⁽⁾ ⁺ ⁻ ⁼ · ⁰ ¹ ² ³ ⁴ ⁵ ⁶ ⁷ ⁸ ⁹
@@ -88,7 +87,7 @@ Xₐ…ₑₕᵢⱼₖₗₘₙₒₚᵣₛₜᵤᵥₓₔ
 **Vulgar fraction**
 ⅟ ½ ¼ ¾ ⅛ ⅜ ⅝ ⅞ ⅓ ⅔ ⅕ ⅖ ⅗ ⅘ ⅙ ⅚ ⅛ ⅜ ⅝ ⅞ 
 
-**Fraction sign**
+## Fraction sign
 
 ¹⁄₂ ²⁄₂ ³⁄₂ ⁴⁄₂ ⁵⁄₂ ⁶⁄₂ ⁷⁄₂ ⁸⁄₂ ⁹⁄₂ 
 ¹⁄₂ ¹⁄₃ ¹⁄₄ ¹⁄₅ ¹⁄₆ ¹⁄₇ ¹⁄₈ ¹⁄₉ ¹/₁₀
@@ -98,27 +97,24 @@ A = (¹⁄₂,¹⁄₄,¹⁄₈)
 B = [¹⁄₂,¹⁄₄,¹⁄₈]
 C = {¹⁄₂,¹⁄₄,¹⁄₈}
 
-**Power:**
-X⁻¹·⁵, X²+6*A
+## Power
 
-Table createion/printing:
-├ ┤ ┬ ┴ ┼ ═ ║ ╒ ╓ ╔ ╕ ╖ ╗ ╘ ╙ ╚ ╛ ╠ ╬ ╧ 
+  X⁻¹·⁵ 
+  X²+6*A²
 
-Chess game:
-♔ ♕ ♖ ♗ ♘ ♙ ♚ ♛ ♜ ♝ ♞ ♟   
+## Misc
 
-Star shapes:
+**Star shapes**
 ✡✢✣✤✥✦✬✭✮✯✱✲✳✴✵✶✷✸✹✺✻✼✽✾✿❀❂❃❄❅❆❇❈❉   
 
-### Dice Symbols
+**Dice Symbols**
 ⚀ ⚁ ⚂ ⚃ ⚄ ⚅
 
-### Bulet Points
+**Bulet Points**
 ➀ ➁ ➂ ➃ ➄ ➅ ➆ ➇ ➈ ➉
 
-Arrows:
+**Arrows:**
  ⇤ ⇥ ↼ ⇀ ← → ↔ 
- 
 
 ## Unicode Operators
 
@@ -136,43 +132,38 @@ Unicode Math Symbols ∑ ∫ π ∞
 
 Complete list of math symbols in Unicode 11 grouped by purpose.
 
-Commonly used greek letters 
+**Greek letters** 
+
+Α Β Γ Δ Ε Ζ Η Θ Ι Κ Λ Μ Ν Ξ Ο Π Ρ Σ Τ Υ Φ Χ Ψ Ω 
 α β γ δ ε ζ η θ ι κ λ μ ν ξ ο π ρ ς τ υ φ χ ψ ω
 
-superscript 
-A ⁰ ¹ ² ³ ⁴ ⁵ ⁶ ⁷ ⁸ ⁹ ⁺ ⁻ ⁼ ⁽ ⁾ ⁿ ⁱ
+**Superscript**
+A ⁰ ¹ ² ³ ⁴ ⁵ ⁶ ⁷ ⁸ ⁹ ⁺ ⁻ ⁼ ⁽ ⁾ 
+A ⁿ ⁱ
 
-subscript 
+**Subscript**
 A ₀ ₁ ₂ ₃ ₄ ₅ ₆ ₇ ₈ ₉ ₊ ₋ ₌ ₍ ₎ 
-ₐ ₑ ₕ ᵢ ⱼ ₖ ₗ ₘ ₙ ₒ ₚ ᵣ ₛ ₜ ᵤ ᵥ ₓ ₔ
+A ₐ ₑ ₕ ᵢ ⱼ ₖ ₗ ₘ ₙ ₒ ₚ ᵣ ₛ ₜ ᵤ ᵥ ₓ ₔ
 
-Roots √ ∛ ∜
-
-**Numbers:**
-
-* ℕ. = Natural Numbers   
-* ℤ. = Integers          
-* ℚ. = Rational Numbers  
-* ℝ. = Real Numbers      
-* ℂ. = Complex Numbers  
-
-Infinity ∞
-
-multiplication, division × ✕ ✖ ÷
 
 circled {plus, times, …} ⊕ ⊖ ⊗ ⊘ ⊙ ⊚ ⊛ ⊜ ⊝
 
 squared {plus, minus, times, …} ⊞ ⊟ ⊠ ⊡
 
-other operators
+# Other operators
  
-− ∕ ∗ 
+Roots √ ∛ ∜
+
+* Infinity ∞
+* Multiplication × ✕ ✖ 
+* Division  ÷
+
 ∘ 2217 Ring Operator
 ∙ 2219 Bullet Operator
 ⋅      Middle dot 
 ⋆      Star operator
 
-… u-2026 (Alt+0133) Horizontal elipsis
+… u-2026 (Alt+0133) Horizontal ellipsis
 
 ⇒ ‼ ⁇ « »
 
@@ -187,8 +178,8 @@ element of ∈ ∋ ∉ ∌
 binary relation of sets. {subset, superset, …} 
 ⊂ ⊃ ⊆ ⊇ ⊈ ⊉ ⊊ ⊋ ⊄ ⊅ 
 
-Union ∪ 
-Intersection ∩
+* Union: ∪ 
+* Intersection ∩
 
 **Order**
 
@@ -235,7 +226,7 @@ n-nary sum ∑
 n-nary product ∏
 
 
-**Misc symbols**
+## Misc symbols
  
 ± ∓ Δ ▽ Ψ⌁ ϵ ϶ ⍙ ⍫ ◇ ⨯ ∀ Ɐ ⎊ ⍜ ⍉ ⌘ ‼ ¿ ǂ ʊ Ұ θ ≡  
 ↻ ↺ ‡ ⍜ ⍛ ⍶ ⍙ ⍚ ¦ Ɐ ♇ ◻ ◯ ◬ ⍭ ⌽ ↹ ↯ ⁉ ⁈ ⁇ ‼ ‡ † ւ ǂ ǁ ǀ ÷ ¿ ⸮ ? ¬ 
@@ -243,21 +234,11 @@ n-nary product ∏
 
 Line: Low line _ Overline: ‾ Vertical | double ̿ ‖ ‗  
 
-
-**Superscript**
-A ⁰ ¹ ² ³ ⁴ ⁵ ⁶ ⁷ ⁸ ⁹ ⁺ ⁻ ⁼ ⁽ ⁾ 
-A ⁿ ⁱ
-
-**Subscript**
-A ₀ ₁ ₂ ₃ ₄ ₅ ₆ ₇ ₈ ₉ ₊ ₋ ₌ ₍ ₎ 
-A ₐ ₑ ₕ ᵢ ⱼ ₖ ₗ ₘ ₙ ₒ ₚ ᵣ ₛ ₜ ᵤ ᵥ ₓ ₔ
-
  
 **Missing**
 Some subscript/superscript characters are missing.
 I found this proposal: http://unicode.org/L2/L2011/11208-n4068.pdf
 
-* Imaginary number ⅈ, ⅉ
 * Euler''s number, base of natural log ℯ, ⅇ (Missing)
 
 **Alternative Historical Research**
@@ -265,84 +246,3 @@ There was once upon a time a language called APL.
 
 https://en.wikipedia.org/wiki/APL_(programming_language)
 
-**Bit Manipulation**
-
-https://en.wikipedia.org/wiki/Bit_manipulation
-
-
-**Set operators:**
-
-Symbol | Unicode | Description
--------|---------|----------------------------------------------------------
-∅      |U+2205   | Empty set or collection
-∃      |U+2203   | There exist one or many
-∄      |U+2204   | There does not exist any
-∈      |U+2208   | Element of set
-∉      |U+2209   | Not element of set
-∩      |U+2229   | Intersection
-∪      |U+220C   | Union
-⊂      |U+2282   | Subset of B  (A ⊂ B) 
-⊄      |U+2284   | Not subset of 
-⊆      |U+2286   | Subset of or equal
-⊊      |U+228A   | Proper superset
-⊃      |U+2283   | Superset of B  (A ⊃ B) 
-⊅      |U+2285   | Mot a superset of
-⊇      |U+2287   | Superset of or equal to
-⊉      |U+2289   | Not superset and not equal to
-⊋      |U+228B   | Superset of and not equal to 
-≺      |U+227A   | Precedes
-≻      |U+227B   | Succeeds
-≼      |U+227C   | Precedes or equal to
-≽      |U+227D   | Succeeds or equal to
-
-**Math operators**
-
-Symbol|UNC    | Description
-------|-------|----------------------------------------------------------
-∞     |U+211E | Infinite number
-°     |U+00B0 | Degree symbol
-∠     |U+2220 | Angle between lines
-∟     |U+221F | Angle between lines 
-⊢     |U+22A2 | Is Right Tack 
-⊣     |U+22A3 | Is Left Tack 
-⊤     |U+22A4 | Is Down Tack  
-⊥     |U+22A5 | Is Up Tack 
-·     |U+00B7 | Middle Dot
-∗     |U+2217 | Middle Asterisk
-×     |U+00D7 | Multiplication 
-÷     |U+00F7 | Division 
-±     |U+00B1 | Change sign unary operator (-1xA) =±A
-√     |U+221A | Square root sqrt(m).
-∑     |U+2211 | ∑A = A[0] + A[1]+…A[n]
-∏     |U+220F | ∏A = A[0] × A[1]×…A[n] |= A[0] + A[1]+…A[n]
-∆     |U+2206 | Increment: ∆x=x2-x1, ∆(x,y)=√(x²-y²)
-∫     |U+220F | Integral:  ex. ∫\[a..b](x\^2)dx
-
-**Logical operators**
-
-Symbol |UNC    | Description
--------|-------|-----------------------
-=      |U+003D | Equal
-≠      |U+2260 | Not equal
-≤      |U+2264 | Less then or equal to 
-≥      |U+2265 | Greater then or equal to
-≈      |U+2248 | Almost equal to (1.5 ≈ 1) = (1.5 ≈ 2)
-∴      |U+2234 | Therefore
-∵      |U+2235 | Because  
-
-**Set symbols**
-
-Symbol | Unicode | Description
--------|---------|---------------------
-∅      |U+2205   | Empty set
-⊂      |U+2282   | Subset of
-⊆      |U+2286   | Subset of or equal
-∈      |U+2208   | Element of set
-∩      |U+2229   | Intersection
-∪      |U+220C   | Union
-∀      |U+2200   | For all in set
-∃      |U+2203   | There exist one or many
-⊄      |U+2284   | Not subset of
-∉      |U+2209   | Not element of set
-∄      |U+2204   | There does not exist any
-     

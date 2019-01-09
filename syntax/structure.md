@@ -201,7 +201,7 @@ symbol| description
   ;   | Single line comment  \| End of block
   .   | Dot operator: Member \| Public
   :   | Declaration \| Definition \| Key:Value Pairs
-  '   | ASCII string literals are using single quotes "'
+  '   | ASCII string literals are using single quotes "'"
   "   | Unicode string literals are using double quotes '"'
   $   | Global variables prefix \| System environment constants
   @   | Context variable prefix \| Static variable prefix
@@ -222,10 +222,11 @@ symbol| description
  ↻    | String multiplication a = "*" ↻ 3 => a = "***"   
  /    | Numeric division
  %    | Numeric reminder 
- 
+\\    | Escape literal character (\n = New Line) 
 
 
 ## Brackets
+
 symbol| description
 ------|----------------------------------------------------------
   ()  | Expression or group of expressions \| tuple
@@ -238,8 +239,9 @@ symbol| description
 
 symbol| description
 ------|-----------------------------------------------------------------------
- \\   | Escape literal character (\n = New Line)
   <:  | Define new data type from a supertipe or create a composite type 
+ \|*  | Start for expression comment, or nested comment *|
+ \--  | Start for single line comment (at beginning of the line) 
  ..   | Define range between two values [n..m] \| array slice [n..m]
  .,   | Define range and exclude left limit  [n.,m]
  ,.   | Define range and exclude right limit [n,.m]

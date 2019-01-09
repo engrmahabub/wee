@@ -81,16 +81,16 @@ Wee native types are represented with one uppercase larter.
 
 Wee has support for numeric constants. These can be used in expressions to represent numbers.
 
-   Literal | Description
------------|---------------------------------------------------------------------
-0          | integer zero
-1234567890 | integer number : (0,1,2,3,4,5,6,7,8,9)
-0b10101010 | binary integer : {0b,0,1}
-0xFF       | hexadecimal integer: (0x,0,1,2,3,4,5,6,7,8,9,A,B,C,D,E,F)
-0.5        | real number: (.,0,1,2,3,4,5,6,7,8,9)
-0.0        | real number: (.,0,1,2,3,4,5,6,7,8,9) 
-5E2        | real number: 5*10²  = 500  (E use positive exponent)
-5e2        | real number: 5*10⁻² = 0.05 (e use negative exponent)
+|   Literal | Description
+|-----------|---------------------------------------------------------------------
+|0          | integer zero
+|1234567890 | integer number : (0,1,2,3,4,5,6,7,8,9)
+|0b10101010 | binary integer : {0b,0,1}
+|0xFF       | hexadecimal integer: (0x,0,1,2,3,4,5,6,7,8,9,A,B,C,D,E,F)
+|0.5        | real number: (., 0 , 1 , 2 , 3 , 4 , 5 , 6 , 7 , 8 ,9)
+|0.0        | real number: (.,0,1,2,3,4,5,6,7,8,9) 
+|5E2        | real number: 5*10²  = 500  (E use positive exponent)
+|5e2        | real number: 5*10⁻² = 0.05 (e use negative exponent)
 
 **Operators** 
 
@@ -143,7 +143,7 @@ put b       ; expected 10
 
 **Statement _set_** 
 
-* must use at least one modifier ( :=, +=, ⋅=, ++, --, ... )
+* must use at least one modifier { :=, +=, *=, :~, ... }
 * can modify multiple variables separated with comma
 * can execute multiple expressions separated with comma
 
@@ -172,7 +172,7 @@ set a := 11, q := False, x,y := 20.15
 
 ## Type declaration
 
-User can define types using keyword _def_ and operator ":".
+User can define types using keyword _def_ and operator "<:".
 
 ```
 def <type_name> <: <subtype constructor> 
@@ -257,8 +257,8 @@ Logical operators in order of precendence: {not, and, or}
 
 ## Operator precedence
 
-!  has higest precedence
-~  has the lowest precendence
+!  has hugest precedence
+~  has the lowest precedence
 
 Precedence: { !, ∈, &, |, ~ }
 
@@ -308,6 +308,9 @@ Bitwise operations are executed on entire binary value.
  11   | 01  | 01     | 11      |  00    
  10   | 11  | 10     | 11      |  01    
 
+See also:[Bit Manipulation](https://en.wikipedia.org/wiki/Bit_manipulation)
+
+
 ## Unicode usage
 
 Wee is using Unicode for identifier names.
@@ -324,8 +327,9 @@ let hdd₀,hdd₁,hdd₂,hdd₃,jdd₄ := ('A:','B:','C:','D:','E:')
 **Example:**
 ```
 +-----------------------------------+
-;                ________________   ;
-;    Distance = √(x₂-x₁)²+(y₂-y₁)²  ;
+|*             _________________   *| 
+|* Distance = √(x₂-x₁)²+(y₂-y₁)²   *|
+|*                                 *|
 +-----------------------------------+
 
 ; subscript notation for coordinates
@@ -442,7 +446,7 @@ Is used to iterate over one range of values.
 
 Keywords used: {for, do, next,done}
 
-A _range_* is a series of integer numbers between two limits.
+A _range_ is a series of integer numbers between two limits.
 
 * [n..m] is inclusive range
 * [n,,m] is exclusive range
@@ -549,7 +553,7 @@ set z := func(1,1)
 put z ; print 4 
 
 ;call function func using and print result
-put func(0,0) ; print 2
+put func( 0, 0 ) ; print 2
 
 write
 ```
@@ -613,7 +617,7 @@ bar.
 
 ;second method for Foo type
 print(me ∈ Foo):
-  put '{p1={0},p2={1},p3={2}}' <+ (me.p1, me.p2, me.p3)
+  put "{p1={0},p2={1},p3={2}}" <+ (me.p1, me.p2, me.p3)
 print.
 
 ; declare instance of Foo

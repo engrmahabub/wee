@@ -56,9 +56,9 @@ Wee can use a tuple to define values to several variables using ":=" operator.
 ```
 let n,a,b := (1,'A','B')
 
-put(type(n)) ;Z
-put(type(a)) ;A
-put(type(b)) ;A  
+put type(n) ;Z
+put type(a) ;A
+put type(b) ;A  
 ```
 
 ## Inference for Parameters
@@ -93,14 +93,12 @@ put f(1)     ; Error: Expected 2 arguments, 1 is given!
 We can use parameter name and "=" symbol for argument value:
 
 ```
-;f has optional parameters a, b, c
-f(a,b,c:= 0) => z ∈ Z: 
-  z := (a+b+c) 
-f.
+;fn with optional parameters
+fn(a,b,c:= 0) => (a+b+c) 
 
-put f(a = 1);1 - b,c = 0
-put f(b = 1);1 - a,b = 0
-put f(c = 1);1 - a,b = 0
+put fn(a = 1);1 - b,c = 0
+put fn(b = 1);1 - a,b = 0
+put fn(c = 1);1 - a,b = 0
 ```
 
 **Read next:** [Wee Structure](structure.md)
