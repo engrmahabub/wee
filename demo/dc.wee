@@ -39,6 +39,6 @@ put b[0]   -- will print 's'
 
 -- use range to modify elements
 set a[2..?] =: 1 -- [5,5,1,1,1,1,1,1,1,1] 
-
+set a[!..5] *: 2 -- [10,10,2,2,2,2,1,1,1,1] 
 
 end.

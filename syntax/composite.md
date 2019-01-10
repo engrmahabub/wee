@@ -123,7 +123,7 @@ This example will print:
 ```
 **Range:**
 
-Range works for strings and Unicode:
+Range notation works for strings and Unicode:
 
 ```
 let alpha = A['a'..'z'] --lowercase letters
@@ -348,7 +348,7 @@ Tuples can be assigned to multiple variables using unpacking:
 
 ```
 --create 3 new variables using tuple notation
-let x, y, z  = (97, 65, True)
+let x, y, z  <: (97, 65, True)
 
 --unpacking is using type inference
 put x --  97
@@ -378,7 +378,7 @@ put n --will print 2
 put m --will print 3
 
 -- ignoring the result
-set _,_ = test(3,4)
+set _,_ <: test(3,4)
 
 ```
 

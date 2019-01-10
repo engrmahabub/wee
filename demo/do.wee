@@ -12,7 +12,7 @@ cycle
   is (i = 9) ?
     stop
   no:   
-    set i+:1
+    set i +: 1
     repeat  
   is;
 cycle;
@@ -39,10 +39,10 @@ write
 
 -- array traversal demo
 -- use range for iteration
-let to ∈ Z
-set to =: length(a)
+let to ∈ N
+set to =: length(a)-1
 
-for i <: [0.!to] do
+for i <: [0..to] do
    put ('r[{0}] = {1}' <+ (i, a[i]))
 for;
    

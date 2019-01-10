@@ -13,8 +13,8 @@ demo(x, y ∈ Z) => r ∈ (Z, Z):
   r =: (x+1, y+1)
 demo.
 
--- use type inference and unpacking
-set n,m =: test(1,2)
+-- use unpacking operator "<:"
+set n,m <: test(1,2)
 
 put (n, m) -- will print 2, 3
 put type(n)-- will print Z

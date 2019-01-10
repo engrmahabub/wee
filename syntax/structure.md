@@ -24,7 +24,7 @@ Wee has 3 kind of program files each with different role:
 Wee is using 3 kind of declarations:
 
 * def: composite type or sub-type
-* var: create/initialize variables
+* let: create/initialize variables
 * con: define/initialize constants
 
 **Note:**
@@ -149,7 +149,7 @@ let .v ∈ N:
 
 --public function
 .func(x ∈ N) => y ∈ N: 
-   set y = x+1 
+   set y =: x+1 
  func.
 ```
 
@@ -184,7 +184,7 @@ This is the driver file.
 wee myLib.*
 
 --use external function
-put(fib(5))
+put fib(5)
 
 write
 ```
@@ -243,10 +243,7 @@ symbol| description
 \|*   | Begin expression comment, or nested comment *|
  *\|  | End expression comment or neste comment
  \--  | Start for single line comment (at beginning of the line) 
- ..   | Define range between two values [n..m] \| array slice [n..m]
- .,   | Define range and exclude left limit  [n.,m]
- ,.   | Define range and exclude right limit [n,.m]
- ,,   | Define range and exclude the limits [n,,m]
+ ..   | Define range or array slice between two values [n..m]
  ->   | Function pipeline \| unsafe conversion 
  <+   | Insert one or more values into a string template
  

@@ -455,12 +455,8 @@ Is used to iterate over one range of values.
 
 Keywords used: {for, do, next,done}
 
-A _range_ is a series of integer numbers between two limits.
-
-* [n..m] is inclusive range
-* [n,,m] is exclusive range
-* [n.,m] exclude max limit
-* [n,.m] exclude min limit
+* A _range_ is a series of integer numbers between two limits.
+* Ranges are always ascending and elements are consecutive.
 
 ```
 let n = 0, m = 20
