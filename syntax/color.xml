@@ -14,7 +14,7 @@
             <Keywords name="Numbers, suffix2"></Keywords>
             <Keywords name="Numbers, range">AH</Keywords>
             <Keywords name="Operators1">. , + - ~ : ! ^ * / % &lt; &gt; ! ? ;</Keywords>
-            <Keywords name="Operators2">&#x221E; &#x2190; &#x2192; &#x00AC; &#x2227; &#x2228; &#x2200; &#x2295; &#x2296; &#x21BB; &#x235C; &#x2208; &#x2209; &#x2229; &#x222A; &#x2218; &#x2205; &#x2282; &#x2284; &#x2261; &#x2262; &#x2203; &#x2204; &#x2287; &#x2286; &#x2289; &#x228B; &#x2211; &#x220F; &#x221A; &lt; &gt; &#x2264; &#x2265; = &#x2248; &#x2260; =&gt; &lt;&lt; &gt;&gt; += -= *= /= %= ^= := &#x2219;= &#x00F7;= :+ :~ ~: &#x00F7; &#x00D7; &#x00B1; &#x2219;</Keywords>
+            <Keywords name="Operators2">&#x221E; &#x2190; &#x2192; &#x00AC; &#x2227; &#x2228; &#x2200; &#x2295; &#x2296; &#x21BB; &#x235C; &#x2208; &#x2209; &#x2229; &#x222A; &#x2218; &#x2205; &#x2282; &#x2284; &#x2261; &#x2262; &#x2203; &#x2204; &#x2287; &#x2286; &#x2289; &#x228B; &#x2211; &#x220F; &#x221A; &lt; &gt; &#x2264; &#x2265; = &#x2248; &#x2260; =&gt; &lt;&lt; &gt;&gt; +: -: ~: *: /: %: ^: &#x00D7; &#x00B1;</Keywords>
             <Keywords name="Folders in code1, open"></Keywords>
             <Keywords name="Folders in code1, middle"></Keywords>
             <Keywords name="Folders in code1, close"></Keywords>

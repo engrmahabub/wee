@@ -66,7 +66,7 @@ Rogue statements are executed top down in synchronous mode.
 
 -- list all parameters
 let i ∈ Z  -- declare control variable i
-let l := $params.count() -- declare number of parameters
+let l = $params.count() -- declare number of parameters
 
 -- check precondition
 exit 1 if (l = 0)
@@ -76,7 +76,7 @@ cycle
     is (i = l)?
       stop
     no:
-      i+=1
+      i+:1
       repeat
     is;
 cycle;
@@ -148,8 +148,8 @@ A public member from another module can be access using dot notation.
 let .v ∈ N:
 
 --public function
-.func(x:N) => y ∈ N: 
-  y := x+1 
+.func(x ∈ N) => y ∈ N: 
+   set y = x+1 
  func.
 ```
 
@@ -172,7 +172,7 @@ This is myLib.wee file:
 
 cpp myLib
 
-fib(n:Z) => x ∈ Z: 
+fib(n ∈ Z) => x ∈ Z: 
    myLib.fib 
 fib.
 ```
@@ -215,11 +215,12 @@ symbol| description
 
 symbol| description
 ------|----------------------------------------------------------
+ =    | Define new data type, variable or parameter 
  +    | Numeric addition |\ string concatenation
  -    | Numeric subtraction |\ difference between two collections 
- ^    | Numeric power 
+ ^    | Numeric power alternative notation for: xⁿ
  *    | Numeric multiplication
- ↻    | String multiplication a = "*" ↻ 3 => a = "***"   
+ ↻    | String repetition: "*" ↻ 3 makes a = "***"   
  /    | Numeric division
  %    | Numeric reminder 
 \\    | Escape literal character (\n = New Line) 
@@ -239,7 +240,6 @@ symbol| description
 
 symbol| description
 ------|-----------------------------------------------------------------------
-  <:  | Define new data type from a supertipe or create a composite type 
 \|*   | Begin expression comment, or nested comment *|
  *\|  | End expression comment or neste comment
  \--  | Start for single line comment (at beginning of the line) 
@@ -253,19 +253,20 @@ symbol| description
  
 ## Modifiers
 
+Modifiers use pattern:  μ: where μ is a suggestive symbol:
+
 symbol| description
-------|-----------------------------------------------------------------------
- :=   | Modify variable value \| Initialize variables
- +=   | Addition modifier 
- -=   | Subtraction modifier 
- ^=   | Numeric power modifier
- *=   | Multiplication modifier 
- /    | Numeric division
- /=   | Division modifier 
- %    | Numeric reminder 
- %=   | Reminder modifier
- :+   | Append \| push \| enqueue (LI)
- :~   | Remove \| pop  \| dequeue  (LO/FO)
+------|--------------------------------------------------------------
+ =:   | Assign a new value and forget the old value
+ +:   | Addition modifier \| 
+ +:   | Append \| push \| enqueue (LI)
+ ~:   | Remove \| pop  \| dequeue  (LO/FO)
+ -:   | Subtraction modifier 
+ ^:   | Numeric power modifier
+ *:   | Multiplication modifier 
+ /:   | Division modifier 
+ %:   | Reminder modifier
+ <:   | Unpacking from tuple \| Enumerate values
  
 ## Logical
 
@@ -299,8 +300,8 @@ We use "." to represent "bit" prefix.
 Relation operators are used to compare expressions.
 
 |symbol | meaning
-|-------|-----------------------------------
-|  =    |equality of two values  
+|-------|----------------------------------------------
+|  =    |equality of two values in logical expressions
 |  ≠    |divergence of two values (not equal)
 |  ≈    |almost equal (ignore decimals)
 |  \>   |value is greater than 
@@ -320,8 +321,8 @@ Wee has 23 keywords to create statements.
 | stop     | stop program execution with no message
 | exit n   | stop program with error message
 | def      | Define user data type or type alias using :
-| let      | Declare variables using : with type or :=
-| set      | Establish or modify value for variables using :=
+| let      | Declare variables using : with type or =
+| set      | Establish or modify value for variables using =
 | out      | Add something to console buffer but no new line 
 | get      | Accept input from console and wait for read
 | read     | Accept user input from console 

@@ -5,7 +5,7 @@
 #driver "dt"
 
 -- this type is public (uses dot prefix)
-def .Data <: {key:A, value:N}
+def .Data :: {key:A, value:N}
 
 -- new variable using type alias
 let x ∈ Data

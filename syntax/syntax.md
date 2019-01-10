@@ -12,7 +12,7 @@ Expressions are created using identifiers, operators, functions and constant lit
 * can be enumerated using comma separator ","
 * can be combined to create more complex expressions;
 * have type that is calculated using type inference;
-* can be assigned to variables using "set" and ":=";
+* can be assigned to variables using "set" and "=";
 * can be printed to console using put and out methods;
 * can use () to establish order of operations;
 
@@ -27,7 +27,7 @@ write
 --complex expressions are using ()  
 put 10,11,12    
 put 10 + 10 + 15 
-put (10 > 5) & (2 < 3)
+put (10 > 5) ∧ (2 < 3)
 
 --multiple expressions in a line
 put(1,',',2,',',3) --expect 1,2,3
@@ -96,32 +96,32 @@ Wee has support for numeric constants. These can be used in expressions to repre
 
  op | purpose
 ----|--------------------------------------------------------------
- :  | declare type, function or code block or pair-up operator
- :> | declare type, subtype or composite type (class or pattern)
- := | establish value for a variable or constant using let or set
+ :  | pair-up operator, used to define members or argument values
+ =  | create variable or collection of specific data type and value
+ ∈  | declare variable same type as member of set or collection
 
 ## Variable declarations
 
-Variables are defined using let keyword and ":=" symbol.
+Variables are defined using let keyword and "=" symbol.
 
 ```
-let <var_name> := <constant>
-let <var_name> := <constructor>
-let <var_name> <: <composite_type>
-let <var_name> ∈  <base_type> or <user_type>
+let <var_name> = <constant>
+let <var_name> = <constructor>
+let <var_name> = <composite_type>
+let <var_name> ∈ <set_or_type>
 ```
 
 Multiple variables can be define in one single line using comma separator:
 ```
-let <var_name>,<var_name> ... := <constant>
-let <var_name>,<var_name> ... := <constructor>
+let <var_name>, <var_name> ... = <constant>
+let <var_name>, <var_name> ... = <constructor>
 ```
 
 ## Constant declaration
 
 ```
-con <constant_name> := <constant>
-con <constant_name> := <constructor>
+con <constant_name> = <constant>
+con <constant_name> = <constructor>
 ```
 
 **Notes**
@@ -134,23 +134,23 @@ con <constant_name> := <constructor>
 We can modify variables using _set_ statement.
 
 ```
-let a := 10 -- declare integer variable 
+let a = 10  -- declare integer variable 
 let b ∈ Z   -- declare variable b=0
 
-set b := a  -- modify b
+set b =: a  -- modify b
 put b       -- expected 10
 ```
 
 **Statement _set_** 
 
-* must use at least one modifier { :=, +=, *=, :~, ... }
+* must use at least one modifier { =:, +:, *:, ~:, ... }
 * can modify multiple variables separated with comma
 * can execute multiple expressions separated with comma
 
 **Examples:**
 ```
 -- define a constant that can't change it's value
-con pi:= 3.14
+con pi = 3.14
 
 -- establis a let region for multiple variables
 let a   ∈ Z --Integer 
@@ -158,24 +158,24 @@ let x,y ∈ R --Double
 let q,p ∈ L --Logic
 
 --using modifier operators
-set a := 10  -- modify value of a
-set a += 1   -- increment value of a-
-set a -= 1   -- decrement value of a 
+set a =: 10  -- modify value of a
+set a +: 1   -- increment value of a
+set a -: 1   -- decrement value of a 
 
 -- modify two variables using one constant
-set q, p := True  -- modify value of q
-set x, y := 10.5  -- modify value of x and y
+set q, p =: True  -- modify value of q
+set x, y =: 10.5  -- modify value of x and y
 
 --modify several variables in a single line
-set a := 11, q := False, x,y := 20.15
+set a =: 11, q =: False, x,y =: 20.15
 ```
 
 ## Type declaration
 
-User can define types using keyword _def_ and operator "<:".
+User can define types using keyword _def_ and operator "=".
 
 ```
-def <type_name> <: <subtype constructor> 
+def <type_name> = <subtype constructor> 
 
 --using new type
 let <var_name>[,<var_name>] ... ∈ <type_name>
@@ -194,15 +194,15 @@ Numeric types are automatically converted when this is safe.
 
 **example:**
 ```
-let a := 0, b := 20   
-let v := 10.5, x:=0.0 
+let a = 0, b = 20   
+let v = 10.5, x = 0.0 
 
 --unsafe conversion
-set a:= v -> N
+set a =: v -> N
 put a -- expect 10
 
 --safe conversion
-set x:= b
+set x =: b
 put b -- expect 20
 ```
 
@@ -214,21 +214,21 @@ Wee define A = ASCII character as native type.
 let a,b ∈ A --ASCII character
 let x,y ∈ B --Binary number 
 
-set a := '0'    -- representation of 0
-set x := a -> B -- convert to 30
-set y := 30     -- ASCII code for '0'
-set b := y -> A -- convert to '0'
+set a =: '0'    -- representation of 0
+set x =: a -> B -- convert to 30
+set y =: 30     -- ASCII code for '0'
+set b =: y -> A -- convert to '0'
 ```
 ## Type checking
 
 We can use variable type to verify expressions.
 
 ```
-let a := 0   --integer variable
-let b := 0.0 --real variable
+let a = 0   --integer variable
+let b = 0.0 --real variable
 
-set b := 10  --PASS: automatic safe conversion  
-set a := 10.5--FAIL: a is of type: Integer
+set b =: 10  --PASS: automatic safe conversion  
+set a =: 10.5--FAIL: a is of type: Integer
 ```
 
 ## Logic type
@@ -236,7 +236,7 @@ set a := 10.5--FAIL: a is of type: Integer
 Logic type is an enumeration of two constants False and True.
 
 ```
-def .L <: {.False, .True}
+def .L = {.False, .True}
 ```
 **Notes:** 
 * Public members start with dot "." symbol.
@@ -247,7 +247,9 @@ def .L <: {.False, .True}
 For Logic type "L" Wee uses two numbers: {0, 1}    
 Logical operators in order of precendence: {not, and, or}
 
- A     | B     | A & B | A \| B | !A    |  !B   | A ~ B
+
+
+ A     | B     | A ∧ B | A ∨ B  | ¬ A   | ¬ B   | A ⊕ B
 -------|-------|-------|--------|-------|-------|--------
  True  | True  | True  | True   | False | False | False
  True  | False | False | True   | False | True  | True
@@ -257,10 +259,10 @@ Logical operators in order of precendence: {not, and, or}
 
 ## Operator precedence
 
-!  has hugest precedence
-~  has the lowest precedence
+¬  has hugest precedence
+⊕  has the lowest precedence
 
-Precedence: { !, ∈, &, |, ~ }
+Precedence: { ¬, ∈, ∧, ∨, ⊕ }
 
 ## Logical expression
 
@@ -268,11 +270,11 @@ Logical expression have value { False or True }
 
 ```
 -- simple expressions
-let x:= False ∈ L
-let y:= True  ∈ L
+let x = False ∈ L
+let y = True  ∈ L
 
-put(x)  -- will print: 0
-put(y)  -- will print: 1
+put x  -- will print: 0
+put y  -- will print: 1
 
 --complex expressions
 put (x = y) -- equal: 0
@@ -295,10 +297,10 @@ Bitwise operations are executed on entire binary value.
  
  A    | A ← 1 | A → 2 | .¬ A
 ------|-------|-------|-------
- 0000 | 0000  | 0000  |1111
- 1111 | 1110  | 0011  |0000
- 0111 | 1110  | 0001  |1000
- 0110 | 1100  | 0001  |1001
+ 0000 | 0000  | 0000  | 1111
+ 1111 | 1110  | 0011  | 0000
+ 0111 | 1110  | 0001  | 1000
+ 0110 | 1100  | 0001  | 1001
 
 
  A    | B   | A .∧ B | A .∨ B  | A .⊕ B
@@ -321,7 +323,7 @@ Wee is using Unicode for identifier names.
 
 **Using subscript**
 ```
-let hdd₀,hdd₁,hdd₂,hdd₃,jdd₄ := ('A:','B:','C:','D:','E:')
+let hdd₀,hdd₁,hdd₂,hdd₃,jdd₄ = ('A:','B:','C:','D:','E:')
 ```
 
 **Example:**
@@ -333,12 +335,12 @@ let hdd₀,hdd₁,hdd₂,hdd₃,jdd₄ := ('A:','B:','C:','D:','E:')
 +-----------------------------------+
 
 -- subscript notation for coordinates
-let x₁,x₂:= 0
-let y₁,y₂:= 10
+let x₁,x₂ = 0
+let y₁,y₂ = 10
 let d ∈ R
 
 -- use Unicode superscript for power
-set d := sqr((x₂-x₁)²+(y₂-y₁)²)
+set d =: sqr((x₂-x₁)²+(y₂-y₁)²)
 ```
 
 **Unicode**: [symbols](symbols.md)
@@ -363,7 +365,7 @@ The statement is executed only if the expression is True.
 let a ∈ Z
 
 -- conditional execution
-set a:= 1 if a = 0 
+set a =: 1 if (a = 0)
 
 -- conditional output
 put "a is 0" if (a = 0)
@@ -381,7 +383,7 @@ Wee has 3 control flow statements { is, cycle, for }:
 A decision is based on logical expressions and keywords { is, no } and symbol "?". Logical expression must be enclosed in parenthesis () always.
 
 ```
-let a:= 10 
+let a = 10 
 
 -- single branch
 is a = 10 ?
@@ -420,10 +422,10 @@ Keywords used: {cycle, repeat, stop}
 ---------------------------
 |*    Repetitive block   *|
 ---------------------------
-let a := 10
+let a = 10
 
 cycle
-  set a -= 1
+  set a -: 1
   
   -- conditional repetition
   repeat if (a % 2 = 0)
@@ -457,12 +459,12 @@ A _range_ is a series of integer numbers between two limits.
 * [n,.m] exclude min limit
 
 ```
-let n := 0, m := 20
+let n = 0, m = 20
 
 -- using range to define i
-for i ∈ [n..m] do
+for i <: [n..m] do
   is a % 2 = 0 ?
-    next --force next iteration
+    next -- force next iteration
   no:  
     out (a, ' ')
   is;
@@ -484,13 +486,13 @@ These expressions are separated by coma and enclosed in (...).
 let <v> ∈ <Type>
 
 -- single matching with default value
-set <v> := (<xp> : <cnd>, <dx>)
+set <v> =: (<xp> : <cnd>, <dx>)
 
 -- multiple matching with default value
-set <v> := (<xp1> : <cnd1>, <xp2> : <cnd2>..., <dx>)
+set <v> =: (<xp1> : <cnd1>, <xp2> : <cnd2>..., <dx>)
 
 -- alternative code alignment
-set <v> := (
+set <v> =: (
   <xp1> : <cnd1>,
   <xp2> : <cnd2>,
   <dx>)
@@ -509,15 +511,16 @@ set <v> := (
 **Example**
 
 ```
-let  x   := 10
-let  a,r := 0
+let  x   = 10
+let  a,r = 0
 
 cycle
-  set r := x % 2
-  set a := (0 : r = 0, 1 : r > 0, 2)
-  out (a, ',')
-  set x-= 1
+  set r =: x % 2
+  set a =: (0 : r = 0, 1 : r > 0, 2)
   
+  out (a, ',')
+  
+  set x -: 1  
   stop if (x < -1)
 cycle;
 
@@ -536,7 +539,7 @@ write
 <name>(<param>:<type>,...) => <result> ∈ <type>:
    [<statement>]
    ...   
-   <result> := <expression>
+   <result> = <expression>
 <name>.
 ```
 
@@ -545,14 +548,14 @@ write
 ```
 let z ∈ Z
 
-func(x,y:Z) => z ∈ Z:
-  x += 1
-  y += 1 
-  z := x+y --function result
+func(x,y ∈ Z) => z ∈ Z:
+  x +: 1
+  y +: 1 
+  z = x+y --function result
 func.
   
 -- call func and assign result to z  
-set z := func(1,1) 
+set z =: func(1,1) 
 put z -- print 4 
 
 --call function func using and print result
@@ -602,35 +605,35 @@ Constructor has an explicit declaration and result type is the user type it crea
 **example**
 ```
 -- define Foo subtype of set {}
-def Foo <: {p1 ∈ N, p2 ∈ N, p3 ∈ S} 
+def Foo = {p₁ ∈ N, p₂ ∈ N, p₃ ∈ S} 
 
-;constructor (same name as Foo)
-;create a result of type Foo (me)
+-- constructor (same name as Foo)
+-- create a result of type Foo (me)
 foo() => me ∈ Foo:
-  me := {0,0,0}
+  set me =: {0,0,0}
 foo.
 
-;initialization method for Foo type
+-- initialization method for Foo type
 bar(me ∈ Foo, p1, p2 ∈ Z, p3 ∈ S):
   ;precondition
   exit 1 if (p1 < 0 ∨ p2 < 0 ∨ p3 = ∅)
   
   ;modify Foo members
-  set me.p1 := p1
-  set me.p2 := p2
-  set me.p3 := p3
+  set me.p₁ =: p1
+  set me.p₂ =: p2
+  set me.p₃ =: p3
 bar.
 
-;second method for Foo type
+-- second method for Foo type
 print(me ∈ Foo):
-  put "{p1={0},p2={1},p3={2}}" <+ (me.p1, me.p2, me.p3)
+  put "{p1={0},p2={1},p3={2}}" <+ (me.p₁, me.p₂, me.p₃)
 print;
 
 -- declare instance of Foo
-let foo₁ ∈ Foo := foo();
+let foo₁ ∈ Foo = foo();
 
-foo₁.bar(1,2,'Test')-- initialize foo
-foo₁.print-- call second method for foo
+foo₁.bar(1,2,'Test') -- initialize foo
+foo₁.print -- call second method for foo
 
 write
 
@@ -647,7 +650,7 @@ end.
 
 Can be done at module level. Wee do not have classes, it has only user defined types. However doing an explicit design you can create a type hierarchy similar to OOP. 
 
-We can define a new type based on existing type using symbol "<:". This will inherit all methods of the original type, including the constructor.
+We can define a new type based on existing type using symbol "=". This will inherit all methods of the original type, including the constructor.
 
 We can create new methods and a new constructor. The new constructor can call the super constructor explicit. Nothing is implicit in Wee.
 
