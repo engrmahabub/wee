@@ -203,7 +203,7 @@ write
 -- modify all elements of array
 let m = length(test)  
 
-for i <: [0.,m] do
+for i <: [0..m-1] do
   test[i] *: 2
 for;
     
@@ -241,6 +241,8 @@ let <slice_name> = <array_name>[n..m]
 -- capacity is 5, last element is 0
 let a = [1,2,3,4](5) 
 
+put a -- [1,2,3,4,0]
+
 -- making 4 slices
 let b = a[!..?] -- [1,2,3,4,0]
 let c = a[1..?] -- [2,3,4,0]
@@ -248,11 +250,13 @@ let d = a[0..2] -- [1,2,3]
 let e = a[2..4] -- [3,4,0]
 
 --modify slice elements
-set c[!] =: 8
-set e[?] =: 9
+set c[!] =: 8 -- first element in c slice
+set e[!] =: 0 -- first element in e slice
+set e[?] =: 9 -- last element in e slice
 
 --original array is modified
-put a -- expect [1,8,3,4,9]
+--                 ↧ ↧   ↧                        
+put a -- expect [1,8,0,4,9]
 
 --modify last 3 elements
 set a[2..?] =: 0
@@ -690,8 +694,6 @@ let a = 0
 let b = 10
  
 put [a..b] -- [0,1,2,3,4,5,6,7,8,9,10]
-put [a.,b] -- [0,1,2,3,4,5,6,7,8,9]
-put [a,.b] -- [1,2,3,4,5,6,7,8,9,10]
 
 write
 ```

@@ -115,7 +115,8 @@ C = {¹⁄₂,¹⁄₄,¹⁄₈}
 
 **Arrows:**
  ⇤ ⇥ ↼ ⇀ ← → ↔ 
-
+ ↑ ↓ ↕ ↥ ↧ ↯
+ 
 ## Unicode Operators
 
 Using  "DejaVu Sans Mono" font we can define new operators and symbols. 
