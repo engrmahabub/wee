@@ -3,27 +3,27 @@
 -----------------------------------------
 #driver "do"
 
-let a <: [Z](10) -- array of 10 Words
+let a = [Z](10) -- array of 10 Words
 let i ∈  Z       -- index variable 
 
 -- a cycle can be repetitive
 cycle
-  set a[i] := i  
+  set a[i] =: i  
   is (i = 9) ?
     stop
   no:   
-    set i+=1
+    set i+:1
     repeat  
   is;
 cycle;
 
 -- control variable
-let x := 10 
+let x = 10 
 
 -- cycle shortcut 
 cycle
   is (x % 2 = 0) ?
-    set x-= 1
+    set x-: 1
     repeat -- shortcut   
   is;
   
@@ -31,7 +31,7 @@ cycle
   is (x < 0) ?
     stop
   no
-    set x-= 1
+    set x-: 1
   is;
 cycle;  
 
@@ -40,9 +40,9 @@ write
 -- array traversal demo
 -- use range for iteration
 let to ∈ Z
-set to := length(a)
+set to =: length(a)
 
-for i :> [0.!to] do
+for i <: [0.!to] do
    put ('r[{0}] = {1}' <+ (i, a[i]))
 for;
    
@@ -51,9 +51,9 @@ write
 -- array traversal demo
 let i ∈ Z
 
-for r ∈ a do
+for r <: a do
    put ('r[{0}] = {1}' <+ (i, a))
-   set i += 1
+   set i +: 1
 for;
 
 write

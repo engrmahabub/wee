@@ -14,10 +14,10 @@ put (Enum.third) -- 3
 write
 
 -- define hash map variable
-let s: {A:N} 
+let s = {A:N} 
 
 -- assign (name:value) pairs
-set s = 
+set s =:
   {"first" : 10, 
    "secont": 20,
    "third" : 30
@@ -38,7 +38,7 @@ let p = {A}    -- set collection of ASCII characters
 let m = {R,S}  -- hash map of strings with real key
 
 -- Establish map using literals
-set m = {'a':1, 'b':2, 'c':3}
+set m =: {'a':1, 'b':2, 'c':3}
 
 -- complex list examples
 let q1 = [A]        -- a list of characters
@@ -57,13 +57,13 @@ let s1 = {Z} -- empty set of strings
 let s2 = {1, 2, 3} 
 
 -- append one element into a set
-set s1 += 0 -- {0}
-set s1 += 1 -- {0,1}
-set s1 += 2 -- {0,1,2}
+set s1 +: 0 -- {0}
+set s1 +: 1 -- {0,1}
+set s1 +: 2 -- {0,1,2}
 
 -- remove one element
-set s1 -= 1-- {0,2}
-set s1 -= 2-- {0}
+set s1 -: 1-- {0,2}
+set s1 -: 2-- {0}
 
 -- union elements from two sets
 put(s1 + s2)-- {0,1,2,3}

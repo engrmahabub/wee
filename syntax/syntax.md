@@ -19,19 +19,19 @@ Expressions are created using identifiers, operators, functions and constant lit
 **Examples**
 ```
 -- simple expressions in put statement
+-- no need for parentheses for a single value
 put 10    -- print 10
-put 10,11 -- print 1011
+put "this is a test"
 
 write
 
---complex expressions are using ()  
-put 10,11,12    
-put 10 + 10 + 15 
+--complex expressions can use ()  
+put (10 + 10 + 15)
 put (10 > 5) ∧ (2 < 3)
 
 --multiple expressions in a line
-put(1,',',2,',',3) --expect 1,2,3
-put(10, 11, 12)    --expected 101112   
+put (1,',',2,',',3) --expect 1,2,3
+put (10, 11, 12)    --expected 101112   
 
 write
 ```
@@ -39,6 +39,8 @@ write
 **Notes:** 
 * put statement add new line automatically
 * put statement can receive multiple parameters
+* multiple expressions are separated by comma
+* we can omit the parantheses when one single value is used.
 
 ## Data types
 
@@ -124,11 +126,6 @@ con <constant_name> = <constant>
 con <constant_name> = <constructor>
 ```
 
-**Notes**
-* Keyword _var_ will create a declaration region. 
-* Keyword _con_ can be used to define a constant
-* Keyword _set_ will create an initialization region.
-
 ## Modify values
 
 We can modify variables using _set_ statement.
@@ -149,18 +146,18 @@ put b       -- expected 10
 
 **Examples:**
 ```
--- define a constant that can't change it's value
+-- declare a constant that can't change it's value
 con pi = 3.14
 
--- establis a let region for multiple variables
+-- declare multiple variables using let
 let a   ∈ Z --Integer 
 let x,y ∈ R --Double
 let q,p ∈ L --Logic
 
 --using modifier operators
-set a =: 10  -- modify value of a
-set a +: 1   -- increment value of a
-set a -: 1   -- decrement value of a 
+set a =: 10  -- modify value of a = 10
+set a +: 1   -- increment value of a = 11
+set a -: 1   -- decrement value of a = 10
 
 -- modify two variables using one constant
 set q, p =: True  -- modify value of q
@@ -189,7 +186,7 @@ Numeric types are automatically converted when this is safe.
 **Unsafe:** Real -> Natural -> Integer -> Binary
 
 * Safe conversions are automatic.
-* Unsafe convesion is done using operator "->"
+* Unsafe conversion is done using operator "->"
 * Operator "->" is also called "pipeline operator"
 
 **example:**
@@ -204,7 +201,14 @@ put a -- expect 10
 --safe conversion
 set x =: b
 put b -- expect 20
+put x -- expect 20.0
+
+--unsafe comparison
+put x = b -- 0 False
+put a ≈ b -- 1 True
 ```
+
+*Note:* An Integer is not 100% equal to a Real
 
 ## ASCII type
 

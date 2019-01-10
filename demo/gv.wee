@@ -4,16 +4,14 @@
 ------------------------------
 #driver "gv"
 
-let $x ∈ Z
-
 -- set initial value for x
-set $x := 1
+let $x = 1
 
 -- use global variable x in method "add"
 -- since add has not parammeters and no result
 -- it is just a simple method declaration
 add1:
-  set $x += 1
+  set $x +: 1
   put $x
 add1.
 
@@ -27,12 +25,12 @@ put $x -- expect 4
 write
 
 -- declare variable x
-let x := 1
+let x = 1
 
 -- variable shadowing
 add2(): 
-  let x := 0   -- create a new variable x 
-  set x += 1   -- increment local variable
+  let x  = 0   -- create a new variable x 
+  set x +: 1   -- increment local variable
   put x        -- print local x
 add2.
 

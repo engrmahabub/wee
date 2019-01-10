@@ -7,19 +7,19 @@
 def Number :: {.zero, .one, .two}
 
 let test ∈ Number
-set test := zero -- instance of Number  
+set test =: zero -- instance of Number  
 
 -- create a method for type Number
 convert(x ∈ Number)=> y ∈ S: 
-  set y:= ('zero': x = zero,
+  set y=: ('zero': x = zero,
            'one' : x = one, 
            'two' : x = two,   
            'none')
 convert.
 
 -- a wrapper method for convert     
-equal(x ∈ Number, s ∈ S):=> r ∈ L:
-  set r := (s = x.convert()) 
+equal(x ∈ Number, s ∈ S)=:> r ∈ L:
+  set r =: (s = x.convert()) 
 equal.
     
 -- calling test methods 

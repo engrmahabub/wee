@@ -5,9 +5,9 @@
 
 fib(n ∈ N) => y ∈ N: 
   is (n = 1 ∨ n = 0)? 
-    set y := 1
+    set y =: 1
   no:
-    set y := fib(n - 1) + fib(n - 2)
+    set y =: fib(n - 1) + fib(n - 2)
   is;
 fib.
 

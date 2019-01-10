@@ -4,12 +4,12 @@
 #driver "lv"
 
 -- local variable
-let x := 1
+let x = 1
 
 -- method side-effects
 add():
-  set x += 1
-  put(x)
+  set x +: 1
+  put x
 add.  
 
 add -- will print 2
@@ -20,7 +20,7 @@ put x -- x = 3 (is modified)
 write  
 
 -- changing x influence method
-set x := 0  -- new x value 
+set x =: 0  -- new x value 
 
 add   -- will print 1
 add   -- will print 2

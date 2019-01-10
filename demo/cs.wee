@@ -4,7 +4,7 @@
 #driver "cs"
 
 -- use type inference
-let a := 10, b := 5
+let a = 10, b = 5
 
 -- simple decision 
 put ("a = b") if (a = b)
@@ -28,7 +28,7 @@ is;
 write
 
 -- nested decisions
-set a := 5
+set a =: 5
 
 is a < 5 ? 
   put ("a<5") 
@@ -43,7 +43,7 @@ is;
 write
 
 -- multi-decisions with range
-set a := 10 
+set a =: 10 
 
 is a ∈ [0.,5] ?
    put ('a ≥ 0 and a < 5')  
@@ -57,10 +57,10 @@ write
 
 -- two assign statements on same line
 -- variable a and b are already bind
-set a, b := 10
+set a, b =: 10
   
 -- two values in one statement  
-set a := 1, b := 0
+set a =: 1, b =: 0
   
 -- cascade decision statement
 is a ∧ b?

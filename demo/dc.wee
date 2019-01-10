@@ -17,9 +17,9 @@ put l -- 0
 write
 
 -- native array are auto initialized
-let a <:[W](10)   -- array of 10 Words
-let b <:[A](10)   -- array of 10 ASCII characters
-let m <:[W](3,3)  -- matrix of 10x10 Words
+let a = [W](10)   -- array of 10 Words
+let b = [A](10)   -- array of 10 ASCII characters
+let m = [W](3,3)  -- matrix of 10x10 Words
 
 put a -- [0,0,0,0,0,0,0,0,0,0]
 put b -- ['','','','','','','','','','']
@@ -27,14 +27,18 @@ put m -- [[0,0,0], [0,0,0], [0,0,0]]
 
 write
 
--- scalar operations
-set b[*] := 's' -- scalar assign for all elements
-set a[*] +=  5  -- scalar modification
-set m[*] +=  1  -- scalar matrix modification
+-- scalar operations (for all members [*])
+set b[*] =: 's' -- assign value "s" for all elements
+set a[*] +:  5  -- scalar modification, add 5
+set m[*] +:  1  -- scalar matrix modification
 
 -- use index to find member
 put a[0]   -- will print 5
 put m[2,2] -- will print 1
 put b[0]   -- will print 's' 
+
+-- use range to modify elements
+set a[2..?] =: 1 -- [5,5,1,1,1,1,1,1,1,1] 
+
 
 end.

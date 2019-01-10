@@ -9,7 +9,7 @@ def .Data :: {key:A, value:N}
 
 -- new variable using type alias
 let x ∈ Data
-set x:= {key:'a', value:10}
+set x=: {key:'a', value:10}
 
 +---------------------------------------------------+ 
 |* public enumeration type with public elements    *|
@@ -34,7 +34,7 @@ def Number: {
 +------------------------------------------------+
 
 -- example of use
-let a := 0
+let a = 0
 
 -- example of use
 is a = zero ?
