@@ -1,15 +1,14 @@
 ## Common Symbols
-
-  ≠ ≤ ≥ ≈
-  ∃ ∀ ∈ ∉
-  ∅ ∩ ∪ ⊂
-
+  
+  ∈ ∉ ∃ ∀  
+  ≠ ≤ ≥ ≈  
+  ∅ ∩ ∪ ⊂ 
+  ∧ ∨ ¬ ↻
+  ∞ ×   ≡
+  
 ## Other Symbols
 Logic:     ¬  ∧  ∨  ⊕
 Bitwise:  .¬ .∧ .∨ .⊕
-
-Modulo:    y = |x|
-Factorial: x = n!
 
 **Superscript**
 M ⁽⁾ ⁺ ⁻ ⁼ · ⁰ ¹ ² ³ ⁴ ⁵ ⁶ ⁷ ⁸ ⁹ 
@@ -112,7 +111,7 @@ Symbol|UNC    | Description
 
 |sym  | xp          | action
 |-----|-------------|-----------------------------
-| ∙=  | x ∙= 2      |multiplication  
+| ∙:  | x ∙: 2      |multiplication  
 | ∙   | y  = x ∙ 2  |multiplication  
 | ↻   | xp ↻ n      |repeat n times (for strings)
 
