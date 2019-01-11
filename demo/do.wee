@@ -9,12 +9,12 @@ let i ∈  Z       -- index variable
 -- a cycle can be repetitive
 cycle
   set a[i] =: i  
-  is (i = 9) ?
+  when i = 9:
     stop
-  no:   
+  else
     set i +: 1
     repeat  
-  is;
+  when;
 cycle;
 
 -- control variable
@@ -22,17 +22,18 @@ let x = 10
 
 -- cycle shortcut 
 cycle
-  is (x % 2 = 0) ?
+  when (x % 2 = 0):
     set x-: 1
     repeat -- shortcut   
-  is;
+  when;
   
   put(x)
-  is (x < 0) ?
+  
+  when (x < 0):
     stop
-  no
+  else
     set x-: 1
-  is;
+  when;
 cycle;  
 
 write    

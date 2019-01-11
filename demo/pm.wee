@@ -5,17 +5,17 @@
 
 -- using decision
 pm₁(p₁,p₂ ∈ N)=> r ∈ N:
-  is p₁ = 0    ?
+  when p₁ = 0:
     set r =: 0
-  no:is p₂ = 0 ? 
+  when p₂ = 0:
     set r =: 1
-  no:is p₁ = p₂? 
+  when p₁ = p₂:
     set r =: 2    
-  no:is p₁ > p₂? 
+  when p₁ > p₂:
     set r =: 3
-  no: 
+  else
     set r =: 4
-  is;
+  when;
 pm₁.
 
 -- expression matching

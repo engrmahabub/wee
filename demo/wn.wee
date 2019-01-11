@@ -10,18 +10,18 @@ read
 
 -- single branch
 when x = 0:
-   out "x > 0"
+   out "x = 0"
 when;
 
 write   
 
 -- multiple branches
-when x = 0:
-  out "x = 0"
 when x = 1:
   out "x = 1"
-when x > 1:
-  out "x > 1"  
+when x > 5:
+  out "x > 5"  
+else
+  out "0 < x < 5"  
 when;
 
 write

@@ -13,47 +13,33 @@ put ("a > b") if (a >  b)
 
 write
 
+
 -- single branch decision
-is (a ≠ b) ?
+when a ≠ b:
   put ("a is not equals to b")
-is;
+when;
 
--- decision with two braches
-is a < 5 ?
+-- decision with alternative
+when a < 5:
   put "yes"
-no:
+else
   put "no"
-is;
-
-write
-
--- nested decisions
-set a =: 5
-
-is a < 5 ? 
-  put ("a<5") 
-no: 
-  is a > 5 ? 
-    put ('a>5') 
-  no:
-    put ('a = 5')
-  is;
-is;
+when;
 
 write
 
 -- multi-decisions with range
 set a =: 10 
 
-is a ∈ [0..4] ?
+when a ∈ [0..4]:
    put ('a ≥ 0 and a < 5')  
-no:is a ∈ [5..9] ? 
+when a ∈ [5..9]:
    put ('a ≥ 5 and a < 10')
-no:is  a < 0 ?
+when  a < 0:
    put "a is negative"
-no:   
+else
    put ('a ≥ 10')
-is;
+when;
 
 write
 
@@ -65,17 +51,17 @@ set a, b =: 10
 set a =: 1, b =: 0
   
 -- cascade decision statement
-is a ∧ b?
+when a ∧ b:  
   put ("both a, b are true")
-no:is a ∨ b?  
+when a ∨ b:
   put ("one of a or b is true")
-no:is a?
+when a
   put ("a is true")
-no:is b?
+when b
   put ("b is true")
-no:
+else
   put ("this is impossible")  
-is;
+when;
 
 write
 

@@ -26,7 +26,7 @@ check x -> N
      ...
   in (2,4,6,8):
      put "x is even number"
-else
+other
   put "x is odd number"
 check;  
 
