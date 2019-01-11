@@ -42,13 +42,16 @@ Wee statements start with a keyword.
 
 ## Code blocks
 Statements can be contained in blocks of code.
-Each block of code start with a specific keyword.
-Block of code is ending with same keyword and ";"
+
+* Each block of code start with a specific keyword.
+* Block of code is ending with same keyword and ";"
 
 **Keywords:**
+* "when"  create a decision block
+* "check" value multi-path selector
 * "cycle" repetitive group of statements
 * "for"   create a range iteration
-* "is"    create a decision block
+
 
 ## Driver file
 
@@ -73,12 +76,12 @@ exit 1 if (l = 0)
 
 cycle
     put $params[i]
-    is (i = l)?
+    when (i = l):
       stop
-    no:
-      i+:1
+    else
+      i +: 1
       repeat
-    is;
+    when;
 cycle;
 
 end.
@@ -325,15 +328,14 @@ Relation operators are used to compare expressions.
 
 ## Statements
 
-Wee has 23 keywords to create statements.
+Wee has 28 keywords to create statements.
 
 | Keyword  | Purpose
 |----------|--------------------------------------------------
 | wee      | Import Wee module
 | asm      | Import Assembly
 | cpp      | Import C or C++ module
-| stop     | stop program execution with no message
-| exit n   | stop program with error message
+| exit     | Interrupt program execution with error number (0..n)
 | def      | Define user data type or type alias using :
 | let      | Declare variables using : with type or =
 | set      | Establish or modify value for variables using =
@@ -350,8 +352,12 @@ Wee has 23 keywords to create statements.
 | repeat   | Jump to beginning of _cycle_ block
 | stop     | stop inner cycle and continue after end of cycle.
 | if       | Conditional statement execution 
-| is       | Start logical decision block
-| no       | Second path of conditional block
+| check    | Multi-path value selector
+| is       | Used in check to verify a single value and create a path
+| in       | Used in check to verify if one value belong to specific tuple
+| other    | Used in check to verify other cases not analyzed with is & in
+| when     | Create a decision case using a logical expression
+| else     | Alternative path executed when no case is true
 | end      | End of file. Must be followed by a "."
 
 ## Basic types

@@ -382,40 +382,85 @@ write
 **Notes:** Keyword "if" do not pair-up with "else".
 
 ##Control flow
-Wee has 3 control flow statements { is, cycle, for }:
+Wee has 4 control flow statements { when, check, for, cycle }:
 
 **decision**
-A decision is based on logical expressions and keywords { is, no } and symbol "?". Logical expression must be enclosed in parenthesis () always.
+A decision is based on logical expressions and keywords { when, else } and Logical expressions.
 
 ```
 let a = 10 
 
 -- single branch
-is a = 10 ?
+when a = 10:
    put 'yes'
-is;  
+when;  
 
 -- two branches
-is a < 5 ?
+when a < 5:
   put 'yes'
-no:
+else
   put 'no'
-is;
+when;
 
 -- multiple branches
-is a < 0    ?
+when a < 0:
   put 'yes'
-no:is a > 5 ?
+when a > 5:
   put 'no'
-no:is a = 0 ?  
+when a = 0:  
   put "a = 0"  
-no:is a = 5 ?  
+when a = 5:  
   put "a = 5"    
-no:
-  put "a = #n" <+ a  
-is;
+else
+  put ("a = #n" <+ a)
+when;
 
 ```  
+
+**Check value**
+
+This statement check value of expression using keywords: {check, is, other}
+
+**Syntax**
+
+```
+check <expression> | <constant>
+   is <value>:
+      <statement>
+      ... 
+   in (<v1>,<v2>,...<vn>):      
+      <statement>
+      ...
+other
+   <default_statement>
+check;      
+
+```
+**Example:**
+
+```
+let x = 0
+get ("x:",x)
+
+-- multi-path selector
+check x -> N
+  is 0:
+     put "x = 0"
+  is 1: 
+     put "x = 1"
+     ...
+  is 2: 
+     put "x = 2"
+     ...
+  is 3: 
+     put "x = 3"
+     ...
+  in (2,4,6,8):
+     put "x is even number"
+other
+  put "x is odd number"
+check;  
+```
 
 **Repetition**
 
@@ -463,11 +508,12 @@ let n = 0, m = 20
 
 -- using range to define i
 for i <: [n..m] do
-  is a % 2 = 0 ?
+  when a % 2 = 0:
     next -- force next iteration
-  no:  
+  else
     out (a, ' ')
-  is;
+  when;
+  
   --force early stop
   done if (a > 10)
 for;    
@@ -516,11 +562,8 @@ let  a,r = 0
 
 cycle
   set r =: x % 2
- 
   set a =: (0 : r = 0, 1 : r > 0, 2)
-  
-  out (a, ',')
-  
+  out (a, ',')  
   set x -: 1  
   stop if (x < -1)
 cycle;

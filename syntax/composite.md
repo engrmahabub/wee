@@ -598,6 +598,7 @@ set a +: 4 -- [1,2,3,4]
 -- pop last element using "~:"
 set last =:  a[?] -- last = 4, a = [1,2,3,4]
 set last ~:  a[?] -- last = 4, a = [1,2,3]
+```
 
 **Queue**
 
@@ -616,6 +617,7 @@ set first ~: a[!] -- 1 and a = [2,3,4]
 ```
 
 ## Dynamic Map
+
 A map is a hash collection of data indexed by a key.
 
 ```
@@ -733,11 +735,13 @@ def Positive      = Z[0,.]
 def Negative      = Z[.,0]
 
 --Check variable belong to sub-type
-is 'x' ∈ AlfaChar ? 
+when 'x' ∈ AlfaChar:
   put ('yes')
-no:
+else
   put ('no')
-is;
+when;
+
+write;
 ```
 
 **Notes:**
