@@ -103,9 +103,9 @@ It is common to create strings automatically.
 
 **Operator: Repeat = "↻" ** 
 
-``
+```
   let str = <constant> ↻ n
-``
+```
 
 **Example:**
 ```
@@ -115,7 +115,9 @@ put sep
 put "|*  this is a test  *|"
 put sep 
 ```
-This example will print:
+
+Output:
+
 ```
 +-------------------+
 |*  this is a test *|
