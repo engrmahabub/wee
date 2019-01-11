@@ -16,6 +16,11 @@ put l -- 0
 
 write
 
+-- declaring with initial value
+
+let g, h =-10 ∈ N
+let x = 10, y = 20 ∈ N
+
 -- native array are auto initialized
 let a = [W](10)   -- array of 10 Words
 let b = [A](10)   -- array of 10 ASCII characters

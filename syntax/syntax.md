@@ -524,7 +524,7 @@ write
 ## Pattern Matching
 
 Instead of ternary operator we use conditional expressions. 
-These expressions are separated by coma and enclosed in (...).
+These expressions are separated by coma and enclosed in (, , ,).
 
 **Syntax:**
 
@@ -532,15 +532,15 @@ These expressions are separated by coma and enclosed in (...).
 let <v> ∈ <Type>
 
 -- single matching with default value
-set <v> =: (<xp> : <cnd>, <dx>)
+set <v> =: (<xp> if <cnd>, <dx>)
 
 -- multiple matching with default value
-set <v> =: (<xp1> : <cnd1>, <xp2> : <cnd2>..., <dx>)
+set <v> =: (<xp1> if <cnd1>, <xp2> if <cnd2>..., <dx>)
 
 -- alternative code alignment
 set <v> =: (
-  <xp1> : <cnd1>,
-  <xp2> : <cnd2>,
+  <xp1> if <cnd1>,
+  <xp2> if <cnd2>,
   <dx>)
 ```
 
@@ -562,7 +562,7 @@ let  a,r = 0
 
 cycle
   set r =: x % 2
-  set a =: (0 : r = 0, 1 : r > 0, 2)
+  set a =: (0 if r = 0, 1 if r > 0, 2)
   out (a, ',')  
   set x -: 1  
   stop if (x < -1)
