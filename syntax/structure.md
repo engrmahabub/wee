@@ -246,7 +246,7 @@ symbol| description
  \--  | Start for single line comment (at beginning of the line) 
  ..   | Define range or array slice between two values [n..m]
  ->   | Function pipeline \| unsafe conversion 
- <+   | Insert one or more values into a string template
+ <+   | Insert one or more values into a string template >
  
  
 ## Modifiers

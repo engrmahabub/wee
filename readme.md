@@ -26,7 +26,7 @@ You can learn wee by reading demo source files:
 1. [hi.wee](demo/hi.wee) - input output demo
 1. [in.wee](demo/in.wee) - input multiple values
 1. [fn.wee](demo/fn.wee) - function declaration
-1. [fi.wee](demo/fi.wee) - fibonaci function demo 
+1. [fi.wee](demo/fi.wee) - Fibonacci function demo 
 1. [lv.wee](demo/lv.wee) - local variable demo
 1. [dt.wee](demo/dt.wee) - user defined data types
 1. [ct.wee](demo/ct.wee) - composite types
@@ -35,13 +35,17 @@ You can learn wee by reading demo source files:
 1. [me.wee](demo/me.wee) - method dispatch demo
 1. [pm.wee](demo/pm.wee) - pattern match/when switch
 
-## Wee Color
+## Highlighter
 
-For syntax color you can use Notepad++.
-Download: [color.xml](syntax/color.xml)
+For syntax color highlighter you can use Notepad++.
+
+**Download:**
+ 
+* [wee-black.xml](color/wee-black.xml)
+* [md-wiki.xml](color/md-wiki.xml)
 
 ## Community
 
 Wee is designed by "Sage Code" community on Discord.
 
-**Join us:** [discord](https://discord.gg/sNrcHur)
+Join us: [discord](https://discord.gg/sNrcHur)
