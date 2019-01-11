@@ -281,7 +281,7 @@ let y = True  ∈ L
 put x  -- will print: 0
 put y  -- will print: 1
 
---complex expressions
+--complex expression
 put (x = y) -- equal: 0
 put (x < y) -- lt   : 1
 put (x > y) -- gt   : 1
@@ -370,11 +370,11 @@ The statement is executed only if the expression is True.
 let a ∈ Z
 
 -- conditional execution
-set a =: 1 if (a = 0)
+set a =: 1 if a = 0
 
 -- conditional output
-put "a is 0" if (a = 0)
-put "a >  0" if (a ≥ 0)
+put "a is 0" if a = 0
+put "a >  0" if a ≥ 0
  
 write 
 ```
