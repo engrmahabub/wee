@@ -132,36 +132,6 @@ In Wee the matrix are stored in memory by row major order.
 Default subscript (DS) start from [0,0] upper left corder to [n,m]
 
 
-```
--- Declare matrix literal using 3RF
-
-let M = ⎡ 0, 0, 0 ⎤   
-        ⎢ 0, 0, 0 ⎥   
-        ⎣ 0, 0, 0 ⎦   
-
--- Initialize all elements
-set M[*] =: 1
-
--- Modify diagonal elements
-set M[0,0] =:1
-set M[2,2] =:3
-
--- Modify second row
-set M[1,*] =:2        
-put M 
-write
-```
-
-**Expected output:**
-
-```
-
-⎡ 1, 0, 0 ⎤
-⎢ 2, 2, 2 ⎥
-⎣ 0, 0, 3 ⎦
-
-```
-
 **Larger matrix (DAS):**
 
 Large matrix will start like a normal matrix and will expand: left & bottom.
