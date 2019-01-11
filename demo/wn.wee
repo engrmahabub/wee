@@ -1,0 +1,29 @@
++-------------------------------+
+|*  Multi-path selector "when" *|
++-------------------------------+
+
+let x ∈ N
+
+get ("Type a number:", x)
+
+read
+
+-- single branch
+when x = 0:
+   out "x > 0"
+when;
+
+write   
+
+-- multiple branches
+when x = 0:
+  out "x = 0"
+when x = 1:
+  out "x = 1"
+when x > 1:
+  out "x > 1"  
+when;
+
+write
+
+end.
