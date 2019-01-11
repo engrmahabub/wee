@@ -646,11 +646,11 @@ We can check if an element is included in a collection.
 ```
 let map = {'a':'first', 'b':'second'}
 
-is ('a' in map)?
+when ('a' in map):
   put("a is found")
-no:
+else
   put("not found")
-is;
+when;
   
 write  
 ```

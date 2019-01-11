@@ -17,11 +17,11 @@ write
 
 -- recursive function
 fac(n ∈ N)=> y ∈ N:
-  is (n = 0)? 
+  when (n = 0):
     y =: 1
-  no:
+  else
     y =: fac(n-1)
-  is;
+  when;
 fac.
 
 put fac(3) -- expect 6

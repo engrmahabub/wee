@@ -4,11 +4,11 @@
 #driver "fi"
 
 fib(n ∈ N) => y ∈ N: 
-  is (n = 1 ∨ n = 0)? 
+  when (n = 1 ∨ n = 0):
     set y =: 1
-  no:
+  else
     set y =: fib(n - 1) + fib(n - 2)
-  is;
+  when;
 fib.
 
 -- use function fib    
