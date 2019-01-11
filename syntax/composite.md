@@ -158,7 +158,7 @@ set b =: name2 --b = 1
 
 ```
 
-## Default Subscript Array (DS Array)
+## Default Array Subscript (DAS)
 
 Wee define Array variable using notation:[]().
 
@@ -168,8 +168,34 @@ let <matrix_name>=[<member-type>](n,m) --two dimensions with capacity n x m
 ```
 
 Elements in default array are indexed from 0 to c-1 where c is capacity.
+```
+-- define DAS array with 10 Real elements
+let test = [R](10) 
 
-## Arbitrary Subscript Array (AS Array)
+put test[!] -- first element
+put test[?] -- last element
+
+-- set value of element = subscript
+let m = length(test)  
+for x <: [0..m-1] do
+  set test[i] =: x
+for;
+
+-- print all elements of array
+for e <: test do
+  put(e,',')
+for;
+
+write 
+```
+
+**Output:**
+```
+ 0,1,2,3,4,5,6,7,8,9
+```
+Note: Elements start from 0. 
+
+## Custom Array Subscript (CAS)
 
 Optional we can specify subscript domain (n..m)
 
@@ -180,35 +206,30 @@ let <array_name> =[<member-type>](n..m)
 --one dimension array with unlimited capacity
 let <array_name> =[<member-type>](n..∞)
 
---two dimension array with arbitrary index 
+--two dimension matrix with arbitrary index 
 let <matrix_name>=[<member-type>](n..m,n..m)
 ```
 
 **Example:**
 
 ```
--- define DAS array with 10 Real elements
-let test = [R](10) 
+-- define CAS array with 10 Real elements
+let test = [R](1..10) 
 
 put test[!] -- first element
 put test[?] -- last element
 
--- print all elements of array: 0,1,2,3,4,5,6,7,8,9,
-for e <: test do
-  put(e,',')
+-- set element of array = it's subscript
+let n = test.!
+let m = test.?
+for i <: [n..m] do
+  test[i] =: i 
 for;
+   
+-- print the entire array
+put test-- expect: [1,2,3,4,5,6,7,8,9,10]
 
 write
-
--- modify all elements of array
-let m = length(test)  
-
-for i <: [0..m-1] do
-  test[i] *: 2
-for;
-    
--- print put the entire array
-put test-- expect: [0,2,4,6,8,10,12,14,16,18]
 ```
 
 **Notes:**
@@ -365,7 +386,7 @@ put s -- "2 > 1, True"
 ```
 
 
-### Multiple results
+## Multiple results
 
 A function can create as a results a tuple.
 
@@ -386,7 +407,7 @@ set _,_ <: test(3,4)
 
 ```
 
-### Partial unpacking
+## Partial unpacking
 Tuple members can be ignored when unpacking using anonymous variable: "_"
 
 ```
@@ -724,9 +745,17 @@ is;
 * Control variable can be declared in range using "∈"
 * To check value is in range use operator "∈"
 
-## Collection generators
+## Collection builder
 
 Wee is using a special notation to create a sub-set.
+
+|symbol | meaning
+|-------|--------------------------------------------------
+|  ∀    | For all elements in defined in set: (for ∀ e ∈ X).
+|  ∃    | Exist element element in set (∃ 2 ∈ X)
+|  ∈    | Define or check element belonging to set 
+|  ∩    | Intersection between two sets
+|  ∪    | Union between two sets or maps. For lists use "+"
 
 ```
 let a,b = {Z}

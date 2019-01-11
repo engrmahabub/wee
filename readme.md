@@ -1,8 +1,8 @@
 ## Wee Read-me
 
-Unicode scientific computation language.
+Declarative, scientific computation language.
 
-Copyright (c) January 2019 
+Copyright [SageCode](https://sagecode.net) (c) January 2019 
 
 MIT License: [LICENSE](LICENSE)
 

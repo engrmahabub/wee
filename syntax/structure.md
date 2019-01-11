@@ -105,7 +105,7 @@ asm myAsm.*
 use .* all public members are used
 use :x,y,z only x,y,z members are used
 
-**Environment variables*
+**Environment variables**
 Environment variables are globals anthat start with $ symbol. 
 All system variables are automatic imported from OS environment.
   
@@ -210,6 +210,7 @@ symbol| description
   \|  | Used in modulo function y = \|x\|
   *   | Parameter prefix for variable arguments
   _   | Anonymous variable \| Ignore value received
+  \\  | Escape literal character (\n = New Line) 
 
 ## Operators
 
@@ -223,7 +224,7 @@ symbol| description
  ↻    | String repetition: "*" ↻ 3 makes a = "***"   
  /    | Numeric division
  %    | Numeric reminder 
-\\    | Escape literal character (\n = New Line) 
+
 
 
 ## Brackets
@@ -253,10 +254,9 @@ symbol| description
 Modifiers use pattern:  μ: where μ is a suggestive symbol:
 
 symbol| description
-------|--------------------------------------------------------------
+------|---------------------------------------------------
  =:   | Assign a new value and forget the old value
- +:   | Addition modifier \| 
- +:   | Append \| push \| enqueue (LI)
+ +:   | Addition modifier \| Append element in collection
  ~:   | Remove \| pop  \| dequeue  (LO/FO)
  -:   | Subtraction modifier 
  ^:   | Numeric power modifier
@@ -270,9 +270,7 @@ symbol| description
 Logical operators return: 1 = True or 0 = False
 
 |symbol| meaning
-|------|-----------------------------------
-|  ∈   | Element belong to set 
-|  ∉   | Not element of set
+|------|-----------------------
 |  ¬   | Logic NOT
 |  ∧   | Logic AND
 |  ∨   | Logic OR 
@@ -298,13 +296,32 @@ Relation operators are used to compare expressions.
 
 |symbol | meaning
 |-------|----------------------------------------------
-|  =    |equality of two values in logical expressions
+|  =    |equality of two values of the same type
 |  ≠    |divergence of two values (not equal)
-|  ≈    |almost equal (ignore decimals)
+|  ≈    |almost equal (ignore type and decimals)
 |  \>   |value is greater than 
 |  \<   |value is less than
 |  ≥    |greater than or equal to
 |  ≤    |less than or equal to
+
+## Set operators
+
+|symbol | meaning
+|-------|--------------------------------------------------
+|  ∅    | Represents empty collection: {},[],()
+|  ≡    | Equivalent objects: collections or structures
+|  ≢    | Non Equivalent objects
+|  ⊂    | Is subset of a larger set
+|  ⊄    | Not subset of larger set
+|  ⊆    | Is subset of or equal to another set
+|  ∩    | Intersection between two sets
+|  ∪    | Union between two sets or maps. For lists use "+"
+|  ∀    | For all elements in defined in set: (for ∀ e ∈ X).
+|  ∃    | Exist element element in set (∃ 2 ∈ X)
+|  ∃!   | Exist only one single element in list (∃! e ∈ X)
+|  ∄    | Does not exist any element in set such us ... 
+|  ∈    | Define or check element belonging to set 
+|  ∉    | Check element do not belong to a set
 
 ## Statements
 

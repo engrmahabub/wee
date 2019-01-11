@@ -100,7 +100,7 @@ Symbol|UNC    | Description
 ×     |U+00D7 | Multiplication (vector) 
 ÷     |U+00F7 | Division 
 ±     |U+00B1 | Change sign unary operator (-1xA) = ±A
-√     |U+221A | Square root sqrt(m).
+√     |U+221A | Square root sqrt(m). Others: ∛ ∜
 ∑     |U+2211 | ∑A = A[0] + A[1]+…A[n]
 ∏     |U+220F | ∏A = A[0] × A[1]×…A[n] \|= A[0] + A[1]+…A[n]
 ∆     |U+2206 | Increment: ∆x=x2-x1, ∆(x,y)=√(x²-y²)

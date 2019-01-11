@@ -128,7 +128,7 @@ con <constant_name> = <constructor>
 
 ## Modify values
 
-We can modify variables using _set_ statement.
+One can modify variables using _set_ statement.
 
 ```
 let a = 10  -- declare integer variable 
@@ -143,6 +143,7 @@ put b       -- expected 10
 * must use at least one modifier { =:, +:, *:, ~:, ... }
 * can modify multiple variables separated with comma
 * can execute multiple expressions separated with comma
+* can''t create a new variable, you must use let for it
 
 **Examples:**
 ```
@@ -344,12 +345,12 @@ let y₁,y₂ = 10
 let d ∈ R
 
 -- use Unicode superscript for power
-set d =: sqr((x₂-x₁)²+(y₂-y₁)²)
+set d =: √((x₂-x₁)²+(y₂-y₁)²)
 ```
 
 **Unicode**: [symbols](symbols.md)
 
-## Conditionals
+##Conditionals
 
 A conditional is using "if" keyword to control one statement.   
 Observe that "if" is not itself a full statement only an augment.
@@ -380,7 +381,7 @@ write
 
 **Notes:** Keyword "if" do not pair-up with "else".
 
-## Control flow
+##Control flow
 Wee has 3 control flow statements { is, cycle, for }:
 
 **decision**
@@ -432,8 +433,7 @@ cycle
   set a -: 1
   
   -- conditional repetition
-  repeat if (a % 2 = 0)
-  
+  repeat if (a % 2 = 0)  
   out (a, ' ')
   
   -- conditional termination
@@ -447,7 +447,7 @@ write
 
 * If _stop_ condition is missing the cycle is infinite;
 * Nested cycle is not supported in Wee language;
-* One cycle can be controled using variables;
+* One cycle can be controlled using variables;
 
 **Iteration**
 
@@ -516,6 +516,7 @@ let  a,r = 0
 
 cycle
   set r =: x % 2
+ 
   set a =: (0 : r = 0, 1 : r > 0, 2)
   
   out (a, ',')
@@ -553,7 +554,8 @@ func(x,y ∈ Z) => z ∈ Z:
   y +: 1 
   z = x+y --function result
 func.
-  
+
+
 -- call func and assign result to z  
 set z =: func(1,1) 
 put z -- print 4 
