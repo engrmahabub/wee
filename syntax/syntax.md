@@ -40,7 +40,7 @@ write
 * put statement add new line automatically
 * put statement can receive multiple parameters
 * multiple expressions are separated by comma
-* we can omit the parantheses when one single value is used.
+* we can omit the parentheses when one single value is used.
 
 ## Data types
 
