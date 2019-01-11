@@ -1,22 +1,26 @@
 ## Common Symbols
   
-  ∈ ∉ ∃ ∀  
-  ≠ ≤ ≥ ≈  
-  ∅ ∩ ∪ ⊂ 
-  ∧ ∨ ¬ ↻
-  ∞ ×   ≡
+  ∈ ∉ ∃ ∀    
+  ≠ ≤ ≥ ≈    
+  ∅ ∩ ∪ ⊂    
+  ∧ ∨ ¬ ↻    
+  ∞ ×   ≡    
   
 ## Other Symbols
-Logic:     ¬  ∧  ∨  ⊕
-Bitwise:  .¬ .∧ .∨ .⊕
+* Logic:     ¬  ∧  ∨  ⊕
+* Bitwise:  .¬ .∧ .∨ .⊕
 
 **Superscript**
+```
 M ⁽⁾ ⁺ ⁻ ⁼ · ⁰ ¹ ² ³ ⁴ ⁵ ⁶ ⁷ ⁸ ⁹ 
 A ⁿ ʰ ˣ ʸ ʰ ʷ ʳ ʴ ˢ ʲ ʺ ʻ ʼ 
+```
 
 **Subscript**
+```
 M . ‚ ₀ ₁ ₂ ₃ ₄ ₅ ₆ ₇ ₈ ₉ 
 Xₐ…ₑₕᵢⱼₖₗₘₙₒₚᵣₛₜᵤᵥₓₔ
+```
 
 **Restrictions**
 
@@ -24,15 +28,20 @@ A variable that is using indice can''t also use power.
 We must use carror "^" operator. x₁^2 for this case.
 
 
-**Fraction sign** ⁄
+**Fraction sign**
+
+```
+ ⁄
 
 ¹⁄₂ ¹⁄₃ ¹⁄₄ ¹⁄₅ ¹⁄₆ ¹⁄₇ ¹⁄₈ ¹⁄₉ ¹⁄₁₀
+```
 
 ## Greek Alphabet
 
+```
 Α Β Γ Δ Ε Ζ Η Θ Ι Κ Λ Μ Ν Ξ Ο Π Ρ Σ Τ Υ Φ Χ Ψ Ω 
 α β ε δ ζ η h θ ι κ λ μ ν ξ ο π ρ σ ς τ υ φ
-
+```
 
 Symbol |UNC    | Description
 -------|-------|----------------------------------------------------------
@@ -52,7 +61,7 @@ Symbol |UNC    | Description
 ∴      |U+2234 | Therefore
 ∵      |U+2235 | Because  
 
-** Bitwise Operators
+## Bitwise Operators
 
 Sym  | Interpretation
 -----|-----------------
