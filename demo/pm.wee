@@ -28,7 +28,7 @@ pm₂(p₁,p₂ ∈ N)=> r ∈ N:
 pm₂. 
 
 -- equivalent to pm₂ in single line
-pm(p₁,p₂ ∈ N) => (0:p₁=0, 1:p₂=0, 2:p₁=p₂, 3:p₁>p₂, 4)
+pm(p₁,p₂ ∈ N) => (0 if p₁=0, 1 if p₂=0, 2 if p₁=p₂, 3 if p₁>p₂, 4) ∈ N
 
 -- execute both functions
 put pm₁(0,10)  -- will print 0

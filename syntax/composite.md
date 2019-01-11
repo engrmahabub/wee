@@ -793,11 +793,9 @@ A filter is a logical expression after "if" keyword enclosed in paranthesis ().
 In next example we convert a set into a list of elements.
 
 ```
-let a = {N} -- set of natural numbers
-let b = [N] -- array of natural numbers
+let a =: {0,1,2,3,4,5,6,7,8,9} 
 
-set a =: {0,1,2,3,4,5,6,7,8,9} 
-set b =: [ x : x ∈ a, (x % 2 = 0)]
+let b =: [ x : x ∈ a if (x % 2 = 0)]
   
 put(b)--will print [0,2,4,6,8]
 ```
