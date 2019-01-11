@@ -195,11 +195,11 @@ write
 To understand more about interacting with other languages check this article abput ABI:
 [Application Binary Interface](https://en.wikipedia.org/wiki/Application_binary_interface)
 
-## Single symbols
+##Single symbols
 
 symbol| description
 ------|-------------------------------------------------------------
-  #   | Compiler directives prefix
+ \#   | Compiler directives prefix
   ;   | End of block {is; cycle; for;} \| statement separator
   .   | Dot operator: Member \| Public \| Concatenation
   .   | Dot symbol: end of function \| method \| module
