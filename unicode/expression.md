@@ -63,11 +63,14 @@ This symbol is on one row but it can start from 0..n or from arbitrary number. S
 **Example**
 ```
 let X = [1,2,3,4,5]   
-let n = 3 ∈ N         
+let n = 3 ∈ N
+         
         ⎛ ₙ    ⎞      
 let y = ⎜ ∑(X) ⎟      
         ⎝ ⁰    ⎠           
-put y --> 1+2+3 = 6     
+        
+put y --> 1+2+3 = 6
+     
 ```            
 
 **Average example**
@@ -75,13 +78,14 @@ put y --> 1+2+3 = 6
 let X = [1,2,3]  
 let n = 3
 
+
         ⎛ ∑(X) ⎞
 let a = ⎜ ———— ⎟
         ⎝  n   ⎠ 
 ```
 
 ## Using hooks and extension bars:
-```
+
 In Wee the matrix are stored in memory by row major order.
 Default subscript (DS) start from [0,0] upper left corder to [n,m]
 
@@ -90,9 +94,11 @@ Default subscript (DS) start from [0,0] upper left corder to [n,m]
 ```
 -- Declare matrix literal using 3RF
 
+
         ⎡ 0, 0, 0 ⎤   
 let M = ⎢ 0, 0, 0 ⎥   
         ⎣ 0, 0, 0 ⎦   
+
 
 -- Initialize all elements
 set M[*] =: 1
@@ -108,10 +114,14 @@ write
 ```
 
 **Expected output:**
+
 ```
+
+
 ⎡ 1, 0, 0 ⎤
 ⎢ 2, 2, 2 ⎥
 ⎣ 0, 0, 3 ⎦
+
 
 ```
 
@@ -120,10 +130,12 @@ write
 Large matrix will start like a normal matrix and will expand: left & bottom.
 
 ```
+
         ⎡e₀₀, e₀₁, e₀₂⎤  
 let M = ⎢e₁₀, e₁₁, e₁₂⎥
         ⎢e₂₀, e₂₁, e₂₂⎥
         ⎣e₃₀, e₃₁, e₃₂⎦
+        
 ```
 
 ** 3RF Fractions **
@@ -184,15 +196,18 @@ Not all kind of fantastic formulas can be supported.
             _____ 
            ╱ ∑(X)   
 let r =  2╱  ————   
-        ╲╱    n     
+        ╲╱    n
+        
 ```
 
 **Example:**
 
 Wee can''t parse this formula.
 
-```      _________________ 
+```  
+         _________________ 
 let r = √(x₂-x₁)²+(y₂-y₁)²
+
 ```
 
 Instead we can use:
