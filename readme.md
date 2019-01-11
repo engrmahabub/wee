@@ -19,16 +19,16 @@ For documentation we use *.md files in folder /syntax
 
 You can learn wee by reading demo source files:
 
-1. [gv.wee](demo/gv.wee) - global variables
+1. [hi.wee](demo/hi.wee) - input output demo
 1. [dc.wee](demo/dc.wee) - native declarations
 1. [ct.wee](demo/ct.wee) - composite types
-1. [hi.wee](demo/hi.wee) - input output demo
 1. [wn.wee](demo/dc.wee) - decision statement
 1. [do.wee](demo/do.wee) - repetitive statements
 1. [in.wee](demo/in.wee) - input multiple values
 1. [cs.wee](demo/cs.wee) - control structures
 1. [is.wee](demo/is.wee) - multi-path selector
 1. [fn.wee](demo/fn.wee) - function declaration
+1. [gv.wee](demo/gv.wee) - global variables
 1. [lv.wee](demo/lv.wee) - local variable demo
 1. [fi.wee](demo/fi.wee) - Fibonacci function demo 
 1. [dt.wee](demo/dt.wee) - user defined data types
