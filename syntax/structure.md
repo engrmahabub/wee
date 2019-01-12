@@ -65,26 +65,40 @@ Rogue statements are executed top down in synchronous mode.
 
 
 ```
++---------------------------------------------------------------
+  At the beginning of program we can  and we should have 
+  several comments to explain how the program works.  
+----------------------------------------------------------------+
 #driver "main"
 
 -- list all parameters
-let i ∈ Z  -- declare control variable i
+let i ∈ Z               -- declare control variable i
 let l = $params.count() -- declare number of parameters
 
--- check precondition
+-- check precondition and exit if condition is false
 exit 1 if (l = 0)
 
+-- execute a repetitive statement
 cycle
     put $params[i]
     when (i = l):
-      stop
+      stop -- exit from cycle
     else
       i +: 1
-      repeat
     when;
 cycle;
 
+-- end of program is mark using "end."
 end.
+
+===================================================================
+|*  This is a documentation to explain more about program scope.  *|
+|*  It can span multiple rows and can terminate with separators.  *|
+===================================================================
+" After end of program we can have text based comments or normal 
+  comments. These kind of comments are also available inside the  
+  program body. "
+*******************************************************************
 ```
 
 **Notes:** 
@@ -93,6 +107,8 @@ end.
 * Parameter _params_ is of type [S] that is a list are strings;
 * Program _module_, _system_ and _extend_ files do not have _rogue_ statements;
 * Wee file is ending with end. Following end with "." is mandatory.
+
+Read more about: [comments.md](../unicode/comments.md)
 
 ## External Code
 In Wee external code can be imported like this:
