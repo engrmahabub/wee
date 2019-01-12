@@ -97,14 +97,14 @@ let y = 41 -- Code ASCII A
 put ('{0} > {1}' <+ (x,y)) --print "30 > 41"
   
 ```
-## Generator
+## String Generator
 
 It is common to create strings automatically.
 
-**Operator: Repeat = "↻" ** 
+**Operator: Repeat = "↻"** 
 
 ```
-  let str = <constant> ↻ n
+let str = <constant> ↻ n
 ```
 
 **Example:**
@@ -132,6 +132,7 @@ let alpha = A['a'..'z'] --lowercase letters
 let beta  = A['A'..'Z'] --uppercase letters
 ```
 
+## Enumeration
 ## Enumeration
 
 Enumeration is an abstract data set. It is a group of identifiers. Each identifier represents an integer value starting from 0 to n-1 by default.
@@ -356,7 +357,7 @@ put v[0] --error members of a tuple are not accessible by index
 set v[0] =:  4 --two errors you try to modify a tuple by index
 ```
 
-**Unit***
+**Unit:**
 
 An empty tuple () represents an _"unit"_ 
 
@@ -405,7 +406,7 @@ put n --will print 2
 put m --will print 3
 
 -- ignoring the result
-set _,_ <: test(3,4)
+set _, _ <: test(3,4)
 
 ```
 
@@ -421,7 +422,7 @@ set _, z, y, z, _, _ <: t
 
 ```
 
-**Note:** When we unpack a tuple all members of the tuple must be unpack. If the number of variables is less or more then the touple member you will get a compilation error.
+**Note:** When we unpack a tuple all members of the tuple must be unpack. If the number of variables is less or more then the tuple member you will get a compilation error.
 
 ## Static Structure
 
@@ -560,6 +561,7 @@ set a ~: 3 -- {1,2,4}   --remove 3 (not 3)
 **Note:** Wee sets are internally sorted not indexed.   
 
 ## Dynamic List
+
 A list is a collection of non unique elements.   
 
 ```
@@ -616,7 +618,7 @@ set first =: a[!] -- 1 and a = [1,2,3,4]
 set first ~: a[!] -- 1 and a = [2,3,4]
 ```
 
-## Dynamic Map
+## Hash Map
 
 A map is a hash collection of data indexed by a key.
 

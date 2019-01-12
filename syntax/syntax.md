@@ -350,7 +350,7 @@ set d =: √((x₂-x₁)²+(y₂-y₁)²)
 
 **Unicode**: [symbols](symbols.md)
 
-##Conditionals
+## Conditionals
 
 A conditional is using "if" keyword to control one statement.   
 Observe that "if" is not itself a full statement only an augment.
@@ -381,7 +381,8 @@ write
 
 **Notes:** Keyword "if" do not pair-up with "else".
 
-##Control flow
+## Control flow
+
 Wee has 4 control flow statements { when, check, for, cycle }:
 
 **decision**
@@ -691,15 +692,19 @@ end.
 * Constructors and methods can be overloaded using multiple dispatch;
 * Constructors and methods can be overwritten in other modules;
 
-## Inheritance and Polymorphism
+## Using Modules
 
-Can be done at module level. Wee do not have classes, it has only user defined types. However doing an explicit design you can create a type hierarchy similar to OOP. 
+Wee do not have classes. However doing an explicit design you can create a type hierarchy 
+similar to OOP using module encapsulation, user defined types and methods. 
 
-We can define a new type based on existing type using symbol "=". This will inherit all methods of the original type, including the constructor.
+Users can define new types based on existing types using symbol "=". This will inherit all methods 
+of the original type, including the constructor.
 
-We can create new methods and a new constructor. The new constructor can call the super constructor explicit. Nothing is implicit in Wee.
+After this you can create new methods and a new constructor in your module. The new constructor can 
+call the super constructor explicit. Nothing is implicit in Wee.
 
-Using this technique, one module can extend user defined types in any other module, including the core library modules. So Wee is a modular language.
+Using this technique, one module can extend user defined types in any other module, including the 
+core library modules. So Wee is a modular language.
 
 
 **Read Next:** [Composite Types](composite.md)   
