@@ -245,9 +245,11 @@ symbol| description
 
 symbol| description
 ------|-----------------------------------------------------------------------
-\|\*  | Begin expression comment, or nested comment 
- \*\| | End expression comment or neste comment
- \--  | Start for single line comment (at beginning of the line) 
+\|\*  | Begin expression comment, or nested comment
+ \*\| | End expression comment or nested comment
+ \--  | Start for single line comment
+ \==  | Start for a separator comment
+ \**  | Start for a separator comment
  ..   | Define range or array slice between two values [n..m]
  ->   | Function pipeline \| unsafe conversion 
  <+   | Insert one or more values into a string template 
