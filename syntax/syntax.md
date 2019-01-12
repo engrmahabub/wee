@@ -335,7 +335,7 @@ set d =: √((x₂-x₁)²+(y₂-y₁)²)
 **See also:**
 
 * [Unicode:symbols.md](../unicode/symbols.md)
-* [Unicode:comments.md]](../unicode/comments.md)
+* [Unicode:comments.md](../unicode/comments.md)
 
 ## Control Flow
 

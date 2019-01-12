@@ -37,7 +37,7 @@ You can learn wee by reading demo source files:
 1. [up.wee](demo/up.wee) - tuple unpacking demo
 1. [me.wee](demo/me.wee) - method dispatch demo
 1. [pm.wee](demo/pm.wee) - pattern matching
-1  [um.wee](demo/um.wee) - 3RF matrix demo
+1. [um.wee](demo/um.wee) - 3RF matrix demo
 
 ## Highlighter
 
