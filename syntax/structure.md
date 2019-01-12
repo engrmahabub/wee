@@ -220,8 +220,8 @@ symbol| description
 symbol| description
 ------|----------------------------------------------------------
  =    | Define new data type, variable or parameter 
- +    | Numeric addition |\ string concatenation
- -    | Numeric subtraction |\ difference between two collections 
+ +    | Numeric addition \| string concatenation
+ -    | Numeric subtraction \| difference between two collections 
  ^    | Numeric power alternative notation for: xⁿ
 \*    | Numeric multiplication
  ↻    | String repetition: `"*" ↻ 3` makes a = `"***"`
