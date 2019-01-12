@@ -1,8 +1,62 @@
+## ASCII comments
+
+In We comments are number one concern. We enable several notations that enable ASCII comments. These are standard comments created for a single line or multiple lines of code.
+
+**Single line**
+
+For single line comments we use two symbols: 
+
+{ "--", "==", "**", "##" } 
+
+All these are comments for following reasons.
+
+In Wiki "##" represents title 2. I''m using Wiki notation to write Wee documentation.
+A Wiki page can be open and looks good in Wee syntax color works using Notepad++
+
+In Wiki "**" is for making titles bold. It is convenient to use this notation so that syntax color works for bold text. Now these are all advantages. So in Wee there is posibility to create following single line comments.
+
+```
+************************
+========================
+------------------------
+########################
+```
+**Multi-line comments**
+
+For multi-line comments we have 3 possible comments.
+
+1. Vertical bar comment:      |* .... *|
+2. (+/-) comment  block:      +- .....-+
+
+This enable perfect ASCII comments using following two notations:
+
++-----------------------
+|                      |
+|                      |
+-----------------------+
+
+------------------------
+|*                    *|
+|*                    *|
+------------------------
+
+3. A possible comment is free double quoted string. This is a rogue string that is not in a statement. Compiler will detect this string and will consider it comment. It can be used anyware. At the beginning of a row, in the middle of an expression or at the end of statement.
+```
+" This is a comment on a single line"
+"  
+   This is just a comment
+   On multiple lines 
+"
+
+let x = 4 "This is a simple comment"
+```
+
+
 ## Unicode comments
 
 
 In Wee there are Unicode symbols used for trivial operations. However, Unicode symbols 
-can be also used to make graphic formula and simple drawings embedded into comments. 
+can be also used to make graphic formulas and simple drawings embedded into comments. 
 
 This can makes source code very readable and efficient in size. A 3 row formula can support 
 several notations that makes comments readable if the proper font is used in code editor. 
@@ -13,10 +67,10 @@ you must use font: Dejavu Sans Serif Mono on your text editor.
 **Download:** [Dejavu Fonts](https://dejavu-fonts.github.io/)
 
 
-**Note:** This is an experimental notation that can be used in Unicode strings and comments.
+**Note:** This is an experimental notation.
 
 
-** 3RF = 3 Rows Formula**
+## 3RF = 3 Rows Formula
 
 On these formulas you can use spaces to align symbols from first row with symbols from second and third row. The left side operator is always on second row and third row can be missing sometimes. Sometimes 4 rows are required.
 
@@ -25,9 +79,9 @@ If the code is align with tabs or not aligned compiler will detect an error. Una
 3RF formulas are enclosed in large parenthesis or use a large symbol.
 
 ```
-+----------------------------+
+------------------------------
 |* Three kind are available *|
-+----------------------------+
+------------------------------
 
 "
  ⎛ ⎞ ⎡ ⎤ ⎧ ⎫   
@@ -88,43 +142,82 @@ This symbol is on one row but it can start from 0..n or from arbitrary number. S
 
 **Example**
 ```
-let X = [1,2,3,4,5]   
-let n = 3 ∈ N
 "
     ⎛ ₙ   ⎞      
 y = ⎜ ∑ X ⎟      
     ⎝ ⁰   ⎠          
 "
-let y = 0
-for e <: X[0..n] do
-   set y +: e
-for;
-                   
-put y --> 1+2+3 = 6
-write     
 ```            
 
 **Average example**
 ```  
-let X = [1,2,3]  
-let n = 3
-
 "
     ⎛ ∑(X) ⎞
 a = ⎜ ———— ⎟
     ⎝  n   ⎠ 
 "
-let a = 0
-for e <: X do
-    a +: e
-for;        
-
-put a
-write
-
 ```
 
 ## Using hooks and extension bars:
+
+** 3RF Fractions **
+
+* Fractions must always be enclosed in large parenthesis.
+* Fractions are represented using: —
+
+In next example we use √ to extract square root.
+
+Other symbols: ∛ ∜
+
+``` 
+"   
+      ⎛ 1 + x ⎞
+x = √ ⎜———————⎟   
+      ⎝ x²+y² ⎠   
+"      
+```
+
+** 3RF expression**
+
+For complex expressions that require internal () we can use large squiggly brackets. It is not wrong to use large round parantheses 
+
+
+```
+"
+    ⎧(x+1)²+(y+1²)⎫³
+z = ⎨—————————————⎬   
+    ⎩    x²+y²    ⎭    
+"    
+```
+
+** 3RF integral**
+```
+"
+     ⌠ⁿ         
+y =  ⎮(a+b+x)ₓ  
+     ⌡₀          
+"     
+```
+
+** n-nary sum ∑ **
+
+```
+"
+    ₘ  ⎛ 1 + x ⎞
+a = ∑  ⎜———————⎟   
+   ˣ⁼ⁿ ⎝   x²  ⎠
+"   
+```
+
+** n-nary product ∏ **
+ 
+```
+"
+     ₘ   ⎛  x  ⎞
+a =  ∏   ⎜ ——— ⎟   
+    ˣ⁼ⁿ  ⎝  x² ⎠
+"    
+```
 
 **Matrix*
 
@@ -137,59 +230,10 @@ Default subscript (DS) start from [0,0] upper left corder to [n,m]
 Large matrix will start like a normal matrix and will expand: left & bottom.
 
 ```
-
+"
 M = ⎡e₀₀, e₀₁, e₀₂⎤  
     ⎢e₁₀, e₁₁, e₁₂⎥
     ⎢e₂₀, e₂₁, e₂₂⎥
     ⎣e₃₀, e₃₁, e₃₂⎦
-    
-```
-
-** 3RF Fractions **
-
-* Fractions must always be enclosed in large parenthesis.
-* Fractions are represented using: —
-
-In next example we use √ to extract square root.
-
-Other symbols: ∛ ∜
-
-```    
-      ⎛ 1 + x ⎞
-x = √ ⎜———————⎟   
-      ⎝ x²+y² ⎠   
-```
-
-** 3RF expression**
-
-For complex expressions that require internal () we can use large squiggly brackets. It is not wrong to use large round parantheses 
-
-
-```
-    ⎧(x+1)²+(y+1²)⎫³
-z = ⎨—————————————⎬   
-    ⎩    x²+y²    ⎭    
-```
-
-** 3RF integral**
-```
-     ⌠ⁿ         
-y =  ⎮(a+b+x)ₓ  
-     ⌡₀          
-```
-
-** n-nary sum ∑ **
-
-```
-    ₘ  ⎛ 1 + x ⎞
-a = ∑  ⎜———————⎟   
-   ˣ⁼ⁿ ⎝   x²  ⎠
-```
-
-** n-nary product ∏ **
- 
-```
-     ₘ   ⎛  x  ⎞
-a =  ∏   ⎜ ——— ⎟   
-    ˣ⁼ⁿ  ⎝  x² ⎠
+"    
 ```

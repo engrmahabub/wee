@@ -1,10 +1,12 @@
 ## Common Symbols
-  
+
+```  
   ∈ ∉ ∃ ∀    
   ≠ ≤ ≥ ≈    
   ∅ ∩ ∪ ⊂    
   ∧ ∨ ¬ ↻    
   ∞ ×   ≡    
+```
   
 ## Other Symbols
 * Logic:     ¬  ∧  ∨  ⊕

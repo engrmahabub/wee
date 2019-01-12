@@ -5,7 +5,7 @@
             <Prefix Keywords1="no" Keywords2="no" Keywords3="no" Keywords4="no" Keywords5="yes" Keywords6="no" Keywords7="no" Keywords8="yes" />
         </Settings>
         <KeywordLists>
-            <Keywords name="Comments">00-- 00+- 00## 00** 01 02 03|* 04*|</Keywords>
+            <Keywords name="Comments">00-- 00== 00## 00** 01 02 03|* 03+- 04*| 04-+</Keywords>
             <Keywords name="Numbers, prefix1">0x</Keywords>
             <Keywords name="Numbers, prefix2">0b</Keywords>
             <Keywords name="Numbers, extras1">A B C D E F</Keywords>
@@ -14,7 +14,7 @@
             <Keywords name="Numbers, suffix2"></Keywords>
             <Keywords name="Numbers, range">AH</Keywords>
             <Keywords name="Operators1">. , + - ~ : ! ^ * / % &lt; &gt; ! ? ;</Keywords>
-            <Keywords name="Operators2">&#x221E; &#x2190; &#x2192; &#x00AC; &#x2227; &#x2228; &#x2200; &#x2295; &#x2296; &#x21BB; &#x235C; &#x2208; &#x2209; &#x2229; &#x222A; &#x2218; &#x2205; &#x2282; &#x2284; &#x2261; &#x2262; &#x2203; &#x2204; &#x2287; &#x2286; &#x2289; &#x228B; &#x2211; &#x220F; &#x221A; &lt; &gt; &#x2264; &#x2265; = &#x2248; &#x2260; =&gt; &lt;&lt; &gt;&gt; +: -: ~: *: /: %: ^: &#x00D7; &#x00B1;</Keywords>
+            <Keywords name="Operators2">&#x221E; &#x2190; &#x2192; &#x00AC; &#x2227; &#x2228; &#x2200; &#x2295; &#x2296; &#x21BB; &#x235C; &#x2208; &#x2209; &#x2229; &#x222A; &#x2218; &#x2205; &#x2282; &#x2284; &#x2261; &#x2262; &#x2203; &#x2204; &#x2287; &#x2286; &#x2289; &#x228B; &#x2211; &#x220F; &#x221A; &lt; &gt; &#x2264; &#x2265; = &#x2248; &#x2260; =&gt; &lt;&lt; &gt;&gt; +: -: ~: *: /: %:  ^: &#x00D7; &#x00B1; &#x254E;</Keywords>
             <Keywords name="Folders in code1, open"></Keywords>
             <Keywords name="Folders in code1, middle"></Keywords>
             <Keywords name="Folders in code1, close"></Keywords>
@@ -25,7 +25,7 @@
             <Keywords name="Folders in comment, middle"></Keywords>
             <Keywords name="Folders in comment, close">```</Keywords>
             <Keywords name="Keywords1">import export read write wee asm cpp exit end</Keywords>
-            <Keywords name="Keywords2">cycle for is yes no do if</Keywords>
+            <Keywords name="Keywords2">cycle check other when else is in for do if</Keywords>
             <Keywords name="Keywords3">&#x0393; &#x0394; &#x0398; &#x039E; &#x03A0; &#x03A1; &#x03A3; &#x03A6; &#x03A8; &#x03A9;&#x000D;&#x000A;&#x03B1; &#x03B2; &#x03B5; &#x03B4; &#x03B6; &#x03B7; &#x03B8; &#x03C0; &#x03BB; &#x03BC; &#x03BE; &#x03C3; &#x03C6; _</Keywords>
             <Keywords name="Keywords4">con def let set get put out done next repeat stop</Keywords>
             <Keywords name="Keywords5">$ @ &amp;</Keywords>

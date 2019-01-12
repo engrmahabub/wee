@@ -680,7 +680,7 @@ let a:[0,1,2,3]
 set a[!..1] +: 1 -- [1,2,2,3]
 set a[!..1] -: 1 -- [0,1,2,3]
 
--- multiply last elements startinx from index 2
+-- multiply last elements starting from index 2
 set a[2..?] *: 2 -- [0,1,4,6]
 set a[2..?] /: 2 -- [0,1,2,3]
 ```
@@ -755,14 +755,14 @@ write;
 
 Wee is using a special notation to create a sub-set.
 
-|symbol | meaning
-|-------|--------------------------------------------------
-|  ∀    | For all elements in defined in set: (for ∀ e ∈ X).
-|  ∃    | Exist element element in set (∃ 2 ∈ X)
-|  ∈    | Define or check element belonging to set 
-|  ∩    | Intersection between two sets
-|  ∪    | Union between two sets or maps. For lists use "+"
-
+ symbol | meaning                                           |
+--------|---------------------------------------------------|
+   ∀    | For all elements in defined in set: (for ∀ e ∈ X).|
+   ∃    | Exist element element in set (∃ 2 ∈ X)            |
+   ∈    | Define or check element belonging to set          |
+   ∩    | Intersection between two sets                     |
+   ∪    | Union between two sets or maps. For lists use "+" |
+ 
 ```
 let a,b = {Z}
 
@@ -816,7 +816,8 @@ write
 
 ## Variable arguments
 
-One function or method can receive variable number of arguments into an array using prefix "*" for parameter name.
+One function or method can receive variable number of arguments.   
+Declare an array using prefix "*" for parameter name.
 
 ```
 --parameter *bar must be an array 

@@ -1,6 +1,6 @@
-## Wee Read-me
+## Wee Language
 
-Declarative, scientific computation language.
+It is a new technical computer language.
 
 Copyright [SageCode](https://sagecode.net) (c) January 2019 
 
@@ -36,6 +36,7 @@ You can learn wee by reading demo source files:
 1. [up.wee](demo/up.wee) - tuple unpacking demo
 1. [me.wee](demo/me.wee) - method dispatch demo
 1. [pm.wee](demo/pm.wee) - pattern matching
+1  [um.wee](demo/um.wee) - 3RF matrix demo
 
 ## Highlighter
 

@@ -1,7 +1,8 @@
--- -----------------------------
--- function declaration demo:
--- we do not use a keyword!
--------------------------------
++----------------------------------+
+|    function declaration demo:    |
+|    we do not use a keyword!      |
++----------------------------------+
+
 #driver "fn"
 
 -- simple function
