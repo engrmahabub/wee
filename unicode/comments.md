@@ -25,11 +25,14 @@ In Wiki "**" is for making titles bold. It is convenient to use this notation so
 
 For multi-line comments we have 3 possible comments.
 
+```
 1. Vertical bar comment:      |* .... *|
 2. (+/-) comment  block:      +- .....-+
+```
 
 This enable perfect ASCII comments using following two notations:
 
+```
 +-----------------------
 |                      |
 |                      |
@@ -39,6 +42,7 @@ This enable perfect ASCII comments using following two notations:
 |*                    *|
 |*                    *|
 ------------------------
+```
 
 3. A possible comment is free double quoted string. This is a rogue string that is not in a statement. Compiler will detect this string and will consider it comment. It can be used anyware. At the beginning of a row, in the middle of an expression or at the end of statement.
 ```
@@ -160,7 +164,7 @@ a = ⎜ ———— ⎟
 
 ## Using hooks and extension bars:
 
-** 3RF Fractions **
+**3RF Fractions**
 
 * Fractions must always be enclosed in large parenthesis.
 * Fractions are represented using: —
@@ -177,7 +181,7 @@ x = √ ⎜———————⎟
 "      
 ```
 
-** 3RF expression**
+**3RF expression**
 
 For complex expressions that require internal () we can use large squiggly brackets. It is not wrong to use large round parantheses 
 
@@ -190,7 +194,7 @@ z = ⎨—————————————⎬
 "    
 ```
 
-** 3RF integral**
+**3RF integral**
 ```
 "
      ⌠ⁿ         
@@ -199,7 +203,7 @@ y =  ⎮(a+b+x)ₓ
 "     
 ```
 
-** n-nary sum ∑ **
+**n-nary sum ∑**
 
 ```
 "
@@ -209,7 +213,7 @@ a = ∑  ⎜———————⎟
 "   
 ```
 
-** n-nary product ∏ **
+**n-nary product ∏**
  
 ```
 "
