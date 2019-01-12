@@ -107,4 +107,4 @@ put fn(c: 1) -- print 1 ∵ (a,b = 0)
 write
 ```
 
-**Read next:** [Wee Structure](structure.md)
+**Read next:** [standard.md](standard.md)

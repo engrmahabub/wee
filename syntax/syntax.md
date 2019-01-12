@@ -53,7 +53,7 @@ Wee use 3 kind of data types:
 2. composite data types;
 3. user defined types;
 
-## Basic Types
+**Basic Types**
 
 Data types have information about: 
 
@@ -64,20 +64,25 @@ Data types have information about:
 1. access  (private or public or local)
 1. storage (memory  or registry)
 
-Wee native types are represented with one uppercase larter.
+Basic types are represented with one single uppercase ASCII character.
 
 | Name        |Wee| Description
 |-------------|---|-------------------------------------------------------------
-| ASCII       |A  | ASCII character       (two bytes)
-| Binary      |B  | Positive short number (two bytes)
-| Natural     |N  | Positive large numbar 
+| ASCII       |A  | ASCII character      
+| Binary      |B  | Positive short number 
+| Natural     |N  | Positive large number 
 | Integer     |Z  | Positive or negative number 
 | Logical     |L  | Logical number {0,1}
-| Real        |R  | Real number (double precision)
+| Real        |R  | Real number 
+
+**Composite types**
+
+| Name        |Wee| Description
+|-------------|---|-------------------------------------------------------------
 | String      |S  | ASCII unlimited capacity
-| Unicode     |U  | Unicode strinh: "♙ ♖ ♘ ♗ ♔ ♕ ..." 
-| Date        |D  | 'YYYYDDMM' -> YDM, 'DD/MM/YYYY' -> DMY, 'MM/DD/YYYY' -> YDM
-| Time        |T  | 'hh:mm,9999ms' -> T12 'hh:mm__, 9999ms' __={am/pm} + {T12, T24}
+| Unicode     |U  | Unicode string
+| Date        |D  | DD/MM/YYYY
+| Time        |T  | hh:mm,ms
 
 ## Literals
 
@@ -94,17 +99,26 @@ Wee has support for numeric constants. These can be used in expressions to repre
 |5E2        | real number: 5*10²  = 500  (E use positive exponent)
 |5e2        | real number: 5*10⁻² = 0.05 (e use negative exponent)
 
-**Operators** 
+## Collection types
 
- op | purpose
+Wee define a collection using a special notation based on brackets.
+
+| sym| Collection type
+|----|-------------------------------------------------------------
+| [] | Array \|  Matrix \| List
+| {} | Hash Map \| Set \| Queue \| Stack
+| () | Tuple \| Collection of expressions
+
+
+## Variable declarations
+
+Variables are defined using let keyword and 3 symbol:
+
+ sym| purpose
 ----|--------------------------------------------------------------
  :  | pair-up operator, used to define members or argument values
  =  | create variable or collection of specific data type and value
  ∈  | declare variable same type as member of set or collection
-
-## Variable declarations
-
-Variables are defined using let keyword and "=" symbol.
 
 ```
 let <var_name> = <constant>
@@ -209,7 +223,7 @@ put x = b -- 0 False
 put a ≈ b -- 1 True
 ```
 
-*Note:* An Integer is not 100% equal to a Real
+**Note:** An Integer is not 100% equal to a Real
 
 ## ASCII type
 
@@ -243,6 +257,7 @@ Logic type is an enumeration of two constants False and True.
 ```
 def .L = {.False, .True}
 ```
+
 **Notes:** 
 * Public members start with dot "." symbol.
 * Enumeration have binary values so L is compatible with B
@@ -250,17 +265,7 @@ def .L = {.False, .True}
 ## Logic operations
 
 For Logic type "L" Wee uses two numbers: {0, 1}    
-Logical operators in order of precendence: {not, and, or}
-
-
-
- A     | B     | A ∧ B | A ∨ B  | ¬ A   | ¬ B   | A ⊕ B
--------|-------|-------|--------|-------|-------|--------
- True  | True  | True  | True   | False | False | False
- True  | False | False | True   | False | True  | True
- False | True  | False | True   | True  | False | True
- False | False | False | False  | True  | True  | False
----------------------------------------------------------
+Logical operators in order of precedence: {not, and, or}
 
 ## Operator precedence
 
@@ -293,34 +298,9 @@ put (x ∨ y) -- 0 and 1 is 1
 put (x ⊕ y) -- 0 xor 1 is 1
 ```
 
-## Bitwise operators
-
-Bitwise operations are executed on entire binary value.
-
-
-**Shifting Bits**
- 
- A    | A ← 1 | A → 2 | .¬ A
-------|-------|-------|-------
- 0000 | 0000  | 0000  | 1111
- 1111 | 1110  | 0011  | 0000
- 0111 | 1110  | 0001  | 1000
- 0110 | 1100  | 0001  | 1001
-
-
- A    | B   | A .∧ B | A .∨ B  | A .⊕ B
-------|-----|--------|---------|--------
- 00   | 00  | 00     | 00      |  11    
- 01   | 00  | 00     | 01      |  10    
- 11   | 01  | 01     | 11      |  00    
- 10   | 11  | 10     | 11      |  01    
-
-See also:[Bit Manipulation](https://en.wikipedia.org/wiki/Bit_manipulation)
-
-
 ## Unicode usage
 
-Wee is using Unicode for identifier names.
+Wee is using Unicode for identifier names and operators.
 
 * Names can use Greek alphabet and subscript;
 * Superscript numbers can be used as Power (^);
@@ -333,22 +313,88 @@ let hdd₀,hdd₁,hdd₂,hdd₃,jdd₄ = ('A:','B:','C:','D:','E:')
 
 **Example:**
 ```
-+-----------------------------------+
-|*             _________________   *| 
-|* Distance = √(x₂-x₁)²+(y₂-y₁)²   *|
-|*                                 *|
-+-----------------------------------+
++------------------------------------
+|              _________________    | 
+|  Distance = √(x₂-x₁)²+(y₂-y₁)²    |
+|                                   |
+------------------------------------+
 
 -- subscript notation for coordinates
 let x₁,x₂ = 0
 let y₁,y₂ = 10
 let d ∈ R
 
--- use Unicode superscript for power
+-- use normal notation for power and sqr function
+set d =: sqr((x₂-x₁)^2+(y₂-y₁)^2)
+
+-- use Unicode superscript for power and sqr function
 set d =: √((x₂-x₁)²+(y₂-y₁)²)
+
 ```
 
-**Unicode**: [symbols](symbols.md)
+**See also:**
+
+* [Unicode:symbols.md](../unicode/symbols.md)
+* [Unicode:comments.md]](../unicode/comments.md)
+
+## Control Flow
+
+Wee has 4 control flow statements { when, check, for, cycle }:
+
+**when**
+
+```
+when <logical expression>:
+  <true branch>
+when <logical expression>:
+  <alternate branch>
+...  
+else
+  <false branch>
+when;
+```
+
+**check**
+
+```
+check <expression> | <constant>
+   is <value>:
+      <statement>
+      ... 
+   in (<v1>,<v2>,...<vn>):      
+      <statement>
+      ...
+other
+   <default_statement>
+check;      
+
+```
+
+**for**
+
+```
+for <var> <: <range|collection> do
+  ...
+  next -- force next iteration 
+  ...
+  done --force early stop
+  ...
+for;    
+```
+
+**cycle**
+
+```
+cycle
+  <statement block>
+  ...
+  repeat if <continue condition>
+  ...
+  
+  stop if <stop condition>
+  ...
+cycle;
+```
 
 ## Conditionals
 
@@ -381,146 +427,9 @@ write
 
 **Notes:** Keyword "if" do not pair-up with "else".
 
-## Control flow
+It is time to see some more complex examples and learn more about control flow.
 
-Wee has 4 control flow statements { when, check, for, cycle }:
-
-**decision**
-A decision is based on logical expressions and keywords { when, else } and Logical expressions.
-
-```
-let a = 10 
-
--- single branch
-when a = 10:
-   put 'yes'
-when;  
-
--- two branches
-when a < 5:
-  put 'yes'
-else
-  put 'no'
-when;
-
--- multiple branches
-when a < 0:
-  put 'yes'
-when a > 5:
-  put 'no'
-when a = 0:  
-  put "a = 0"  
-when a = 5:  
-  put "a = 5"    
-else
-  put ("a = #n" <+ a)
-when;
-
-```  
-
-**Check value**
-
-This statement check value of expression using keywords: {check, is, other}
-
-**Syntax**
-
-```
-check <expression> | <constant>
-   is <value>:
-      <statement>
-      ... 
-   in (<v1>,<v2>,...<vn>):      
-      <statement>
-      ...
-other
-   <default_statement>
-check;      
-
-```
-**Example:**
-
-```
-let x = 0
-get ("x:",x)
-
--- multi-path selector
-check x -> N
-  is 0:
-     put "x = 0"
-  is 1: 
-     put "x = 1"
-     ...
-  is 2: 
-     put "x = 2"
-     ...
-  is 3: 
-     put "x = 3"
-     ...
-  in (2,4,6,8):
-     put "x is even number"
-other
-  put "x is odd number"
-check;  
-```
-
-**Repetition**
-
-Wee can execute a block of code multiple times.
-
-Keywords used: {cycle, repeat, stop}
-
-```
----------------------------
-|*    Repetitive block   *|
----------------------------
-let a = 10
-
-cycle
-  set a -: 1
-  
-  -- conditional repetition
-  repeat if (a % 2 = 0)  
-  out (a, ' ')
-  
-  -- conditional termination
-  stop if (a < 0)
-cycle;
-
-write
-```
-
-**Notes:** 
-
-* If _stop_ condition is missing the cycle is infinite;
-* Nested cycle is not supported in Wee language;
-* One cycle can be controlled using variables;
-
-**Iteration**
-
-Is used to iterate over one range of values.
-
-Keywords used: {for, do, next,done}
-
-* A _range_ is a series of integer numbers between two limits.
-* Ranges are always ascending and elements are consecutive.
-
-```
-let n = 0, m = 20
-
--- using range to define i
-for i <: [n..m] do
-  when a % 2 = 0:
-    next -- force next iteration
-  else
-    out (a, ' ')
-  when;
-  
-  --force early stop
-  done if (a > 10)
-for;    
-
-write
-```
+**Examples:** [control](control.md)
 
 ## Pattern Matching
 
@@ -631,7 +540,7 @@ end.
 ```
 
 **Notes:**
-* Method with no parammeters require empty brackets ():
+* Method with no parameters require empty brackets ():
 * Method call do not require brackets () when no parameters
 * Method call do not need brackets for single argument
 * Multiple arguments can be enumerated in a tuple (arg1,arg2...)

@@ -12,6 +12,7 @@ For documentation we use *.md files in folder /syntax
 
 1. [Wee Structure](syntax/structure.md)
 1. [Syntax Overview](syntax/syntax.md)
+1. [Control Flow](syntax/syntax.md)
 1. [Composite Types](syntax/composite.md)
 1. [Type Inference](syntax/inference.md)
 
