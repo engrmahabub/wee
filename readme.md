@@ -49,6 +49,6 @@ For syntax color highlighter you can use Notepad++.
 
 ## Community
 
-Wee is designed by "Sage Code" community on Discord.
+Wee is designed by SageCode community on Discord.
 
 Join us: [discord](https://discord.gg/sNrcHur)
