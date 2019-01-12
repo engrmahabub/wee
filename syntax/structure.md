@@ -234,7 +234,7 @@ symbol| description
 ## Brackets
 
 symbol| description
-------|----------------------------------------------------------
+------|-----------------------------------------------------
   ()  | Expression or group of expressions \| tuple
   {}  | Enumeration, structure, set or hash map
   []  | List, array or range \| access of element by index 
@@ -244,13 +244,14 @@ symbol| description
 ## Double Symbols
 
 symbol| description
-------|-----------------------------------------------------------------------
+------|------------------------------------------------------
 \|\*  | Begin expression comment, or nested comment
  \*\| | End expression comment or nested comment
- \--  | Start for single line comment
+ \--  | Start for single line comment or separator
  \==  | Start for a separator comment
  \**  | Start for a separator comment
  ..   | Define range or array slice between two values [n..m]
+ ...  | Fall-through in _check_ statement before is or in
  ->   | Function pipeline \| unsafe conversion 
  <+   | Insert one or more values into a string template 
  
@@ -315,19 +316,14 @@ Relation operators are used to compare expressions.
 |symbol | meaning
 |-------|--------------------------------------------------
 |  ∅    | Represents empty collection: {},[],()
-|  ≡    | Equivalent objects: collections or structures
-|  ≢    | Non Equivalent objects
+|  ≡    | Equivalent objects, collections or structures
 |  ⊂    | Is subset of a larger set
-|  ⊄    | Not subset of larger set
 |  ⊆    | Is subset of or equal to another set
 |  ∩    | Intersection between two sets
 |  ∪    | Union between two sets or maps. For lists use "+"
 |  ∀    | For all elements in defined in set: (for ∀ e ∈ X).
 |  ∃    | Exist element element in set (∃ 2 ∈ X)
-|  ∃!   | Exist only one single element in list (∃! e ∈ X)
-|  ∄    | Does not exist any element in set such us ... 
 |  ∈    | Define or check element belonging to set 
-|  ∉    | Check element do not belong to a set
 
 ## Statements
 

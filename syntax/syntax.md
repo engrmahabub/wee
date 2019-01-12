@@ -12,7 +12,7 @@ Expressions are created using identifiers, operators, functions and constant lit
 * can be enumerated using comma separator ","
 * can be combined to create more complex expressions;
 * have type that is calculated using type inference;
-* can be assigned to variables using "set" and "=";
+* can be assigned to variables using "set" or "let" statements;
 * can be printed to console using put and out methods;
 * can use () to establish order of operations;
 
