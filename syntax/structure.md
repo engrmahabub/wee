@@ -244,12 +244,12 @@ symbol| description
 
 symbol| description
 ------|-----------------------------------------------------------------------
-\|*   | Begin expression comment, or nested comment *|
- *\|  | End expression comment or neste comment
+\|\*  | Begin expression comment, or nested comment 
+ \*\| | End expression comment or neste comment
  \--  | Start for single line comment (at beginning of the line) 
  ..   | Define range or array slice between two values [n..m]
  ->   | Function pipeline \| unsafe conversion 
- <+   | Insert one or more values into a string template >
+ <+   | Insert one or more values into a string template 
  
  
 ## Modifiers
@@ -263,7 +263,7 @@ symbol| description
  ~:   | Remove \| pop  \| dequeue  (LO/FO)
  -:   | Subtraction modifier 
  ^:   | Numeric power modifier
- *:   | Multiplication modifier 
+\*:   | Multiplication modifier 
  /:   | Division modifier 
  %:   | Reminder modifier
  <:   | Unpacking from tuple \| Enumerate values
