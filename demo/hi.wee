@@ -11,6 +11,6 @@ get ("Your name?:", name)
 get ("Your age ?:", age)
 read
 
-put ("hello:" + name)
+put ("hello:" & name)
 write
 end.

@@ -201,7 +201,7 @@ symbol| description
 ------|-------------------------------------------------------------
  \#   | Compiler directives prefix
   ;   | End of block {is; cycle; for;} \| statement separator
-  .   | Dot operator: Member \| Public \| Concatenation
+  .   | Dot operator: Member \| Public \| smart concatenation
   .   | Dot symbol: end of function \| method \| module
   :   | Declaration \| Definition \| Key:Value Pairs
   '   | ASCII string literals are using single quotes "'"
@@ -220,13 +220,14 @@ symbol| description
 symbol| description
 ------|----------------------------------------------------------
  =    | Define new data type, variable or parameter 
-\+    | Numeric addition \| string concatenation
+\+    | Numeric addition \| list concatenation
 \-    | Numeric subtraction \| difference between two collections 
 \^    | Numeric power alternative notation for: xⁿ
 \*    | Numeric multiplication
  ↻    | String repetition: `"*" ↻ 3` makes a = `"***"`
  /    | Numeric division
  %    | Numeric reminder 
+ &    | String concatenation 
 
 
 

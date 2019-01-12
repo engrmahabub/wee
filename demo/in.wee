@@ -9,7 +9,7 @@ cycle
   get ("enter a number", a)
   read
   
-  put("you enter: " + a)
+  put("you enter: " & a)
   write   
   
   stop if (a = 0)

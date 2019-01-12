@@ -67,14 +67,14 @@ See also: https://utf8everywhere.org/
 
 ## String concatenation
 
-Strings can be concatenated using operator "+"
+Strings can be concatenated using operator "&"
 
 ```
 let u ∈ U
 let c ∈ U
 
-set u =: "This is" + " a long string."
-set c =: "Unicode and " + 'ASCII'
+set u =: "This is" & " a long string."
+set c =: "Unicode and " & 'ASCII'
 ```
 
 ## String format
@@ -109,7 +109,7 @@ let str = <constant> ↻ n
 
 **Example:**
 ```
-let sep = "+" + "-" ↻ 18 + "+"
+let sep = "+" & "-" ↻ 18 + "+"
 
 put sep 
 put "|*  this is a test  *|"
@@ -568,7 +568,7 @@ A list is a collection of non unique elements.
 let l1 = [1,2,3]
 let l2 = [2,3,4]
 
---concatenation "+" 
+--addition "+" 
 let l3 = l1 + l2 --[1,2,3,2,3,4]
 
 --difference "-"

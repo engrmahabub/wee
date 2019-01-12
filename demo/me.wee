@@ -11,9 +11,9 @@ set test =: zero -- instance of Number
 
 -- create a method for type Number
 convert(x ∈ Number)=> y ∈ S: 
-  set y=: ('zero': x = zero,
-           'one' : x = one, 
-           'two' : x = two,   
+  set y=: ('zero' if x = zero,
+           'one'  if x = one, 
+           'two'  if x = two,   
            'none')
 convert.
 
