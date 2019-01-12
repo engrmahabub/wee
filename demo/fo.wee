@@ -1,0 +1,25 @@
++--------------------------------
+| open a file and write into it. |
+---------------------------------+
+#driver "fo"
+
+let file = open("foo.txt","+w")  
+
+-- write into the file
+file.put("Hello World!")
+file.write
+
+-- read content
+let content = file.read
+
+-- output content
+out content
+write 
+
+-- closing the file
+file.close
+
+end.
+
+-- expected output:
+"Hello World!"

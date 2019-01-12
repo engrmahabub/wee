@@ -331,18 +331,18 @@ Wee has 28 keywords to create statements.
 
 | Keyword  | Purpose
 |----------|--------------------------------------------------
-| wee      | Import Wee module
 | asm      | Import Assembly
 | cpp      | Import C or C++ module
-| exit     | Interrupt program execution with error number (0..n)
+| wee      | Import Wee module
 | def      | Define user data type or type alias using :
 | let      | Declare variables using : with type or =
 | set      | Establish or modify value for variables using =
 | out      | Add something to console buffer but no new line 
-| get      | Accept input from console and wait for read
-| read     | Accept user input from console 
 | put      | Put some parameters to console and add new line
 | write    | Output expression result to console 
+| get      | Accept input from console and wait for read
+| read     | Accept user input from console 
+| if       | Conditional statement execution 
 | for      | Start _range iteration_ or _collection iteration_
 | do       | Used with iteration _for_
 | next     | Continue iteration _for_ from beginning
@@ -350,40 +350,40 @@ Wee has 28 keywords to create statements.
 | cycle    | Start point for repetitive block
 | repeat   | Jump to beginning of _cycle_ block
 | stop     | stop inner cycle and continue after end of cycle.
-| if       | Conditional statement execution 
 | check    | Multi-path value selector
 | is       | Used in check to verify a single value and create a path
 | in       | Used in check to verify if one value belong to specific tuple
 | other    | Used in check to verify other cases not analyzed with is & in
 | when     | Create a decision case using a logical expression
 | else     | Alternative path executed when no case is true
+| exit     | Interrupt program execution with error number (0..n)
 | end      | End of file. Must be followed by a "."
 
 ## Basic types
 
 Wee define 6 basic types:
   
-| Type    |Wee|Description
+| Type    |Wee| Description
 |---------|---|-----------------------------  
-| ASCII   | A |Define one ASCII character
-| Logic   | L |Logic data type
-| Integer | Z |Integer numbers
-| Natural | N |Natural numbers
-| Real    | R |Double precision numbers
+| ASCII   | A | Define one ASCII character
+| Logic   | L | Logic data type
+| Integer | Z | Integer numbers
+| Natural | N | Natural numbers
+| Real    | R | Double precision numbers
 
 ## Composite types
 
-Wee define composite types:
+Wee define standard composite types:
 
-| Type    |Wee|Description
+| Type    |Wee| Description
 |---------|---|-----------------------------------  
-| String  | S |Define ASCII long string
-| Unicode | U |Define Unicode based string
-| Date    | D |Date:YDM DMY MDY
-| Time    | T |Time data type
+| String  | S | Define ASCII long string
+| Unicode | U | Define Unicode based string
+| Date    | D | Date:YDM DMY MDY
+| Time    | T | Time data type
 
 ## Collection types
-In Wee there are available following collection types:
+Wee define several abstract high level collections:
 
 * [] = Array   
 * [] = Matrix   
@@ -427,6 +427,22 @@ In Wee there are available following collection types:
 | floor    | Convert one real into an integer
 | parse    | Convert one string into one number
 | random   | Create random numbers
+
+**File IO**
+
+| Function | Purpose
+|----------|------------------------------------------ 
+| exist    | Check if file exist on disk
+| list     | Read file list from directory
+| open     | Open a file for read or write
+| close    | Close a file after using it
+| erase    | Remove a file from disk
+| clean    | Remove all files from directory
+| make     | Make a directory
+| remove   | Remove a directory
+| tree     | Read directory tree in memory
+| find     | Find a list of files in directory
+
  
 **Mathematics**
 
