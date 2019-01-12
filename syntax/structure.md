@@ -211,9 +211,9 @@ symbol| description
   !   | Factorial: y = n!     \| First element subscript a[!]   
   ?   | Decision "yes" branch \| Last element subscript  a[?]
   \|  | Used in modulo function y = \|x\|
-  *   | Parameter prefix for variable arguments
-  _   | Anonymous variable \| Ignore value received
-  \\  | Escape literal character (\n = New Line) 
+  \*  | Parameter prefix for variable arguments
+  \_  | Anonymous variable \| Ignore value received
+  \\  | Escape literal character (\\n = New Line) 
 
 ## Operators
 
